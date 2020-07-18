@@ -1,0 +1,52 @@
+CREATE TABLE `pe`.`phone` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `id_phone` INT NOT NULL AUTO_INCREMENT COMMENT 'Phone identification.',
+  `phone_number` VARCHAR(12) NOT NULL COMMENT 'Phone number.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_phone`),
+  UNIQUE INDEX `id_phone_UNIQUE` (`id_phone` ASC) VISIBLE)
+COMMENT = 'Repository to storage information regarding people Phone Numbers.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`phone_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`phone_BEFORE_INSERT` BEFORE INSERT ON `phone` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`phone_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`phone_BEFORE_UPDATE` BEFORE UPDATE ON `phone` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;
+
+	END IF;
+END$$
+DELIMITER ;

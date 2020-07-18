@@ -1,0 +1,38 @@
+/*=============Tabla: Community =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_community_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_community_name` (pId INT)
+RETURNS VARCHAR (45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM community WHERE id_community = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_community_id_district`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_community_id_district` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_district FROM community WHERE id_community = pId);
+	RETURN vcId;
+END$$
+
+DELIMITER ;

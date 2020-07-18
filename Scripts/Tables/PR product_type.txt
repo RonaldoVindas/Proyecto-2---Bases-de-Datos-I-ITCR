@@ -1,0 +1,48 @@
+CREATE TABLE `pr`.`product_type` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/	
+
+  `id_product_type` INT NOT NULL AUTO_INCREMENT COMMENT 'Product Type Identifiaction.',
+  `type` VARCHAR(45) NOT NULL COMMENT 'Product Type name.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_product_type`),
+  UNIQUE INDEX `id_product_type_UNIQUE` (`id_product_type` ASC) VISIBLE,
+  UNIQUE INDEX `type_UNIQUE` (`type` ASC) VISIBLE)
+COMMENT = 'Reposityory to storage information regarding different product types.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pr`.`product_type_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_type_BEFORE_INSERT` BEFORE INSERT ON `product_type` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pr`.`product_type_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_type_BEFORE_UPDATE` BEFORE UPDATE ON `product_type` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();		
+	END IF;
+END$$
+DELIMITER ;

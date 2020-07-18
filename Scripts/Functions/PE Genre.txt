@@ -1,0 +1,23 @@
+/*=============Tabla: Genre =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_genre_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_genre_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM genre WHERE id_genre = pId);
+    RETURN vcName;
+END$$
+
+DELIMITER ;
+
+

@@ -1,0 +1,39 @@
+/*=============Tabla: District =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_district_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_district_name` (pId INT)
+RETURNS VARCHAR (45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM district WHERE id_district = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_district_id_canton`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_district_id_canton` (pId INt)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_canton FROM district WHERE id_district = pId);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+

@@ -1,0 +1,22 @@
+/*=============Tabla: Country =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_country_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_country_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(50);
+    SET vcName = (SELECT name FROM country WHERE id_country = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+

@@ -1,0 +1,55 @@
+CREATE TABLE `pe`.`community` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/	
+
+  `id_community` INT NOT NULL AUTO_INCREMENT COMMENT 'Community Identification.',
+  `name` VARCHAR(45) NOT NULL COMMENT 'Community name.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+  `id_district` INT NOT NULL,
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_community`),
+  UNIQUE INDEX `id_community_UNIQUE` (`id_community` ASC) VISIBLE,
+  INDEX `fk_community_id_district_idx` (`id_district` ASC) VISIBLE,
+  CONSTRAINT `fk_community_id_district`
+    FOREIGN KEY (`id_district`)
+    REFERENCES `pe`.`district` (`id_district`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage information regarding District´s communities.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`community_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`community_BEFORE_INSERT` BEFORE INSERT ON `community` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`community_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`community_BEFORE_UPDATE` BEFORE UPDATE ON `community` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+

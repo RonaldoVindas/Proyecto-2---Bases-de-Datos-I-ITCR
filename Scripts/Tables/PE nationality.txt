@@ -1,0 +1,49 @@
+CREATE TABLE `pe`.`nationality` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `id_nationality` INT(3) NOT NULL AUTO_INCREMENT COMMENT 'Nationality identification.',
+  `name` VARCHAR(70) NOT NULL COMMENT 'Nationality name.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the Nationality was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the Nationality.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the Nationality was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the Nationality.',
+
+/*================ LLAVES =======================================*/ 
+
+ PRIMARY KEY (`id_nationality`),
+  UNIQUE INDEX `id_nationality_UNIQUE` (`id_nationality` ASC) VISIBLE,
+  UNIQUE INDEX `Name_UNIQUE` (`Name` ASC) VISIBLE)
+COMMENT = 'Repository to store information regarding the person nationality.';
+
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`Nationality_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`Nationality_BEFORE_INSERT` BEFORE INSERT ON `Nationality` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`Nationality_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`Nationality_BEFORE_UPDATE` BEFORE UPDATE ON `Nationality` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+        END IF;
+END$$
+DELIMITER ;

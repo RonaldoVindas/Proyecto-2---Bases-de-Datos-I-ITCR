@@ -1,0 +1,51 @@
+CREATE TABLE `province` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/	
+  `id_province` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL COMMENT 'Province name.',
+
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` date DEFAULT NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` varchar(45) DEFAULT NULL COMMENT 'User who created the entry.',
+  `date_last_modification` date DEFAULT NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` varchar(45) DEFAULT NULL COMMENT 'Last user who updated the entry.',
+  `id_country` int NOT NULL,
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_province`),
+  UNIQUE KEY `id_province_UNIQUE` (`id_province`),
+  KEY `fk_province_id_country_idx` (`id_country`),
+  CONSTRAINT `fk_province_id_country` FOREIGN KEY (`id_country`) REFERENCES `country` (`id_country`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Repository to storage information regarding country provinces / states.'
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`province_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`province_BEFORE_INSERT` BEFORE INSERT ON `province` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`country_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`province_BEFORE_UPDATE` BEFORE UPDATE ON `province` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

@@ -1,0 +1,51 @@
+CREATE TABLE `pe`.`genre` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/	
+
+  `id_genre` INT(2) NOT NULL AUTO_INCREMENT COMMENT 'Genre´s Identification.',
+  `name` VARCHAR(10) NOT NULL COMMENT 'Genre´s name.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+ 
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_genre`),
+  UNIQUE INDEX `id_genre_UNIQUE` (`id_genre` ASC) INVISIBLE)
+  COMMENT = 'Repository to storage people genres.';
+
+
+/*================ TRIGGERS =======================================*/
+DROP TRIGGER IF EXISTS `pe`.`genre_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `genre_BEFORE_INSERT` BEFORE INSERT ON `genre` FOR EACH ROW BEGIN
+	IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`genre_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` TRIGGER `genre_BEFORE_UPDATE` BEFORE UPDATE ON `genre` FOR EACH ROW BEGIN
+	IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;
+
+
+
+
+

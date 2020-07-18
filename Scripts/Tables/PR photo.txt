@@ -1,0 +1,49 @@
+CREATE TABLE `pr`.`photo` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/	
+
+  `id_photo` INT NOT NULL AUTO_INCREMENT COMMENT 'Photo identificacion.',
+  `name` VARCHAR(45) NOT NULL COMMENT 'Photo name.',
+  `photo_info` MEDIUMBLOB NULL COMMENT 'Byte information about the photo.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_photo`),
+  UNIQUE INDEX `id_photo_UNIQUE` (`id_photo` ASC) VISIBLE)
+COMMENT = 'Repository to storage information about photos.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pr`.`photo_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`photo_BEFORE_INSERT` BEFORE INSERT ON `photo` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pr`.`photo_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`photo_BEFORE_UPDATE` BEFORE UPDATE ON `photo` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

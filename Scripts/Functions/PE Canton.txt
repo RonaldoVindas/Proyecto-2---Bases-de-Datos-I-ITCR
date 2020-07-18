@@ -1,0 +1,38 @@
+/*=============Tabla: Canton =======================================*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_canton_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_canton_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name From canton WHERE id_canton = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_canton_id_province`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_canton_id_province` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_province FROM canton WHERE id_canton = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+

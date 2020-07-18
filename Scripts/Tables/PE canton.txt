@@ -1,0 +1,61 @@
+CREATE TABLE `pe`.`canton` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+  `id_canton` INT(10) NOT NULL AUTO_INCREMENT COMMENT 'Canton Identification.',
+  `name` VARCHAR(45) NULL COMMENT 'Canton name.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+  `id_province` INT(5) NULL,
+
+ALTER TABLE `pe`.`canton` 
+CHANGE COLUMN `id_canton` `id_canton` INT NOT NULL AUTO_INCREMENT COMMENT 'Canton Identification.' ;
+
+
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_canton`),
+  UNIQUE INDEX `id_canton_UNIQUE` (`id_canton` ASC) VISIBLE,
+  INDEX `fk_canton_id_province_idx` (`id_province` ASC) INVISIBLE,
+  CONSTRAINT `fk_canton_id_province`
+    FOREIGN KEY (`id_province`)
+    REFERENCES `pe`.`province` (`id_province`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage information about Provnce´s cantons.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`canton_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`canton_BEFORE_INSERT` BEFORE INSERT ON `canton` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`canton_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`canton_BEFORE_UPDATE` BEFORE UPDATE ON `canton` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;
+
+
