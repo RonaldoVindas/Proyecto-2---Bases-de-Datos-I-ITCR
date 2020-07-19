@@ -1,0 +1,72 @@
+/*=============Tabla: Product_Binnacle =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_product_binnacle_last_price`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_binnacle_last_price` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcLastPrice INT;
+    SET vcLastPrice = (SELECT last_price FROM product_binnacle WHERE id_product_binnacle = pId);
+	RETURN vcLastPrice;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+DROP function IF EXISTS `get_product_binnacle_actual_price`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_binnacle_actual_price` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcActualPrice INT;
+    SET vcActualPrice = (SELECT actual_price FROM product_binnacle WHERE id_product_binnacle = pI);
+	RETURN vcActualPrice;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_binnacle_last_owner`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_binnacle_last_owner` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcLastOwner VARCHAR(45);
+    SET vcLastOwner = (SELECT last_owner FROM product_binnacle WHERE id_product_binnacle = pId);    
+RETURN vcLastOwner;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_binnacle_actual_owner`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_binnacle_actual_owner` (pId INT)
+RETURNS VARCHAR (45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcActualOwner VARCHAR(45);
+    SET vcActualOwner = (SELECT actual_owner FROM product_binnacle WHERE id_product_binnacle = pId);
+    RETURN vcActualOwner;
+END$$
+
+DELIMITER ;
+

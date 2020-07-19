@@ -1,0 +1,123 @@
+/*=============Tabla: Product =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_product_name`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_name` (pId INT)
+RETURNS VARCHAR (45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM Product WHERE id_product = pId);
+RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_product_condition`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_condition` (pId INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC
+BEGIN
+		DECLARE vcCondition VARCHAR(100);
+        SET vcCondition = (SELECT product_condition FROM product WHERE id_product = pId);
+RETURN vcCondition;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_description`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_description` (pId INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC
+BEGIN
+	DECLARE vcDescription VARCHAR(100);
+    SET vcDescription = (SELECT description FROM product WHERE id_product = pId);
+	RETURN vcDescription;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_object_age`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_object_age` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcObjectAge INT;
+	SET vcObjectAge = (SELECT object_age FROM product WHERE id_product = pId);
+	RETURN vcObjectAge;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_price`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_price` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcPrice INT;
+    SET vcPrice = (SELECT price FROM product WHERE id_product = pId);
+	RETURN vcPrice;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_id_product_binnacle`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_id_product_binnacle` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_product_binnacle FROM product WHERE id_product = pId);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_product_id_product_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_id_product_type` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SEt vcId = (SELECT id_product_type FROM product WHERE id_product = pId);
+RETURN vcId;
+END$$
+
+DELIMITER ;

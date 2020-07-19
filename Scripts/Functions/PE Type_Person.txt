@@ -1,4 +1,5 @@
 /*=============Tabla: Type Person =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
 
 USE `pe`;
 

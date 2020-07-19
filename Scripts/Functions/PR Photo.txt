@@ -1,0 +1,39 @@
+/*=============Tabla: Photo =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_photo_name`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_photo_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM photo WHERE id_photo =pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_photo_photo_information`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_photo_photo_information` (pId INT)
+RETURNS MEDIUMBLOB
+DETERMINISTIC
+BEGIN
+	DECLARE vcPhotoInfo MEDIUMBLOB;
+    SET vcPhotoInfo = (SELECT photo_info FROM photo WHERE id_photo = pId);
+	RETURN vcPhotoInfo;
+END$$
+
+DELIMITER ;
+

@@ -1,0 +1,23 @@
+/*=============Tabla: Shipping Type =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_shipping_type_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_shipping_type_type` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcType VARCHAR(45);
+    SET vcType = (SELECT type FROM shipping_type WHERE id_shipping_type = pId);
+RETURN vcType;
+END$$
+
+DELIMITER ;
+
+

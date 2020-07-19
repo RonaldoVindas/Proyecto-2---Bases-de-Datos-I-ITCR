@@ -1,0 +1,23 @@
+/*=============Tabla: Product_Type =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*=============Getters===========================*/
+
+USE `pr`;
+DROP function IF EXISTS `get_product_type_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE FUNCTION `get_product_type_type` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vctype VARCHAR(45);
+    SET vcType = (SELECT type FROM product_type WHERE id_product_type = pID);
+	RETURN vcType;
+END$$
+
+DELIMITER ;
+
