@@ -1,0 +1,59 @@
+CREATE TABLE `pe`.`person_has_phone` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `id_person` INT(8) NOT NULL COMMENT 'Person identifaction.',
+  `id_phone` INT NOT NULL COMMENT 'Phone identifcation',
+
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_person`, `id_phone`),
+  INDEX `fk_person_has_phone_id_phone_idx` (`id_phone` ASC) VISIBLE,
+  CONSTRAINT `fk_person_has_phone_id_person`
+    FOREIGN KEY (`id_person`)
+    REFERENCES `pe`.`person` (`identification`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_has_phone_id_phone`
+    FOREIGN KEY (`id_phone`)
+    REFERENCES `pe`.`phone` (`id_phone`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage the relation betweeen Person and Phone tables.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`person_has_phone_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_has_phone_BEFORE_INSERT` BEFORE INSERT ON `person_has_phone` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`person_has_phone_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_has_phone_BEFORE_UPDATE` BEFORE UPDATE ON `person_has_phone` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

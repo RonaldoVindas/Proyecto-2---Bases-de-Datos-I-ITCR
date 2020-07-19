@@ -1,0 +1,19 @@
+/*=============Tabla: Type Person =======================================*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_type_person_description`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_type_person_description` (pId INT)
+RETURNS VARCHAR(45)
+BEGIN
+	DECLARE vcDescription VARCHAR(45);
+    SET vcDescription = (SELECT description FROM type_person WHERE id_type_person = pId);
+	RETURN vcDescription;
+END$$
+
+DELIMITER ;

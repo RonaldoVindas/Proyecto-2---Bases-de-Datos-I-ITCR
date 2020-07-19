@@ -1,0 +1,62 @@
+CREATE TABLE `pe`.`wishlist_has_product` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `id_wishlist` INT NOT NULL COMMENT 'Wishlist identification.',
+  `id_product` INT NOT NULL COMMENT 'Product identification.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_wishlist`, `id_product`),
+  INDEX `fk_wishlist_has_product_id_product_idx` (`id_product` ASC) VISIBLE,
+  CONSTRAINT `fk_wishlist_has_product_id_wishlist`
+    FOREIGN KEY (`id_wishlist`)
+    REFERENCES `pe`.`wishlist` (`id_wishlist`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_wishlist_has_product_id_product`
+    FOREIGN KEY (`id_product`)
+    REFERENCES `pr`.`product` (`id_product`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage the products of a person wishlist. ';
+
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`wishlist_has_product_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`wishlist_has_product_BEFORE_INSERT` BEFORE INSERT ON `wishlist_has_product` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`wishlist_has_product_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`wishlist_has_product_BEFORE_UPDATE` BEFORE UPDATE ON `wishlist_has_product` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;
+
+
+

@@ -1,0 +1,62 @@
+CREATE TABLE `pe`.`person_chat_with_person` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+
+  `id_person_transmitter` INT(8) NOT NULL COMMENT 'Person transmitter identification.',
+  `id_person_receiver` INT(8) NOT NULL COMMENT 'Person receiver identification.',
+  `message` VARCHAR(100) NOT NULL COMMENT 'Message text.',
+  `message_date` DATE NOT NULL COMMENT 'Date in which the message was send.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_person_transmitter`, `id_person_receiver`),
+  INDEX `fk_person_chat_with_person_id_person_receiver_idx` (`id_person_receiver` ASC) VISIBLE,
+  CONSTRAINT `fk_person_chat_with_person_id_person_transmitter`
+    FOREIGN KEY (`id_person_transmitter`)
+    REFERENCES `pe`.`person` (`identification`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_chat_with_person_id_person_receiver`
+    FOREIGN KEY (`id_person_receiver`)
+    REFERENCES `pe`.`person` (`identification`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage people´s chat.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`person_chat_with_person_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_chat_with_person_BEFORE_INSERT` BEFORE INSERT ON `person_chat_with_person` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL OR NEW.message_date IS NULL THEN 
+		SET NEW.message_date = CURDATE();
+        SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`person_chat_with_person_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_chat_with_person_BEFORE_UPDATE` BEFORE UPDATE ON `person_chat_with_person` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

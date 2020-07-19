@@ -1,0 +1,22 @@
+/*=============Tabla: Pay Method =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_pay_method_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_pay_method_method` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcMethod VARCHAR(45);
+    SET vcMethod = (SELECT method FROM pay_method WHERE id_pay_method = pID);
+    RETURN vcMethod;
+END$$
+
+DELIMITER ;
+

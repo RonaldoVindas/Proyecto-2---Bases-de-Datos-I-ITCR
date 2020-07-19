@@ -1,0 +1,58 @@
+CREATE TABLE `pr`.`product_has_shipping_type` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `id_product` INT NOT NULL COMMENT 'Prouct identification.',
+  `id_shipping_type` INT NOT NULL COMMENT 'Shipping Type identifiction.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_product`, `id_shipping_type`),
+  INDEX `fk_product_has_shipping_type_id_shipping_type_idx` (`id_shipping_type` ASC) VISIBLE,
+  CONSTRAINT `fk_product_has_shipping_type_id_product`
+    FOREIGN KEY (`id_product`)
+    REFERENCES `pr`.`product` (`id_product`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_has_shipping_type_id_shipping_type`
+    FOREIGN KEY (`id_shipping_type`)
+    REFERENCES `pr`.`shipping_type` (`id_shipping_type`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage information regarding product´s shipping type.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pr`.`product_has_shipping_type_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_has_shipping_type_BEFORE_INSERT` BEFORE INSERT ON `product_has_shipping_type` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pr`.`product_has_shipping_type_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_has_shipping_type_BEFORE_UPDATE` BEFORE UPDATE ON `product_has_shipping_type` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

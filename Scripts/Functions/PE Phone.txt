@@ -1,0 +1,21 @@
+/*=============Tabla: Phone =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_phone_number`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_phone_number` (pId INT)
+RETURNS VARCHAR (12)
+DETERMINISTIC
+BEGIN
+	DECLARE vcNumber VARCHAR(12);
+    SET vcNumber = (SELECT number FROM phone WHERE id_phone = pId);
+RETURN vcNumber;
+END$$
+
+DELIMITER ;

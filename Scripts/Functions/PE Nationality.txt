@@ -1,0 +1,22 @@
+/*=============Tabla: Nationality =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_nationality_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_nationality_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM nationality WHERE id_nationality = pID);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+

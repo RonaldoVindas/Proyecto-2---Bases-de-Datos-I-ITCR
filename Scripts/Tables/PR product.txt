@@ -1,0 +1,67 @@
+CREATE TABLE `pr`.`product` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+
+  `id_product` INT NOT NULL AUTO_INCREMENT COMMENT 'Product Identification.',
+  `name` VARCHAR(45) NOT NULL COMMENT 'Product name.',
+  `Condition` VARCHAR(100) NOT NULL COMMENT 'Product condition.',
+  `Description` VARCHAR(100) NULL COMMENT 'Product description.',
+  `Object_Age` INT NULL COMMENT 'Aproximated age of the product.',
+  `Price` INT NOT NULL COMMENT 'Product_price',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+  `id_product_binnacle` INT NULL,
+  `id_product_type` INT NULL,
+
+/*================ LLAVES =======================================*/
+
+  PRIMARY KEY (`id_product`),
+  UNIQUE INDEX `id_product_UNIQUE` (`id_product` ASC) VISIBLE,
+  INDEX `fk_product_id_binnacle_idx` (`id_product_binnacle` ASC) VISIBLE,
+  INDEX `fk_product_id_product_type_idx` (`id_product_type` ASC) VISIBLE,
+  CONSTRAINT `fk_product_id_product_binnacle`
+    FOREIGN KEY (`id_product_binnacle`)
+    REFERENCES `pr`.`product_binnacle` (`id_product_binnacle`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_id_product_type`
+    FOREIGN KEY (`id_product_type`)
+    REFERENCES `pr`.`product_type` (`id_product_type`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage information about products in the database.';
+
+/*================ LLAVES =======================================*/
+
+DROP TRIGGER IF EXISTS `pr`.`product_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_BEFORE_INSERT` BEFORE INSERT ON `product` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pr`.`product_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pr`.`product_BEFORE_UPDATE` BEFORE UPDATE ON `product` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+		
+	END IF;
+END$$
+DELIMITER ;

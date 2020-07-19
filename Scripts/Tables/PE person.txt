@@ -1,0 +1,118 @@
+CREATE TABLE `pe`.`person` (
+/*Author: Ronaldo Vindas B 2018238697*/
+
+/*================= COLUMNAS ====================================*/
+
+  `identification` INT(8) NOT NULL COMMENT 'Person identification.',
+  `first_name` VARCHAR(45) NOT NULL COMMENT 'Person first name.',
+  `last_name` VARCHAR(45) NOT NULL COMMENT 'Person last name.',
+  `birth_day` DATE NULL COMMENT 'Person birth day.',
+  `email` VARCHAR(45) NOT NULL COMMENT 'Person email.',
+  `user_name` VARCHAR(45) NOT NULL COMMENT 'Person account username.',
+  `password` VARCHAR(45) NOT NULL COMMENT 'Person account password.',
+
+/*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
+  `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
+  `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
+  `date_last_modification` DATE NULL COMMENT 'Date in which the entry was updated.',
+  `user_last_modification` VARCHAR(45) NULL COMMENT 'Last user who updated the entry.',
+
+
+/*================ LLAVES =======================================*/
+
+  `id_genre` INT(2) NULL,
+  `id_nationality` INT(3) NULL,
+  `id_type_person` INT NULL,
+  `id_reputation` INT NULL,
+  `id_community` INT NULL,
+  `id_shopping_cart` INT NULL,
+  `id_wishlist` INT NULL,
+  `id_photo` INT NULL,
+  `id_shopping_log` INT NULL,
+  PRIMARY KEY (`identification`),
+  UNIQUE INDEX `identification_UNIQUE` (`identification` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `user_name_UNIQUE` (`user_name` ASC) VISIBLE,
+  INDEX `fk_person_id_genre_idx` (`id_genre` ASC) VISIBLE,
+  INDEX `fk_person_id_nationality_idx` (`id_nationality` ASC) VISIBLE,
+  INDEX `fk_person_id_type_person_idx` (`id_type_person` ASC) VISIBLE,
+  INDEX `fk_person_id_reputation_idx` (`id_reputation` ASC) VISIBLE,
+  INDEX `fk_person_id_community_idx` (`id_community` ASC) VISIBLE,
+  INDEX `fk_person_id_shopping_cart_idx` (`id_shopping_cart` ASC) VISIBLE,
+  INDEX `fk_person_id_wishlist_idx` (`id_wishlist` ASC) VISIBLE,
+  INDEX `fk_person_photo_idx` (`id_photo` ASC) VISIBLE,
+  INDEX `fk_person_id_shopping_log_idx` (`id_shopping_log` ASC) VISIBLE,
+  CONSTRAINT `fk_person_id_genre`
+    FOREIGN KEY (`id_genre`)
+    REFERENCES `pe`.`genre` (`id_genre`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_nationality`
+    FOREIGN KEY (`id_nationality`)
+    REFERENCES `pe`.`nationality` (`id_nationality`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_type_person`
+    FOREIGN KEY (`id_type_person`)
+    REFERENCES `pe`.`type_person` (`id_type_person`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_reputation`
+    FOREIGN KEY (`id_reputation`)
+    REFERENCES `pe`.`reputation` (`id_Reputation`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_community`
+    FOREIGN KEY (`id_community`)
+    REFERENCES `pe`.`community` (`id_community`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_shopping_cart`
+    FOREIGN KEY (`id_shopping_cart`)
+    REFERENCES `pe`.`shopping_cart` (`id_shopping_cart`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_wishlist`
+    FOREIGN KEY (`id_wishlist`)
+    REFERENCES `pe`.`wishlist` (`id_wishlist`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_photo`
+    FOREIGN KEY (`id_photo`)
+    REFERENCES `pr`.`photo` (`id_photo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_person_id_shopping_log`
+    FOREIGN KEY (`id_shopping_log`)
+    REFERENCES `pe`.`shopping_log` (`id_shopping_log`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'Repository to storage information about people.';
+
+/*================ TRIGGERS =======================================*/
+
+DROP TRIGGER IF EXISTS `pe`.`person_BEFORE_INSERT`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_BEFORE_INSERT` BEFORE INSERT ON `person` FOR EACH ROW
+BEGIN
+IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
+		SET NEW.creation_date = CURDATE();
+        SET NEW.creation_user = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `pe`.`person_BEFORE_UPDATE`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`person_BEFORE_UPDATE` BEFORE UPDATE ON `person` FOR EACH ROW
+BEGIN
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
+	END IF;
+END$$
+DELIMITER ;
