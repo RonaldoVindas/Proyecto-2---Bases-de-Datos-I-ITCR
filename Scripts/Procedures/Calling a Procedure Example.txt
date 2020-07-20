@@ -1,0 +1,7 @@
+-Para llamar un procedimiento:
+
+CALL <<procedimiento>> (parámetros);
+
+Ejm:
+
+CALL insert_country('Costa Rica');

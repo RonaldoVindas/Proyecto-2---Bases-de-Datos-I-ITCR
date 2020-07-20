@@ -1,0 +1,38 @@
+/*=============Tabla: Parameter =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `par`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_parameter_name`;
+
+DELIMITER $$
+USE `par`$$
+CREATE FUNCTION `get_parameter_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT name FROM parameter WHERE id_parameter = pId);
+RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_parameter_value`;
+
+DELIMITER $$
+USE `par`$$
+CREATE FUNCTION `get_parameter_value` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue VARCHAR(45);
+    SET vcValue = (SELECT value FROM parameter WHERE id_parameter = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;

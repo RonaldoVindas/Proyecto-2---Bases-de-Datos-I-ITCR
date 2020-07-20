@@ -1,0 +1,63 @@
+/*=============Tabla: Product Has Shipping Type =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_product_has_shipping_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `insert_product_has_shipping_type` (IN pIdProduct INT, IN pIdShipping INT)
+BEGIN
+	INSERT INTO product_has_shipping_type(id_product, id_shipping_type)
+    VALUES(pIdProduct, pIdShipping);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_product_has_shipping_type_id_product`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_has_shipping_type_id_product` (IN pId INT, IN pNewIdProduct INT)
+BEGIN
+ UPDATE product_has_shipping_type
+ SET id_product = pNewIdProduct
+ WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_has_shipping_type_id_shipping_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_has_shipping_type_id_shipping_type` (IN pId INT, IN pNewIdShipping INT)
+BEGIN
+ UPDATE product_has_shipping_type
+ SET id_shipping_type = pNewIdShipping
+ WHERE id_shipping_type = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_product_has_shipping_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `remove_product_has_shipping_type` (IN pId INT)
+BEGIN
+	DELETE FROM product_has_shipping_type
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;

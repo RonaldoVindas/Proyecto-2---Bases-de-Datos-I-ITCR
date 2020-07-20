@@ -1,0 +1,69 @@
+/*=============Tabla: Parameter =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_photo`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `insert_photo` (
+IN pName VARCHAR(45),
+IN pInfo VARCHAR(45)
+)
+BEGIN
+	INSERT INTO photo (name, photo_info) VALUES (pName, pInfo);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_photo_name`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_photo_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE photo
+    SET name = pName
+    WHERE id_photo = pId;
+END$$
+
+DELIMITER ;
+
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_photo_photo_info`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_photo_photo_info` (
+IN pId INT,
+IN pValue VARCHAR(45) 
+)
+BEGIN
+	UPDATE photo
+    SET value = pValue
+    WHERE id_photo = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_photo`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `remove_photo` (IN pId INT)
+BEGIN
+	DELETE FROM photo
+    WHERE id_photo = pId;
+END$$
+
+DELIMITER ;

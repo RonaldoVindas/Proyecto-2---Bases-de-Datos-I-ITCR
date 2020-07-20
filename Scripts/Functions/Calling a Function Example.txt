@@ -1,0 +1,7 @@
+-Para llamar una función:
+
+SELECT <<función>> (parámetros);
+
+Ejm:
+
+SELECT get_country_name(1);

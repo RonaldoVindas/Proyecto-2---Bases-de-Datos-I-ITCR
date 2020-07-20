@@ -1,0 +1,154 @@
+/*=============Tabla: Product =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_product`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `insert_product` (
+IN pName VARCHAR(45),
+IN pCondition VARCHAR(100),
+IN pDescription VARCHAR(100),
+IN pObjAge INT, /*Object Age*/
+IN pPrice INT,
+IN pIdBinnacle INT,
+IN pIdType INT
+)
+BEGIN
+ INSERT INTO product(name, product_condition, description, object_age, 
+ price, id_product_binnacle, id_product_type)
+ 
+ VALUES(pName, pCondition,pDescription,pObjAge, pPrice, pIdBinnacle, 
+ pIdType);
+ 
+END$$
+
+DELIMITER ;
+
+
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_product_name`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE product
+    SET name = pName
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_product_condition`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_product_condition` (IN pId INT, In pCondition VARCHAR(100))
+BEGIN
+	UPDATE product
+    SET product_condition = pCondition
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_description`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `udpate_product_description` (In pId INT, IN pDescription VARCHAR(100))
+BEGIN
+	UPDATE product
+    SET description = pDescription
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_object_age`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_object_age` (IN pId INT, IN pObjAge INT)
+BEGIN
+	UPDATE product
+    SET object_age = pObjAge
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_price`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_price` (In pId INT, In pPrice INT)
+BEGIN
+	UPDATE product
+    SET price = pPrice
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_id_product_binnacle`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_id_product_binnacle` (IN pId INT, IN pIdBinnacle INT)
+BEGIN
+	UPDATE product
+    SET id_product_binnacle = pIdBinnacle
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_id_product_type`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_id_product_type` (In pId INT, IN pIdType INT)
+BEGIN
+	UPDATE product
+    SET id_product_type = pIdType
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_product`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `remove_product` (IN pId INT)
+BEGIN
+	DELETE FROM product
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;

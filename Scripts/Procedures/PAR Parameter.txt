@@ -1,0 +1,71 @@
+/*=============Tabla: Parameter =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `par`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_parameter`;
+
+DELIMITER $$
+USE `par`$$
+CREATE PROCEDURE `insert_parameter` (
+IN pName VARCHAR(45), 
+IN pValue VARCHAR(45) 
+)
+BEGIN
+	INSERT INTO parameter(name, value) VALUES (pName, pValue);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_parameter_name`;
+
+DELIMITER $$
+USE `par`$$
+CREATE PROCEDURE `update_parameter_name` (
+IN pId INT,
+IN pName VARCHAR(45)
+)
+BEGIN
+	UPDATE parameter
+    SET name = pName
+    WHERE id_parameter = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_parameter_value`;
+
+DELIMITER $$
+USE `par`$$
+CREATE PROCEDURE `update_parameter_value` (
+IN pId INT,
+IN pValue VARCHAR(45) 
+)
+BEGIN
+	UPDATE parameter
+    SET value = pValue
+    WHERE id_parameter = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_parameter`;
+
+DELIMITER $$
+USE `par`$$
+CREATE PROCEDURE `remove_parameter` (IN pId INT)
+BEGIN
+	DELETE FROM parameter 
+    WHERE id_parameter = pId;
+END$$
+
+DELIMITER ;

@@ -1,0 +1,74 @@
+/*=============Tabla: Product Binnacle =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_product_binnacle`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `insert_product_binnacle` (
+IN pActualPrice INT,
+IN pActualOwner VARCHAR(45)
+)
+BEGIN
+ INSERT INTO product_binnacle (actual_price, actual_owner)
+ VALUES(pActualPrice, pActualOwner);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_product_binnacle_price`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_binnacle_price` (IN pId INT, IN pPrice INT)
+BEGIN
+	UPDATE product_binnacle
+    SET last_price = actual_price
+    WHERE id_product_binnacle = pId;
+    
+    UPDATE product_binnacle
+    SET actual_price = pPrice
+    WHERE id_product_binnacle = pId;
+    
+END$$
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_product_binnacle_owner`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `update_product_binnacle_owner` (IN pId INT, IN pOwner VARCHAR(45))
+BEGIN
+	UPDATE product_binnacle
+    SET last_owner = actual_owner
+    WHERE id_product_binnacle = pId;
+    
+    UPDATE product_binnacle
+    SET actual_owner = pOwner
+    WHERE id_product_binnacle = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_product_binnacle`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `remove_product_binnacle` (IN pId INT)
+BEGIN
+	DELETE FROM product_binnacle
+    WHERE id_product_binnacle = pId;
+END$$
+
+DELIMITER ;

@@ -1,0 +1,64 @@
+/*=============Tabla: Canton =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_canton`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_canton`(IN pName VARCHAR(45), IN pId INT)
+BEGIN
+	INSERT INTO canton(name, id_province)
+        VALUES(pName, pId);
+END$$
+
+DELIMITER ;
+
+
+/*============= UPDATE ===========================*/
+DROP procedure IF EXISTS `update_canton_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_canton_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE canton
+    SET name = pName
+    WHERE id_canton = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_canton_id_province`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_canton_id_province` (IN pId INT, In pIdProvince INT)
+BEGIN
+	UPDATE canton
+    SET id_province = pIdProvince
+    WHERE id_canton = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_canton`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_canton` (IN pId INT)
+BEGIN
+	DELETE FROM canton
+    WHERE id_canton = pId;
+END$$
+
+DELIMITER ;
