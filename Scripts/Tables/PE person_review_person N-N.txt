@@ -5,7 +5,8 @@ CREATE TABLE `pe`.`person_review_person` (
 
   `id_person_transmitter` INT(8) NOT NULL COMMENT 'Person transmitter identification.',
   `id_person_receiver` INT(8) NOT NULL COMMENT 'Persoin receiver identification.',
-  `Calification` INT(2) NULL COMMENT 'Received calification.',
+  `calification` INT(2) NULL COMMENT 'Received calification.',
+  `comment` VARCHAR(100) NULL COMMENT 'Review Comment.'	
 
 /*================ CAMPOS DE AUDITORÍA ==========================*/ 
 

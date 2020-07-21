@@ -1,13 +1,13 @@
-CREATE TABLE `pe`.`shopping_cart_has_product` (
+CREATE TABLE `pe`.`shopping_log_has_product` (
 /*Author: Ronaldo Vindas B 2018238697*/
 
 /*================= COLUMNAS ====================================*/
 
-  `id_shopping_cart` INT NOT NULL COMMENT 'Shopping Cart identifiction.',
-  `id_product` INT NOT NULL COMMENT 'Product identification.',
-  `quantity` INT NULL COMMENT 'Quantity of products in the shopping cart.',
+  `id_shopping_log` INT NOT NULL COMMENT 'Shopping log identification.',
+  `id_product` INT NOT NULL COMMENT 'Product identifaction.',
 
 /*================ CAMPOS DE AUDITORÍA ==========================*/ 
+
 
   `creation_date` DATE NULL COMMENT 'Date in which the entry was made.',
   `creation_user` VARCHAR(45) NULL COMMENT 'User who created the entry.',
@@ -16,27 +16,28 @@ CREATE TABLE `pe`.`shopping_cart_has_product` (
 
 /*================ LLAVES =======================================*/
 
-  PRIMARY KEY (`id_shopping_cart`, `id_product`),
-  INDEX `fk_shopping_cart_has_product_id_product_idx` (`id_product` ASC) VISIBLE,
-  CONSTRAINT `fk_shopping_cart_has_product_id_shopping_cart`
-    FOREIGN KEY (`id_shopping_cart`)
-    REFERENCES `pe`.`shopping_cart` (`id_shopping_cart`)
+  PRIMARY KEY (`id_shopping_log`, `id_product`),
+  INDEX `fk_shopping_log_has_product_id_product_idx` (`id_product` ASC) VISIBLE,
+  CONSTRAINT `fk_shopping_log_has_product_id_shopping_log`
+    FOREIGN KEY (`id_shopping_log`)
+    REFERENCES `pe`.`shopping_log` (`id_shopping_log`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_shopping_cart_has_product_id_product`
+  CONSTRAINT `fk_shopping_log_has_product_id_product`
     FOREIGN KEY (`id_product`)
     REFERENCES `pr`.`product` (`id_product`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-COMMENT = 'Repository to storage the information about the products.';
+COMMENT = 'Repository to storage information about product in a shopping log.';
+
 
 /*================ TRIGGERS =======================================*/
 
-DROP TRIGGER IF EXISTS `pe`.`shopping_cart_has_product_BEFORE_INSERT`;
+DROP TRIGGER IF EXISTS `pe`.`shopping_log_has_product_BEFORE_INSERT`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`shopping_cart_has_product_BEFORE_INSERT` BEFORE INSERT ON `shopping_cart_has_product` FOR EACH ROW
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`shopping_log_has_product_BEFORE_INSERT` BEFORE INSERT ON `shopping_log_has_product` FOR EACH ROW
 BEGIN
 IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
 		SET NEW.creation_date = CURDATE();
@@ -44,11 +45,11 @@ IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN
 	END IF;
 END$$
 DELIMITER ;
-DROP TRIGGER IF EXISTS `pe`.`shopping_cart_has_product_BEFORE_UPDATE`;
+DROP TRIGGER IF EXISTS `pe`.`shopping_log_has_product_BEFORE_UPDATE`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`shopping_cart_has_product_BEFORE_UPDATE` BEFORE UPDATE ON `shopping_cart_has_product` FOR EACH ROW
+CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`shopping_log_has_product_BEFORE_UPDATE` BEFORE UPDATE ON `shopping_log_has_product` FOR EACH ROW
 BEGIN
 IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
 		SET NEW.date_last_modification = CURDATE();
@@ -57,5 +58,3 @@ IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
 	END IF;
 END$$
 DELIMITER ;
-
-

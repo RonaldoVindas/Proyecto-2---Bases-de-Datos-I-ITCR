@@ -1,0 +1,49 @@
+/*=============Tabla: Genre =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_genre`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_genre` (IN pName VARCHAR(45))
+BEGIN
+	INSERT INTO genre (name)
+    VALUES(pName);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+DROP procedure IF EXISTS `update_genre_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_genre_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE genre
+	SET name = pName
+    WHERE id_genre = pId;
+END$$
+
+DELIMITER ;
+
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_genre`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_genre` (IN pId INT)
+BEGIN
+	DELETE FROM genre
+    WHERE id_genre = pId;
+END$$
+
+DELIMITER ;
+

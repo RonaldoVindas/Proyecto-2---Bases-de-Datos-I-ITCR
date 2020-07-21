@@ -4,7 +4,7 @@ CREATE TABLE `pe`.`person_has_phone` (
 /*================= COLUMNAS ====================================*/
 
   `id_person` INT(8) NOT NULL COMMENT 'Person identifaction.',
-  `id_phone` INT NOT NULL COMMENT 'Phone identification',
+  `id_phone` INT NOT NULL COMMENT 'Phone identifcation',
 
 
 /*================ CAMPOS DE AUDITORÍA ==========================*/

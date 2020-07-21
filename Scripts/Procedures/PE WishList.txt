@@ -1,0 +1,50 @@
+/*=============Tabla: WishList =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_wishlist` (IN pDate DATE)
+BEGIN
+	INSERT INTO wishlist(date_added)
+    VALUES(pDate);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_wishlist_date_added`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_wishlist_date_added` (IN pId INt, IN pDate INT)
+BEGIN
+	UPDATE wishlist
+    SET date_added = pDate
+    WHERE id_wishlist = pId;
+END$$
+
+DELIMITER ;
+/*-------------------------------------------------------------------*/
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_wishlist` (IN pId INT)
+BEGIN
+	DELETE FROM wishlist
+    WHERE id_wishlist = pId;
+END$$
+
+DELIMITER ;
+
+
+

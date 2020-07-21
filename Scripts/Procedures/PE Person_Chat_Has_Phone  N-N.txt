@@ -1,0 +1,67 @@
+/*=============Tabla: Person Has Phone =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_person_has_phone`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_person_has_phone` (IN pId INT, IN pPhone INT)
+BEGIN
+	INSERT INTO person_has_phone(id_person, id_phone)
+    VALUES(pId, pPhone);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_has_phone_id_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_has_phone_id_person` (IN pId INT, IN pIdPerson INT)
+BEGIN
+	UPDATE person_has_phone
+    SET id_person = pIdPerson
+    WHERE id_person = pId;
+    
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_has_phone_id_phone`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_has_phone_id_phone` (IN pId INT, IN pIdPhone INT)
+BEGIN
+	UPDATE person_has_phone
+    SET id_phone = pIdPhone
+    WHERE id_person = pId;
+    
+END$$
+
+DELIMITER ;
+
+
+
+/*============= REMOVE ===========================*/
+ 
+DROP procedure IF EXISTS `remove_person_has_phone`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_person_has_phone` (IN pId INT)
+BEGIN
+	DELETE FROM person_has_person
+    WHERE id_person = pId;
+END$$
+
+DELIMITER ;
+

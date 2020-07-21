@@ -1,0 +1,96 @@
+/*=============Tabla: Person Review Person =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_person_review_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_person_review_person` (IN pIdTransmitter INT, IN pIdReceiver INT, IN pCalification INT )
+BEGIN
+	INSERT INTO person_review_person (id_person_transmitter, id_person_receiver, calification)
+    VALUES (pIdTransmitter, pIdReceiver, pCalification);
+END$$
+
+DELIMITER ;
+
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_review_person_id_person_transmitter`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_review_person_id_person_transmitter` (IN pId INT, IN pIdTransmitter INT)
+BEGIN
+	UPDATE person_review_person
+    SET id_person_transmitter = pIdTransmitter
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_review_person_id_person_receiver`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_review_person_id_person_receiver`(IN pId INT, IN pIdReceiver INT)
+BEGIN
+    UPDATE person_review_person
+    SET id_person_receiver = pIdReceiver
+    WHERE id_person_receiver = pId;
+    
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_review_person_calification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_review_person_calification` (IN pId INT, IN pCalification INT)
+BEGIN
+	UPDATE person_review_person
+    SET calification = pCalification
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_review_person_comment`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_review_person_comment` (IN pId INT, IN pComment VARCHAR(100))
+BEGIN
+	UPDATE person_review_person
+    SET comment = pComment
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+ 
+DROP procedure IF EXISTS `remove_person_review_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_person_review_person` (IN pIdTransmitter INT, IN pIdReceiver INT)
+BEGIN
+ DELETE FROM person_review_person
+ WHERE id_person_transmitter = pIdTransmitter AND id_person_receiver = pIdReceiver;
+END$$
+
+DELIMITER ;
+

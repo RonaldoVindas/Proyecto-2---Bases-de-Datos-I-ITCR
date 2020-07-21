@@ -1,0 +1,67 @@
+/*=============Tabla: Reputation =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DDROP procedure IF EXISTS `insert_reputation`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_reputation` (IN pClasification INT, IN pStars INT)
+BEGIN
+	INSERT INTO reputation(clasification, stars)
+    VALUES(pClasification, pStars);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+USE `pe`;
+DROP procedure IF EXISTS `update_reputation_clasification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_reputation_clasification` (IN pId INT, IN pClasification INT)
+BEGIN
+	UPDATE reputation
+    SET clasification = pClasification
+    WHERE id_reputation = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_reputation_stars`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_reputation_stars` (IN pId INT, IN pStars INT)
+BEGIN
+	UPDATE reputation
+    SET stars = pStars
+    WHERE id_reputation = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_reputation`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_reputation` (IN pId INT)
+BEGIN
+	DELETE FROM reputation
+    WHERE id_reputation = pId;
+END$$
+
+DELIMITER ;
+
+
+

@@ -1,0 +1,50 @@
+/*=============Tabla: Shopping Cart =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_shopping_cart` (IN pStatus VARCHAR(30))
+BEGIN
+	INSERT INTO shopping_cart(status)
+    VALUES (pStatus);
+END$$
+
+DELIMITER ;
+
+
+/*============= UPDATE ===========================*/
+DROP procedure IF EXISTS `update_shopping_cart_status`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_status` (IN pId INT, pStatus VARCHAR(30))
+BEGIN
+	UPDATE shopping_cart
+    SET status = pStatus
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_shopping_cart` (IN pId INT)
+BEGIN
+	DELETE FROM shopping_cart
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+

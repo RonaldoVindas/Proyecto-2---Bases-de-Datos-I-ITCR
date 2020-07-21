@@ -1,0 +1,84 @@
+/*=============Tabla: Shopping Cart Has Product=======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_shopping_cart_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_shopping_cart_has_product` (IN pIdShopping INT, IN pIdProduct INT, IN pQuantity INT)
+BEGIN
+	INSERT INTO shopping_cart_has_product(id_shopping_cart, id_product, quantity)
+    VALUES (pIdShopping, pIdProduct, pQuantity);
+END$$
+
+DELIMITER ;
+
+
+
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_shopping_cart_has_product_id_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_has_product_id_shopping_cart` (IN pId INT, IN pIdShopping INT)
+BEGIN
+	UPDATE shopping_cart_has_product
+    SET id_shopping_cart = pIdShopping
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_shopping_cart_has_product_id_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_has_product_id_product` (IN pId INT, IN pIdProduct INT)
+BEGIN
+	UPDATE shopping_cart_has_product
+    SET id_product = pIdProduct
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_shopping_cart_has_product_quantity`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_has_product_quantity` (IN pId INT, IN pCuantity INT)
+BEGIN
+	UPDATE shopping_cart_has_product
+    SET quantity = pQuantity
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_shopping_cart_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_shopping_cart_has_product` (IN pId INT)
+BEGIN
+	DELETE FROM shopping_cart_has_product
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+

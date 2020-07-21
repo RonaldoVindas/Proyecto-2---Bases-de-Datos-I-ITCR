@@ -1,0 +1,52 @@
+/*=============Tabla: Type Person=======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_type_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_type_person` (IN pDescription VARCHAR(45))
+BEGIN
+	INSERT INTO type_person (description)
+    VALUES(pDescription);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_description`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_description` (IN pId INT, IN pDescription INT)
+BEGIN
+	UPDATE type_person
+    SET description = pDescription
+    WHERE id_type_person = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_type_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_type_person` (IN pId INT)
+BEGIN
+	DELETE FROM type_person
+    WHERE id_type_person = pId;
+END$$
+
+DELIMITER ;
+
+
+
+

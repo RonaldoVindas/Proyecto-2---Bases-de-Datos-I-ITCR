@@ -1,0 +1,67 @@
+/*=============Tabla: Province =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_province`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_province` (IN pName VARCHAR(45), IN pIdCountry INT)
+BEGIN
+	INSERT INTO province(name, id_country)
+    VALUES (pName, pIdCountry);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_province_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_province_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE province
+    SET name = pName
+    WHERE id_province = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_province_id_country`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_province_id_country` (IN pId INT, IN pIdCountry INT)
+BEGIN
+	UPDATE province
+    SET id_country = pIdCountry
+    WHERE id_province = pId;
+END$$
+
+DELIMITER ;
+
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_province`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_province` (IN pId INT)
+BEGIN
+	DELETE FROM province
+    WHERE id_province = pId;
+END$$
+
+DELIMITER ;
+
+

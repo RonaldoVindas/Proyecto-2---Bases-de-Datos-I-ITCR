@@ -1,0 +1,90 @@
+/*=============Tabla: Person Chat With Person =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+DROP procedure IF EXISTS `insert_person_chat_with_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_person_chat_with_person` (IN pIdTransmitter INT, IN pIdReceiver INT, IN pMessage VARCHAR(100), IN pMessageDate DATE)
+BEGIN
+	INSERT INTO person_chat_with_person(id_person_transmitter, id_person_receiver, message, message_date)
+    VALUES (pIdTransmitter, pIdReceiver, pMessage, pMessageDate);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_chat_with_person_id_person_transmitter`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_chat_with_person_id_person_transmitter` (IN pId INT, IN pIdTransmitter INT)
+BEGIN
+	UPDATE person_chat_with_person
+    SET id_person_transmitter = pIdTransmitter
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_chat_with_person_id_person_receiver`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_chat_with_person_id_person_receiver` (IN pId INT, IN pIdReceiver INT)
+BEGIN
+	UPDATE person_chat_with_person
+    SET id_person_receiver = pIdReceiver
+    WHERE id_person_receiver = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_chat_with_person_message`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_chat_with_person_message` (IN pId INT, IN pMessage VARCHAR(100))
+BEGIN
+	UPDATE person_chat_with_person
+    SET message = pMessage
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_chat_with_person_message_date`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_chat_with_person_message_date` (IN pId INT, IN pDate DATE)
+BEGIN
+	UPDATE person_chat_with_person
+    SET message_date = pDate
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_person_chat_with_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_person_chat_with_person` (IN pId INT)
+BEGIN
+	DELETE FROM person_chat_with_person
+    WHERE id_person_transmitter = pId;
+END$$
+
+DELIMITER ;

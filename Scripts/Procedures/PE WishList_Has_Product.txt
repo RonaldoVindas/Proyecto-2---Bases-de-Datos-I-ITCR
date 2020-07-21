@@ -1,0 +1,68 @@
+/*=============Tabla: WishList Has Product =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `wishlist_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `wishlist_has_product` (IN pIdWishlist INT, IN pIdProduct INT)
+BEGIN
+	INSERT INTO wishlist_has_product(id_wishlist, id_product)
+    VALUES (pIdWishlist, pIdProduct);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_wishlist_has_product_id_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_wishlist_has_product_id_wishlist` (IN pId INT, IN pIdWishlist INT)
+BEGIN
+	UPDATE wishlist_has_product 
+    SET id_wishlist = pIdWishlist
+    WHERE id_wishlist = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_wishlist_has_product_id_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_wishlist_has_product_id_product` (IN pId INT, IN pIdProduct INT)
+BEGIN
+	UPDATE wishlist_has_product 
+    SET id_product = pIdProduct
+    WHERE id_wishlist = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_wishlist_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_wishlist_has_product` (IN pId INT)
+BEGIN
+	DELETE FROM wishlist_has_product
+    WHERE id_wishlist = pId;
+END$$
+
+DELIMITER ;
+
+
+
+
+

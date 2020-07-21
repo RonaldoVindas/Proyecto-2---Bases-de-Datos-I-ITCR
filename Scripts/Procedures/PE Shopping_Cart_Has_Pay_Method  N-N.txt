@@ -1,0 +1,65 @@
+/*=============Tabla: Shopping Cart Has Pay Method=======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_shopping_cart_has_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_shopping_cart_has_pay_method` (IN pIdShopping INT, IN pIdPay INT)
+BEGIN
+	INSERT INTO shopping_cart_has_pay_method(id_shopping_cart, id_pay_method)
+    VALUES(pIdShopping, pIdPay);
+END$$
+
+DELIMITER ;
+
+
+/*============= UPDATE ===========================*/
+DROP procedure IF EXISTS `update_shopping_cart_has_pay_method_id_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_has_pay_method_id_shopping_cart` (IN pId INT, IN pIdShopping INT)
+BEGIN
+	UPDATE shopping_cart_has_pay_method
+    SET id_shopping_cart = pIdShopping
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_shopping_cart_has_pay_method_id_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_cart_has_pay_method_id_pay_method` (IN pId INT, IN pIdPay INT)
+BEGIN
+	UPDATE shopping_cart_has_pay_method
+    SET id_pay_method = pIdPay
+    WHERE id_pay_method = pIdPay;
+END$$
+
+DELIMITER ;
+
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_shopping_cart_has_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_shopping_cart_has_pay_method` (IN pId INT)
+BEGIN
+	DELETE FROM shopping_cart_has_pay_method
+    WHERE id_shopping_cart = pId;
+END$$
+
+DELIMITER ;
+

@@ -1,0 +1,298 @@
+/*=============Tabla: Person =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_person` (
+IN pId INT,
+IN pFirstName VARCHAR(45),
+IN pLastName VARCHAR(45),
+IN pBirthDay DATE,
+IN pEmail VARCHAR(45),
+IN pUsername VARCHAR(45),
+IN pPassword VARCHAR(45),
+
+IN pIdGenre INT,
+IN pIdNationality INT,
+IN pIdType INT,
+IN pIdReputation INT,
+IN pIdCommunity INT,
+IN pIdShoppingCart INT,
+IN pIdWishList INT,
+IN pIdPhoto INT,
+IN pIdShoppingLog INT
+)
+BEGIN
+
+INSERT INTO person (identification, first_name, last_name, birth_day,email, user_name, password, id_genre, id_nationality,
+			id_type_person, id_reputation, id_community, id_shopping_cart, id_wishlist, id_photo, id_shopping_log)
+            
+VALUES (pId, pFirstName, pLastName, pBirthDay, pEmail, pUsername, SHA(pPassword),
+	   pIdGenre, pIdNtionality, pIdType, pIdReputation, pIdCommmunity, pIdShoppingCart,
+       pIdWishList, pIdPhoto, pIdShoppingLog);
+
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_identification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_identification` (IN pId INT, IN pIdentification INT)
+BEGIN
+	UPDATE person
+    SET identification = pIdentification
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_first_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_first_name` (IN pId INT, IN pFirstName VARCHAR(45))
+BEGIN
+	UPDATE person
+    SET first_name = pFirstName
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_last_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_last_name` (IN pId INT, IN pLastName VARCHAR(45))
+BEGIN
+	UPDATE person
+    SET last_name = pLastName
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_birth_day`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_birth_day` (IN pId INT, IN pBirthay DATE)
+BEGIN
+	UPDATE person
+    SET birth_day = pBirthDay
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_email`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_email` (IN pId INT, IN pEmail VARCHAR(45))
+BEGIN
+	UPDATE person
+    SET email = pEmail
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_username`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_username` (IN pId INT, IN pUsername VARCHAR(45))
+BEGIN
+	UPDATE person 
+    SET user_name = pUsername
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_password`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_password` (IN pId INT, IN pPassword VARCHAR(45))
+BEGIN
+	UPDATE person
+    SET password = SHA(pPassword)
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_genre`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_genre` (IN pId INT, IN pIdGenre INT)
+BEGIN
+	UPDATE person
+    SET id_genre = pIdGenre
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_nationality`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_nationality` (IN pId INT, IN pIdNationality INT)
+BEGIN
+	UPDATE person
+    SET id_nationality = pIdNationality
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_type_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_type_person` (In pId INT, IN pIdTypePerson INT)
+BEGIN
+	UPDATE person
+    SET id_type_person = pIdTypePerson
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_reputation`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_reputation` (IN pId INT, IN pIdReputation INT)
+BEGIN
+	UPDATE person
+    SET id_reputation = pIdReputation
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_community`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_community` (IN pId INT, IN pIdCommunity INT)
+BEGIN
+	UPDATE person
+    SET id_community = pIdCommunity
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_shopping_cart` (IN pId INT, IN pIdShoppingCart INT)
+BEGIN
+	UPDATE person
+    SET id_shopping_cart = pIdShoppingCart
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_wishlist` (IN pId INT, IN pIdWishlist INT)
+BEGIN
+	UPDATE person
+    SET id_wishlist = pIdWishlist
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_photo`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_photo` (IN pId INT, IN pIdPhoto INT)
+BEGIN
+	UPDATE person
+    SET id_photo = pIdPhoto
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_id_shopping_log`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_id_shopping_log` (IN pId INT, IN pIdShoppingLog INT)
+BEGIN
+	UPDATE person
+    SET id_shopping_log =pIdShoppingLog
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_person` (IN pId INT)
+BEGIN
+	DELETE FROM person
+    WHERE identification = pId;
+END$$
+
+DELIMITER ;

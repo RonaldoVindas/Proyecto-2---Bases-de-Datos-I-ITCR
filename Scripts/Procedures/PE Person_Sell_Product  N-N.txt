@@ -1,0 +1,64 @@
+/*=============Tabla: Person Sell Product =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_person_sell_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_person_sell_product` (IN pIdPerson INT, IN pIdProduct INT)
+BEGIN
+	INSERT INTO person_sell_product(id_person, id_product)
+    VALUES(pIdPerson, pIdProduct);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_person_sell_product_id_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_sell_product_id_person` (IN pId INT, IN pIdPerson INT)
+BEGIN
+	UPDATE person_sell_product
+    SET id_person = pIdPerson
+    WHERE id_person = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_person_sell_id_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_person_sell_id_product` (IN pId INT, IN pIdProduct INT)
+BEGIN
+	UPDATE person_sell_product
+    SET id_product = pIdProduct
+    WHERE id_product = pId;
+END$$
+
+DELIMITER ;
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_person_sell_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_person_sell_product` (IN pId INT)
+BEGIN
+	DELETE FROM person_sell_product
+    WHERE id_person = pId;
+END$$
+
+DELIMITER ;
+

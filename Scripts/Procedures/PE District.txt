@@ -1,0 +1,62 @@
+/*=============Tabla: District =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_district`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_district`(IN pName VARCHAR(45))
+BEGIN
+	INSERT INTO district (name)
+    VALUES(pName);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+DROP procedure IF EXISTS `update_district_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_district_name` (IN pId INT, IN pName VARCHAR(45))
+BEGIN
+	UPDATE district
+	SET name = pName
+    WHERE id_district = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+
+DROP procedure IF EXISTS `update_district_id_canton`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_district_id_canton` (IN pId INT, IN pIdCanton INT)
+BEGIN
+	UPDATE district
+	SET id_canton = pIdCanton
+    WHERE id_district = pId;
+END$$
+
+DELIMITER ;
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_district`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_district` (IN pId INT)
+BEGIN
+	DELETE FROM district
+    WHERE id_district = pId;
+END$$
+
+DELIMITER ;
+

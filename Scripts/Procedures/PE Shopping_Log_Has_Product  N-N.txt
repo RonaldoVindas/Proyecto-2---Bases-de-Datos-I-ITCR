@@ -1,0 +1,67 @@
+/*=============Tabla: Shopping Log Has Product=======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_shopping_log_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_shopping_log_has_product` (IN pIdShoppingLog INT, IN pIdProduct INT)
+BEGIN
+	INSERT INTO shopping_log_has_product(id_shopping_log, id_product)
+    VALUES (pIdShoppingLog, pIdProduct);
+END$$
+
+DELIMITER ;
+
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_shopping_log_has_product_id_shopping_log`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_log_has_product_id_shopping` (IN pId INT, IN pIdShoppingLog INT)
+BEGIN
+	UPDATE shopping_log_has_product
+    SET id_shopping_log = pIdShoppingLog
+    WHERE id_shopping_log = pId;
+END$$
+
+DELIMITER ;
+
+/*-------------------------------------------------------------------*/
+DROP procedure IF EXISTS `update_shopping_log_has_product_id_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_shopping_log_has_product_id_product` (IN pId INT, IN pIdProduct INT)
+BEGIN
+	UPDATE shopping_log_has_product
+    SET id_product = pIdProduct
+    WHERE id_shopping_log = pId;
+END$$
+
+DELIMITER ;
+
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_shopping_log_has_product`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_shopping_log_has_product` (IN pId INT)
+BEGIN
+	DELETE FROM shopping_log_has_product
+    WHERE id_shopping_log = pId;
+END$$
+
+DELIMITER ;
+
+
+

@@ -1,0 +1,49 @@
+/*=============Tabla: Pay Method =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pe`;
+
+/*============= INSERT ===========================*/
+
+DROP procedure IF EXISTS `insert_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `insert_pay_method` (IN pMethod VARCHAR(45))
+BEGIN
+	INSERT INTO pay_method (method)
+    VALUES(pMethod);
+END$$
+
+DELIMITER ;
+
+/*============= UPDATE ===========================*/
+
+DROP procedure IF EXISTS `update_pay_method_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `update_pay_method_method` (IN pId INT, IN pMethod VARCHAR(45) )
+BEGIN
+	UPDATE pay_method
+	SET method = pMethod
+    WHERE id_pay_method = pId;
+END$$
+
+DELIMITER ; 
+
+
+
+/*============= REMOVE ===========================*/
+
+DROP procedure IF EXISTS `remove_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `remove_pay_method` (IN pId INT)
+BEGIN
+DELETE FROM pay_method
+    WHERE id_pay_method = pId;
+END$$
+
+DELIMITER ;
