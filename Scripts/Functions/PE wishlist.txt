@@ -1,0 +1,22 @@
+/*=============Tabla:Wishlist
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_wishlist_date_added`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_wishlist_date_added` (pId INT)
+RETURNS DATE
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue DATE;
+    SET vcValue = (SELECT date_added FROM wishlist WHERE id_wishlist = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+

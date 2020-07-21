@@ -5,7 +5,7 @@ CREATE TABLE `pe`.`shopping_cart_has_product` (
 
   `id_shopping_cart` INT NOT NULL COMMENT 'Shopping Cart identifiction.',
   `id_product` INT NOT NULL COMMENT 'Product identification.',
-  `cuantity` INT NULL COMMENT 'Cuantity of products in the shopping cart.',
+  `quantity` INT NULL COMMENT 'Cuantity of products in the shopping cart.',
 
 /*================ CAMPOS DE AUDITORÍA ==========================*/ 
 

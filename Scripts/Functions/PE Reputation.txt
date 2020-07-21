@@ -1,0 +1,40 @@
+/*=============Tabla:Reputation
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_reputation_stars`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_reputation_stars` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcStars INT;
+    SET vcStars = (SELECT Stars From reputation WHERE id_Reputation = pId);
+	RETURN vcStars;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_reputation_clasification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_reputation_clasification` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcClasification INT;
+    SET vcClasification = (SELECT Clasification From reputation WHERE id_Reputation = pId);
+	RETURN vcClasification;
+END$$
+
+DELIMITER ;
+

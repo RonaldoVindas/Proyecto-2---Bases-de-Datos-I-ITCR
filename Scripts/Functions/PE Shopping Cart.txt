@@ -1,0 +1,23 @@
+/*=============Tabla:Shopping Cart
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_cart_status`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_cart_status` (pId INT)
+RETURNS VARCHAR(30)
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue VARCHAR(30);
+    SET vcValue = (SELECT status FROM shopping_cart WHERE id_shopping_cart = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+

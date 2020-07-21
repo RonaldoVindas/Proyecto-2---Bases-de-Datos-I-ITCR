@@ -1,0 +1,23 @@
+/*=============Tabla:Person_review_person_NN
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_calification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_calification` (pTransmitter INT,pReceiver INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT calification FROM person_review_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+

@@ -1,0 +1,245 @@
+/*=============Tabla: Canton =======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_person_first_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT first_name FROM person WHERE identification = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_person_last_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_last_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcName VARCHAR(45);
+    SET vcName = (SELECT last_name FROM person WHERE identification = pId);
+	RETURN vcName;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_person_birthday`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_birthday` (pId INT)
+RETURNS DATE
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue DATE;
+    SET vcValue = (SELECT birth_day FROM person WHERE identification = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_person_user_name`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_user_name` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue VARCHAR(45);
+    SET vcValue = (SELECT user_name FROM person WHERE identification = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_person_password`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_password` (pId INT)
+RETURNS VARCHAR(45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue VARCHAR(45);
+    SET vcValue = (SELECT password FROM person WHERE identification = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_genre`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_genre` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_genre FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_nationality`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_nationality` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_nationality FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_type_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_type_person` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_type_person FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_reputation`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_reputation` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_reputation FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_community`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_community` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_community FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_shopping_cart` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_shopping_cart FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_wishlist` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_wishlist FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_photo`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_photo` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_photo FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_person_shopping_log`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_person_shopping_log` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_shopping_log FROM person WHERE identification = pID);
+	RETURN vcId;
+END$$
+
+DELIMITER ;
