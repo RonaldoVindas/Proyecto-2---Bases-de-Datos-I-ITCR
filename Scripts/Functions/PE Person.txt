@@ -8,7 +8,7 @@ DROP function IF EXISTS `get_person_first_name`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE FUNCTION `get_person_name` (pId INT)
+CREATE FUNCTION `get_person_first_name` (pId INT)
 RETURNS VARCHAR(45)
 DETERMINISTIC
 BEGIN
