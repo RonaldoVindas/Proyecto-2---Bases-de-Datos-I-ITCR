@@ -1,6 +1,7 @@
 /*=============Tabla:shopping_cart_has_pay_method_NN
 =======================================*/
-/*Author: Luis Diego Rodriguez 2018148987*/
+/*Author: Luis Diego Rodriguez 2018148987
+	  Ronaldo Vindas B     2018238697*/
 USE `pe`;
 
 /*=============Getters===========================*/
@@ -15,6 +16,24 @@ DETERMINISTIC
 BEGIN
 	DECLARE vcValue INT;
     SET vcValue = (SELECT id_pay_method FROM shopping_cart_has_pay_method WHERE id_shopping_cart = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+/*---------------------------------------------------------------------*/
+
+
+DROP function IF EXISTS `get_shopping_cart_has_pay_method_id_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_shopping_cart_has_pay_method_id_shopping_cart` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_shopping_cart FROM shopping_cart_has_pay_method WHERE id_shopping_cart = pId);
 	RETURN vcValue;
 END$$
 
