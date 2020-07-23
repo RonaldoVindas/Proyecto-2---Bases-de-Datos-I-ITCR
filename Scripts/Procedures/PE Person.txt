@@ -34,7 +34,7 @@ INSERT INTO person (identification, first_name, last_name, birth_day,email, user
 			id_type_person, id_reputation, id_community, id_shopping_cart, id_wishlist, id_photo, id_shopping_log)
             
 VALUES (pId, pFirstName, pLastName, pBirthDay, pEmail, pUsername, SHA(pPassword),
-	   pIdGenre, pIdNtionality, pIdType, pIdReputation, pIdCommmunity, pIdShoppingCart,
+	   pIdGenre, pIdNationality, pIdType, pIdReputation, pIdCommunity, pIdShoppingCart,
        pIdWishList, pIdPhoto, pIdShoppingLog);
 
 END$$

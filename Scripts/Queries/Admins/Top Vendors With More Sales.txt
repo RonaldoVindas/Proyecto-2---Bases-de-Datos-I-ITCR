@@ -1,0 +1,21 @@
+/*========== QUERY: TOP N VENDORS WITH MORE SALES =============*/
+/*Author: Ronaldo Vindas B.  2018238697*/
+
+USE `pe`;
+DROP procedure IF EXISTS `get_top_users_with_more_sales`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_top_users_with_more_sales` (IN pQuantity INT)
+BEGIN
+	SELECT person.first_name, person.user_name,COUNT(person_sell_product.id_product) product_quantity
+	FROM person_sell_product
+	INNER JOIN person
+	ON person.identification = person_sell_product.id_person
+	GROUP BY person_sell_product.id_person
+	ORDER BY COUNT(id_product) DESC
+	LIMIT pQuantity;
+END$$
+
+DELIMITER ;
+

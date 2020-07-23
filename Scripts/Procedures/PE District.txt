@@ -9,10 +9,10 @@ DROP procedure IF EXISTS `insert_district`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE PROCEDURE `insert_district`(IN pName VARCHAR(45))
+CREATE PROCEDURE `insert_district`(IN pName VARCHAR(45), IN pIdCanton INT)
 BEGIN
-	INSERT INTO district (name)
-    VALUES(pName);
+	INSERT INTO district (name, id_canton)
+    VALUES(pName,pIdCanton);
 END$$
 
 DELIMITER ;

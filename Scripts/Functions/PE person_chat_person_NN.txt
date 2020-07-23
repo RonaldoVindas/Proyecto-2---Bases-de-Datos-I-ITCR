@@ -1,8 +1,6 @@
 /*=============Tabla:Person_chat_person_N_N
 =======================================*/
-/*Author: Luis Diego Rodriguez 2018148987
-          Ronaldo Vindas B     2018238697
-*/
+/*Author: Luis Diego Rodriguez 2018148987*/
 USE `pe`;
 
 /*=============Getters===========================*/
@@ -38,39 +36,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
-/*////////////////////////////////////////////*/
-
-DROP function IF EXISTS `get_person_chat_with_person_id_transmitter`;
-
-DELIMITER $$
-USE `pe`$$
-CREATE FUNCTION `get_person_chat_with_person_id_transmitter` (pTransmitter INT,pReceiver INT)
-RETURNS VARCHAR(100)
-DETERMINISTIC
-BEGIN
-	DECLARE vcValue VARCHAR(100);
-    SET vcValue = (SELECT id_transmitter FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
-	RETURN vcValue;
-END$$
-
-DELIMITER ;
-
-/*////////////////////////////////////////////*/
-
-DROP function IF EXISTS `get_person_chat_with_person_id_receiver`;
-
-DELIMITER $$
-USE `pe`$$
-CREATE FUNCTION `get_person_chat_with_person_id_receiver` (pTransmitter INT,pReceiver INT)
-RETURNS VARCHAR(100)
-DETERMINISTIC
-BEGIN
-	DECLARE vcValue VARCHAR(100);
-    SET vcValue = (SELECT id_receiver FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
-	RETURN vcValue;
-END$$
-
-DELIMITER ;
-
-
