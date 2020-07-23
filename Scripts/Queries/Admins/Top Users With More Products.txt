@@ -1,0 +1,23 @@
+/*========== QUERY: TOP N USERS WITH MORE PRODUCTS =============*/
+/*Author: Ronaldo Vindas B.  2018238697*/
+
+USE `pe`;
+DROP procedure IF EXISTS `get_users_with_more_bought_products`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_users_with_more_bought_products` (IN pQuantity INT)
+BEGIN
+	SELECT person.first_name, person.user_name, COUNT(shopping_log_has_product.id_product) adquired_products
+	FROM shopping_log_has_product
+	INNER JOIN shopping_log
+	ON shopping_log_has_product.id_shopping_log = shopping_log.id_shopping_log
+
+	JOIN person 
+	ON person.id_shopping_log = shopping_log.id_shopping_log
+	GROUP BY shopping_log.id_shopping_log
+	ORDER BY COUNT(id_product) DESC
+	LIMIT pQuantity;
+END$$
+
+DELIMITER ;
