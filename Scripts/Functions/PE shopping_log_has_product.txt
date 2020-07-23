@@ -20,3 +20,21 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+
+/*//////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_shopping_log`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_shopping_log` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_shopping_log FROM shopping_log_has_product WHERE id_product = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;

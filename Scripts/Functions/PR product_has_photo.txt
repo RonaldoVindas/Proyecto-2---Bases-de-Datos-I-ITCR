@@ -1,0 +1,41 @@
+/*=============Tabla:product_has_photo
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_id_product_php`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_product_php` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_product FROM product_has_photo WHERE id_photo = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+
+/*//////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_id_photo_php`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_id_photo_php` (pId INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_photo FROM product_has_photo WHERE id_product = pId);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+
