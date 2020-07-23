@@ -1,0 +1,17 @@
+DROP procedure IF EXISTS `shoppingHistorySixMonths`;
+
+DELIMITER $$
+
+USE `pe`$$
+
+CREATE procedure `shoppingHistorySixMonths` (pid_person INT)
+
+BEGIN
+select b.creation_date, c.name, c.Description, c.Object_Age, c.Price
+from person a
+join shopping_log_has_product b
+on a.id_shopping_log = b.id_shopping_log
+join product c
+on b.id_product = c.id_product
+where id_person = pid_person AND b.creation_date = ?????????????
+END$$
