@@ -1,0 +1,25 @@
+DROP procedure IF EXISTS `percentPerType`;
+
+
+DELIMITER $$
+
+USE `pr`$$
+
+CREATE procedure `percentPerType` ()
+
+
+BEGIN
+	
+select type, count(*)
+    
+from product 
+    
+inner join product_type 
+    
+on product.id_product_type=product_type.id_product_type 
+    
+group by product.id_product_type;
+    
+    
+
+END$$
