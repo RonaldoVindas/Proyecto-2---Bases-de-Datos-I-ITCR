@@ -1,0 +1,18 @@
+/*========== QUERY: WORST QUALIFIED VENDORS =============*/
+/*Author: Ronaldo Vindas B.  2018238697*/
+
+DROP procedure IF EXISTS `get_worst_qualified_vendors`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_worst_qualified_vendors` (IN pQuantity INT)
+BEGIN
+	SELECT person.first_name, person.user_name, reputation.clasification, reputation.stars
+	FROM person
+	INNER JOIN reputation
+	ON person.id_reputation = reputation.id_reputation
+
+	GROUP BY person.identification
+	ORDER BY reputation.clasification ASC
+	LIMIT pQuantity;
+END$$

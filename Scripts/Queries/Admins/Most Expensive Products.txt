@@ -1,0 +1,21 @@
+/*========== QUERY: MOST EXPENSIVE PRODUCTS =============*/
+/*Author: Ronaldo Vindas B.  2018238697*/
+
+USE `pr`;
+DROP procedure IF EXISTS `get_most_expensive_products`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `get_most_expensive_products` (IN pQuantity INT)
+BEGIN
+	SELECT product.name, product_type.type, product.description, product.price
+	FROM product
+	INNER JOIN product_type
+	ON product.id_product_type = product_type.id_product_type
+
+	GROUP BY product_type.type
+	ORDER BY product.price DESC
+	LIMIT pQuantity;
+END$$
+
+DELIMITER ;

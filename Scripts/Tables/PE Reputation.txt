@@ -3,9 +3,9 @@ CREATE TABLE `pe`.`reputation` (
 
 /*================= COLUMNAS ====================================*/	
 
-  `id_Reputation` INT NOT NULL AUTO_INCREMENT,
-  `Clasification` INT NOT NULL DEFAULT 0,
-  `Stars` INT NOT NULL DEFAULT 0,
+  `id_reputation` INT NOT NULL AUTO_INCREMENT,
+  `clasification` INT NOT NULL DEFAULT 0,
+  `stars` INT NOT NULL DEFAULT 0,
 
 /*================ CAMPOS DE AUDITORÍA ==========================*/ 
 
@@ -16,8 +16,8 @@ CREATE TABLE `pe`.`reputation` (
 
 /*================ LLAVES =======================================*/
 
-  PRIMARY KEY (`id_Reputation`),
-  UNIQUE INDEX `id_Reputation_UNIQUE` (`id_Reputation` ASC) VISIBLE)
+  PRIMARY KEY (`id_reputation`),
+  UNIQUE INDEX `id_reputation_UNIQUE` (`id_reputation` ASC) VISIBLE)
 COMMENT = 'Repository to storage information about Person´s reputation.';
 
 
@@ -41,9 +41,10 @@ DELIMITER $$
 USE `pe`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `pe`.`Reputation_BEFORE_UPDATE` BEFORE UPDATE ON `Reputation` FOR EACH ROW
 BEGIN
-IF NEW.creation_date IS NULL OR NEW.creation_user IS NULL THEN 
-		SET NEW.creation_date = CURDATE();
-        SET NEW.creation_user = SYSTEM_USER();
+IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN 
+		SET NEW.date_last_modification = CURDATE();
+        SET NEW.user_last_modification = SYSTEM_USER();
 	END IF;
+
 END$$
 DELIMITER ;

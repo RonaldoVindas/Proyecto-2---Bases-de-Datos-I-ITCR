@@ -1,0 +1,19 @@
+/*========== QUERY: BEST QUALIFIED VENDORS =============*/
+/*Author: Ronaldo Vindas B.  2018238697*/
+
+USE `pe`;
+DROP procedure IF EXISTS `get_best_qualified_vendors`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_best_qualified_vendors` (IN pQuantity INT)
+BEGIN
+	SELECT person.first_name, person.user_name, reputation.clasification, reputation.stars
+	FROM person
+	INNER JOIN reputation
+	ON person.id_reputation = reputation.id_reputation
+
+	GROUP BY person.identification
+	ORDER BY reputation.clasification DESC
+	LIMIT pQuantity;
+END$$
