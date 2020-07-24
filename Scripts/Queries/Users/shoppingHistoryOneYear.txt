@@ -13,5 +13,5 @@ join shopping_log_has_product b
 on a.id_shopping_log = b.id_shopping_log
 join product c
 on b.id_product = c.id_product
-where id_person = pid_person AND b.creation_date = ?????????????
+where id_person = pid_person AND b.creation_date <= DATE_SUB(CURDATE(),INTERVAL 12 MONTH);
 END$$

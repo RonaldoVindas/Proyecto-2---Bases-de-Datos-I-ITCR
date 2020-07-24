@@ -4,7 +4,7 @@ DELIMITER $$
 
 USE `pe`$$
 
-CREATE procedure `productSearchID` (pId INT)
+CREATE procedure `productSearch` (pId INT)
 
 BEGIN
 select a.name, b.type, a.Description, a.Object_Age, a.Condition, a.Price
