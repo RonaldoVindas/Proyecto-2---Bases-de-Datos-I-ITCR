@@ -11,6 +11,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `insert_person_has_phone` (IN pId INT, IN pPhone INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	INSERT INTO person_has_phone(id_person, id_phone)
     VALUES(pId, pPhone);
 END$$
@@ -25,6 +34,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_has_phone_id_person` (IN pId INT, IN pIdPerson INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person_has_phone
     SET id_person = pIdPerson
     WHERE id_person = pId;
@@ -41,6 +59,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_has_phone_id_phone` (IN pId INT, IN pIdPhone INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person_has_phone
     SET id_phone = pIdPhone
     WHERE id_person = pId;
@@ -59,6 +86,14 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `remove_person_has_phone` (IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	DELETE FROM person_has_person
     WHERE id_person = pId;
 END$$

@@ -14,6 +14,14 @@ CREATE FUNCTION `get_product_type_type` (pId INT)
 RETURNS VARCHAR(45)
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vctype VARCHAR(45);
     SET vcType = (SELECT type FROM product_type WHERE id_product_type = pID);
 	RETURN vcType;

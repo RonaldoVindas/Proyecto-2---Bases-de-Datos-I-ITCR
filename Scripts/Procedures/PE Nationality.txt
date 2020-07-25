@@ -11,6 +11,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `insert_nationality` (IN pName VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	INSERT INTO nationality (name)
     VALUES(pName);
 END$$
@@ -24,6 +33,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_nationality_name` (IN pId INT, IN pName VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE nationality
 	SET name = pName
     WHERE id_nationality = pId;
@@ -41,6 +59,14 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `remove_nationality` (IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 DELETE FROM nationality
     WHERE id_nationality = pId;
 END$$

@@ -13,6 +13,14 @@ CREATE FUNCTION `get_calification` (pTransmitter INT,pReceiver INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcValue INT;
     SET vcValue = (SELECT calification FROM person_review_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
 	RETURN vcValue;

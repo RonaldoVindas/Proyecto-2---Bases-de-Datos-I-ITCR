@@ -11,6 +11,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `insert_shopping_log_has_product` (IN pIdShoppingLog INT, IN pIdProduct INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	INSERT INTO shopping_log_has_product(id_shopping_log, id_product)
     VALUES (pIdShoppingLog, pIdProduct);
 END$$
@@ -26,6 +35,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_shopping_log_has_product_id_shopping` (IN pId INT, IN pIdShoppingLog INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE shopping_log_has_product
     SET id_shopping_log = pIdShoppingLog
     WHERE id_shopping_log = pId;
@@ -40,6 +58,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_shopping_log_has_product_id_product` (IN pId INT, IN pIdProduct INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE shopping_log_has_product
     SET id_product = pIdProduct
     WHERE id_shopping_log = pId;
@@ -57,6 +84,14 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `remove_shopping_log_has_product` (IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	DELETE FROM shopping_log_has_product
     WHERE id_shopping_log = pId;
 END$$

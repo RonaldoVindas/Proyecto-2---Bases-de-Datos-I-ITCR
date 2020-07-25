@@ -11,6 +11,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `insert_canton`(IN pName VARCHAR(45), IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	INSERT INTO canton(name, id_province)
         VALUES(pName, pId);
 END$$
@@ -25,6 +34,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_canton_name` (IN pId INT, IN pName VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE canton
     SET name = pName
     WHERE id_canton = pId;
@@ -41,6 +59,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_canton_id_province` (IN pId INT, In pIdProvince INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE canton
     SET id_province = pIdProvince
     WHERE id_canton = pId;
@@ -57,6 +84,14 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `remove_canton` (IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	DELETE FROM canton
     WHERE id_canton = pId;
 END$$

@@ -1,0 +1,17 @@
+DROP procedure IF EXISTS `historyLogSearch`;
+
+DELIMITER $$
+
+USE `pe`$$
+
+CREATE procedure `historyLogSearch` ()
+
+BEGIN
+select b.creation_date, c.name, c.Price
+from person a
+join historial_log_has_product b
+on a.id_historial_log = b.id_historial_log
+join product c
+on b.id_product = c.id_product
+
+END$$

@@ -13,6 +13,14 @@ CREATE FUNCTION `get_phone_number` (pId INT)
 RETURNS VARCHAR (12)
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcNumber VARCHAR(12);
     SET vcNumber = (SELECT number FROM phone WHERE id_phone = pId);
 RETURN vcNumber;

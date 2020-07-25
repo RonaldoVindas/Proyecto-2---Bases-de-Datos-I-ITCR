@@ -13,6 +13,14 @@ CREATE FUNCTION `get_cart_status` (pId INT)
 RETURNS VARCHAR(30)
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcValue VARCHAR(30);
     SET vcValue = (SELECT status FROM shopping_cart WHERE id_shopping_cart = pId);
 	RETURN vcValue;

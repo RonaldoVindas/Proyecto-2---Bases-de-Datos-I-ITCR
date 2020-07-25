@@ -13,6 +13,14 @@ CREATE FUNCTION `get_id_pay_method` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcValue INT;
     SET vcValue = (SELECT id_pay_method FROM shopping_cart_has_pay_method WHERE id_shopping_cart = pId);
 	RETURN vcValue;

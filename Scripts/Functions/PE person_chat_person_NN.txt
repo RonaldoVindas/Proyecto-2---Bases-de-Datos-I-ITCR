@@ -13,6 +13,14 @@ CREATE FUNCTION `get_chat_message` (pTransmitter INT,pReceiver INT)
 RETURNS VARCHAR(100)
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcValue VARCHAR(100);
     SET vcValue = (SELECT message FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
 	RETURN vcValue;
@@ -30,6 +38,14 @@ CREATE FUNCTION `get_chat_message_date` (pTransmitter INT,pReceiver INT)
 RETURNS DATE
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcValue DATE;
     SET vcValue = (SELECT message_date FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
 	RETURN vcValue;

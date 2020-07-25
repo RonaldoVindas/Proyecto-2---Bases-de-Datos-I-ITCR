@@ -30,6 +30,15 @@ IN pIdShoppingLog INT
 )
 BEGIN
 
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
+
 INSERT INTO person (identification, first_name, last_name, birth_day,email, user_name, password, id_genre, id_nationality,
 			id_type_person, id_reputation, id_community, id_shopping_cart, id_wishlist, id_photo, id_shopping_log)
             
@@ -49,6 +58,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_identification` (IN pId INT, IN pIdentification INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET identification = pIdentification
     WHERE identification = pId;
@@ -65,6 +83,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_first_name` (IN pId INT, IN pFirstName VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET first_name = pFirstName
     WHERE identification = pId;
@@ -80,6 +107,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_last_name` (IN pId INT, IN pLastName VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET last_name = pLastName
     WHERE identification = pId;
@@ -95,6 +131,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_birth_day` (IN pId INT, IN pBirthay DATE)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET birth_day = pBirthDay
     WHERE identification = pId;
@@ -110,6 +155,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_email` (IN pId INT, IN pEmail VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET email = pEmail
     WHERE identification = pId;
@@ -125,6 +179,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_username` (IN pId INT, IN pUsername VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person 
     SET user_name = pUsername
     WHERE identification = pId;
@@ -140,6 +203,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_password` (IN pId INT, IN pPassword VARCHAR(45))
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET password = SHA(pPassword)
     WHERE identification = pId;
@@ -155,6 +227,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_genre` (IN pId INT, IN pIdGenre INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_genre = pIdGenre
     WHERE identification = pId;
@@ -170,6 +251,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_nationality` (IN pId INT, IN pIdNationality INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_nationality = pIdNationality
     WHERE identification = pId;
@@ -185,6 +275,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_type_person` (In pId INT, IN pIdTypePerson INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_type_person = pIdTypePerson
     WHERE identification = pId;
@@ -200,6 +299,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_reputation` (IN pId INT, IN pIdReputation INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_reputation = pIdReputation
     WHERE identification = pId;
@@ -216,6 +324,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_community` (IN pId INT, IN pIdCommunity INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_community = pIdCommunity
     WHERE identification = pId;
@@ -231,6 +348,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_shopping_cart` (IN pId INT, IN pIdShoppingCart INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_shopping_cart = pIdShoppingCart
     WHERE identification = pId;
@@ -246,6 +372,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_wishlist` (IN pId INT, IN pIdWishlist INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_wishlist = pIdWishlist
     WHERE identification = pId;
@@ -261,6 +396,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_photo` (IN pId INT, IN pIdPhoto INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_photo = pIdPhoto
     WHERE identification = pId;
@@ -276,6 +420,15 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `update_person_id_shopping_log` (IN pId INT, IN pIdShoppingLog INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1172 SELECT 'Result consisted of more than one row.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	UPDATE person
     SET id_shopping_log =pIdShoppingLog
     WHERE identification = pId;
@@ -291,6 +444,14 @@ DELIMITER $$
 USE `pe`$$
 CREATE PROCEDURE `remove_person` (IN pId INT)
 BEGIN
+
+DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+DECLARE EXIT HANDLER FOR 1176 SELECT 'Key does not exist.' Message;
+DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+
+
 	DELETE FROM person
     WHERE identification = pId;
 END$$

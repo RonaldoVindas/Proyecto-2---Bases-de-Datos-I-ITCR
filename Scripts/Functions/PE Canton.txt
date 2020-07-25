@@ -12,6 +12,14 @@ CREATE FUNCTION `get_canton_name` (pId INT)
 RETURNS VARCHAR(45)
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcName VARCHAR(45);
     SET vcName = (SELECT name From canton WHERE id_canton = pId);
 	RETURN vcName;
@@ -29,6 +37,14 @@ CREATE FUNCTION `get_canton_id_province` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
 	DECLARE vcId INT;
     SET vcId = (SELECT id_province FROM canton WHERE id_canton = pID);
 	RETURN vcId;
