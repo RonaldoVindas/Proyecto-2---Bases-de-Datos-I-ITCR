@@ -5,7 +5,7 @@ import UIFrames.Login_Menu;
 
 /**
  *
- * @author Ronaldo
+ * @author Ronaldo Vindas
  */
 public class LA_BELLE_EPOQUE {
 

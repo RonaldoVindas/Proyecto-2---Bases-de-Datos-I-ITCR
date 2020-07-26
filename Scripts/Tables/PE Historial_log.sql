@@ -1,5 +1,5 @@
 CREATE TABLE `pe`.`historial_log` (
-/*Author: Ronaldo Vindas B 2018238697*/
+/*Author: Jose Andres Blanco*/
 
 /*================= COLUMNAS ====================================*/	
 

@@ -116,3 +116,18 @@ IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
 	END IF;
 END$$
 DELIMITER ;
+
+
+/*================ ALTER =======================================*/
+
+
+ALTER TABLE `pe`.`person` 
+ADD COLUMN `id_historial_log` INT NULL AFTER `id_shopping_log`,
+ADD INDEX `fk_person_id_historial_log_idx` (`id_historial_log` ASC) VISIBLE;
+;
+ALTER TABLE `pe`.`person` 
+ADD CONSTRAINT `fk_person_id_historial_log`
+  FOREIGN KEY (`id_historial_log`)
+  REFERENCES `pe`.`historial_log` (`id_historial_log`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
