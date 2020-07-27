@@ -14,12 +14,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_photo`(pId I
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     SET vcId = (SELECT id_photo FROM product_has_photo  WHERE id_photo = pId);
     RETURN vcId;
@@ -38,11 +32,6 @@ USE `pr`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_product`(pId INT) RETURNS int
     DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 

@@ -15,12 +15,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcLastPrice INT;
     SET vcLastPrice = (SELECT last_price FROM product_binnacle WHERE id_product_binnacle = pId);
 	RETURN vcLastPrice;
@@ -37,12 +31,6 @@ CREATE FUNCTION `get_product_binnacle_actual_price` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
 
 
 	DECLARE vcActualPrice INT;
@@ -64,12 +52,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcLastOwner VARCHAR(45);
     SET vcLastOwner = (SELECT last_owner FROM product_binnacle WHERE id_product_binnacle = pId);    
 RETURN vcLastOwner;
@@ -87,12 +69,6 @@ CREATE FUNCTION `get_product_binnacle_actual_owner` (pId INT)
 RETURNS VARCHAR (45)
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
 
 
 	DECLARE vcActualOwner VARCHAR(45);

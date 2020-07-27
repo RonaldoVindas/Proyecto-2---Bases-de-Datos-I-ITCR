@@ -14,13 +14,6 @@ RETURNS VARCHAR (45)
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcName VARCHAR(45);
     SET vcName = (SELECT name FROM Product WHERE id_product = pId);
 RETURN vcName;
@@ -38,13 +31,6 @@ CREATE FUNCTION `get_product_condition` (pId INT)
 RETURNS VARCHAR(100)
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
 
 		DECLARE vcCondition VARCHAR(100);
         SET vcCondition = (SELECT product_condition FROM product WHERE id_product = pId);
@@ -64,13 +50,6 @@ RETURNS VARCHAR(100)
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcDescription VARCHAR(100);
     SET vcDescription = (SELECT description FROM product WHERE id_product = pId);
 	RETURN vcDescription;
@@ -88,13 +67,6 @@ CREATE FUNCTION `get_product_object_age` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
 
 	DECLARE vcObjectAge INT;
 	SET vcObjectAge = (SELECT object_age FROM product WHERE id_product = pId);
@@ -114,13 +86,6 @@ RETURNS INTEGER
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcPrice INT;
     SET vcPrice = (SELECT price FROM product WHERE id_product = pId);
 	RETURN vcPrice;
@@ -139,13 +104,6 @@ RETURNS INTEGER
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     SET vcId = (SELECT id_product_binnacle FROM product WHERE id_product = pId);
 	RETURN vcId;
@@ -163,13 +121,6 @@ CREATE FUNCTION `get_product_id_product_type` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
 
 	DECLARE vcId INT;
     SEt vcId = (SELECT id_product_type FROM product WHERE id_product = pId);

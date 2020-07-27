@@ -13,12 +13,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_product_has_shipping_type_id_pro
     DETERMINISTIC
 BEGIN
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     	SET vcId = (SELECT id_product FROM product_has_shipping_type WHERE id_product = pId);
 	RETURN vcId;
@@ -37,12 +31,6 @@ USE `pr`$$
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_product_has_shipping_type_id_shipping_type`(pId INT) RETURNS int
     DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
 
 
 	DECLARE vcId INT;

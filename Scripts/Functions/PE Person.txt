@@ -14,11 +14,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
 
 	DECLARE vcName VARCHAR(45);
     SET vcName = (SELECT first_name FROM person WHERE identification = pId);
@@ -38,11 +33,6 @@ CREATE FUNCTION `get_person_last_name` (pId INT)
 RETURNS VARCHAR(45)
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 
@@ -66,11 +56,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
 
 	DECLARE vcValue DATE;
     SET vcValue = (SELECT birth_day FROM person WHERE identification = pId);
@@ -92,12 +77,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcValue VARCHAR(45);
     SET vcValue = (SELECT user_name FROM person WHERE identification = pId);
 	RETURN vcValue;
@@ -117,13 +96,6 @@ RETURNS VARCHAR(45)
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcValue VARCHAR(45);
     SET vcValue = (SELECT password FROM person WHERE identification = pId);
 	RETURN vcValue;
@@ -141,11 +113,6 @@ CREATE FUNCTION `get_id_person_genre` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 
@@ -168,12 +135,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     SET vcId = (SELECT id_nationality FROM person WHERE identification = pID);
 	RETURN vcId;
@@ -191,11 +152,6 @@ CREATE FUNCTION `get_id_person_type_person` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 
@@ -218,12 +174,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     SET vcId = (SELECT id_reputation FROM person WHERE identification = pID);
 	RETURN vcId;
@@ -243,12 +193,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcId INT;
     SET vcId = (SELECT id_community FROM person WHERE identification = pID);
 	RETURN vcId;
@@ -266,11 +210,6 @@ CREATE FUNCTION `get_id_person_shopping_cart` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
-
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 
@@ -293,10 +232,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
 
 
 	DECLARE vcId INT;
@@ -317,10 +252,6 @@ RETURNS INTEGER
 DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 
@@ -343,9 +274,6 @@ DETERMINISTIC
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 

@@ -13,13 +13,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_log_has_product_id_prod
     DETERMINISTIC
 BEGIN
 
-
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcValue INT;
     	SET vcValue = (SELECT id_product FROM shopping_log_has_product WHERE id_shopping_log = pId);
 	RETURN vcValue;
@@ -40,12 +33,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_log_has_product_id_shop
 BEGIN
 
 
-	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
-
-
-
 	DECLARE vcValue INT;
     SET vcValue = (SELECT id_shopping_log FROM shopping_log_has_product WHERE id_shopping_log = pId);
 	RETURN vcValue;
@@ -64,9 +51,6 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_log_record_owner`(pId I
     DETERMINISTIC
 BEGIN
 
-DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
-	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
-	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
 
 
 DECLARE vcValue VARCHAR(45);
