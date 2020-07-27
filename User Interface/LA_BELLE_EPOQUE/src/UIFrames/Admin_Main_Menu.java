@@ -25,15 +25,20 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class Admin_Main_Menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main_Menu
-     */
+    
     
     private ChartFrame frame;
     public Admin_Main_Menu() {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -49,6 +54,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ShoppingCart_Button = new javax.swing.JButton();
         Exit_Button = new javax.swing.JButton();
         Reviews_JInternalFrame = new javax.swing.JInternalFrame();
         Decoration_Panel20 = new javax.swing.JPanel();
@@ -395,28 +401,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel77 = new javax.swing.JPanel();
         jLabel179 = new javax.swing.JLabel();
         Decoration_Panel17 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        ProfileLastName_TextField2 = new javax.swing.JTextField();
-        ProfilePassword_TextField2 = new javax.swing.JTextField();
-        ProfileGender_TextField2 = new javax.swing.JTextField();
-        ProfileBirthDay_TextField2 = new javax.swing.JTextField();
-        ProfileUsername_TextField2 = new javax.swing.JTextField();
-        jLabel46 = new javax.swing.JLabel();
-        ProfileAge_TextField2 = new javax.swing.JTextField();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel180 = new javax.swing.JLabel();
-        jLabel181 = new javax.swing.JLabel();
         jLabel182 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        ProfileName_TextField3 = new javax.swing.JTextField();
         Reviews_Button3 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
         Reviews_Button4 = new javax.swing.JButton();
+        Reviews_Button5 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         Panel_Wallpaper3 = new javax.swing.JLabel();
         jPanel27 = new javax.swing.JPanel();
         DangerousZones_Logo6 = new javax.swing.JLabel();
@@ -653,10 +645,28 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ShoppingCart_Button.setBackground(new java.awt.Color(0, 102, 204));
+        ShoppingCart_Button.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        ShoppingCart_Button.setForeground(new java.awt.Color(255, 255, 255));
+        ShoppingCart_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Shopping Cart Button.jpg"))); // NOI18N
+        ShoppingCart_Button.setText("Shopping Cart");
+        ShoppingCart_Button.setToolTipText("");
+        ShoppingCart_Button.setBorder(null);
+        ShoppingCart_Button.setFocusPainted(false);
+        ShoppingCart_Button.setFocusable(false);
+        ShoppingCart_Button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ShoppingCart_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShoppingCart_ButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ShoppingCart_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 0, 170, 40));
+
         Exit_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Exit Button.png"))); // NOI18N
         Exit_Button.setToolTipText("");
         Exit_Button.setBorder(null);
         Exit_Button.setContentAreaFilled(false);
+        Exit_Button.setFocusable(false);
         Exit_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Exit_ButtonActionPerformed(evt);
@@ -3014,96 +3024,24 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel17.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel20.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel20.setText("Price:");
-        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 110, 30));
-
         jLabel33.setBackground(new java.awt.Color(219, 219, 219));
         jLabel33.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel33.setText("Description:");
+        jLabel33.setText("Products:");
         jLabel33.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 120, 30));
-
-        jLabel34.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel34.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel34.setText("Seller Calification:");
-        jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 170, 30));
-
-        jLabel40.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel40.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel40.setText("Product Age:");
-        jLabel40.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, 30));
-        Decoration_Panel17.add(ProfileLastName_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 240, 30));
-        Decoration_Panel17.add(ProfilePassword_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 240, 30));
-        Decoration_Panel17.add(ProfileGender_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 240, 30));
-        Decoration_Panel17.add(ProfileBirthDay_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 240, 30));
-        Decoration_Panel17.add(ProfileUsername_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 240, 30));
-
-        jLabel46.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel46.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel46.setText("Condition:");
-        jLabel46.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 110, 30));
-        Decoration_Panel17.add(ProfileAge_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 240, 30));
-
-        jLabel47.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel47.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel47.setText("Shipping Type:");
-        jLabel47.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 140, 30));
-
-        jLabel48.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel48.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel48.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel48.setText("By:");
-        jLabel48.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 110, 30));
-
-        jLabel180.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel180.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel180.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel180.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel180.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Camera Icon.png"))); // NOI18N
-        jLabel180.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel180, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 230, 210));
-
-        jLabel181.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel181.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel181.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel181.setText("Photo:");
-        jLabel181.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel181, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 70, 30));
+        Decoration_Panel17.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 30));
 
         jLabel182.setBackground(new java.awt.Color(219, 219, 219));
         jLabel182.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel182.setForeground(new java.awt.Color(0, 0, 0));
         jLabel182.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
         jLabel182.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel182, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 100, 260));
-
-        jLabel49.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel49.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel49.setText("Name:");
-        jLabel49.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 90, 30));
-        Decoration_Panel17.add(ProfileName_TextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 240, 30));
+        Decoration_Panel17.add(jLabel182, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 100, 260));
 
         Reviews_Button3.setBackground(new java.awt.Color(0, 102, 204));
         Reviews_Button3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Reviews_Button3.setForeground(new java.awt.Color(255, 255, 255));
-        Reviews_Button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Icon White.png"))); // NOI18N
-        Reviews_Button3.setText("Add to Wishlist!");
+        Reviews_Button3.setText("Delete product with id:");
         Reviews_Button3.setBorder(null);
         Reviews_Button3.setFocusable(false);
         Reviews_Button3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3119,13 +3057,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Reviews_Button3ActionPerformed(evt);
             }
         });
-        Decoration_Panel17.add(Reviews_Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 200, 40));
+        Decoration_Panel17.add(Reviews_Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 220, 40));
 
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
         jScrollPane3.setViewportView(jTextArea5);
 
-        Decoration_Panel17.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 240, -1));
+        Decoration_Panel17.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 470, 270));
 
         Reviews_Button4.setBackground(new java.awt.Color(0, 102, 204));
         Reviews_Button4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -3147,7 +3085,36 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Reviews_Button4ActionPerformed(evt);
             }
         });
-        Decoration_Panel17.add(Reviews_Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 340, 90, 40));
+        Decoration_Panel17.add(Reviews_Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 90, 40));
+
+        Reviews_Button5.setBackground(new java.awt.Color(0, 102, 204));
+        Reviews_Button5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Reviews_Button5.setForeground(new java.awt.Color(255, 255, 255));
+        Reviews_Button5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Icon White.png"))); // NOI18N
+        Reviews_Button5.setText("Add to Wishlist!");
+        Reviews_Button5.setBorder(null);
+        Reviews_Button5.setFocusable(false);
+        Reviews_Button5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Reviews_Button5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Reviews_Button5MouseExited(evt);
+            }
+        });
+        Reviews_Button5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Reviews_Button5ActionPerformed(evt);
+            }
+        });
+        Decoration_Panel17.add(Reviews_Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 200, 40));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        Decoration_Panel17.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 240, 40));
 
         ShoppingCart_JInternalFrame.getContentPane().add(Decoration_Panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 950, 390));
 
@@ -6428,6 +6395,64 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Reviews_Button6ActionPerformed
 
+    private void ShoppingCart_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShoppingCart_ButtonActionPerformed
+     Profile_JInternalFrame.setVisible(false);
+     Reviews_JInternalFrame.setVisible(false);
+     RegisterInfo_JInternalFrame.setVisible(false);
+            RegisterInfo_Person_JInternalFrame.setVisible(false);
+            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                        List_Panel.setVisible(false);
+            RegisterInfo_Place_JInternalFrame.setVisible(false);
+                        List_Panel1.setVisible(false);
+            RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                        List_Panel2.setVisible(false);
+            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                        List_Panel3.setVisible(false);
+            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                        List_Panel4.setVisible(false);
+                        
+    Search_Product_JInternalFrame.setVisible(false);
+            ProductResultList_JInternalFrame.setVisible(false);
+            ShoppingCart_JInternalFrame.setVisible(false);
+             Pay_Method_JInternalFrame.setVisible(false);
+         
+    Wishlist_JInternalFrame.setVisible(false); 
+    Chat_JInternalFrame.setVisible(false);
+    Sold_Products_JInternalFrame.setVisible(false);
+    BoughtProducts_JInternalFrame.setVisible(false);
+    AdditionalQueries_JInternalFrame.setVisible(false); 
+            
+            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+            BestSellingUsers_JInternalFrame.setVisible(false);
+            BestQualifiedUsers_JInternalFrame.setVisible(false);
+            UsersMorePurchases_JInternalFrame.setVisible(false);
+            ExpensiveProducts_JInternalFrame.setVisible(false);
+            
+            Statistics_JInternalFrame.setVisible(false);
+
+    Register_Product_JInternalFrame.setVisible(false); 
+        
+        
+        
+        ShoppingCart_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_ShoppingCart_ButtonActionPerformed
+
+    private void Reviews_Button5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_Button5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Reviews_Button5MouseEntered
+
+    private void Reviews_Button5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_Button5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Reviews_Button5MouseExited
+
+    private void Reviews_Button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_Button5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Reviews_Button5ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -6656,29 +6681,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JInternalFrame ProductResultList_JInternalFrame;
     private javax.swing.JTextField ProfileAge_TextField;
     private javax.swing.JTextField ProfileAge_TextField1;
-    private javax.swing.JTextField ProfileAge_TextField2;
     private javax.swing.JTextField ProfileBirthDay_TextField;
     private javax.swing.JTextField ProfileBirthDay_TextField1;
-    private javax.swing.JTextField ProfileBirthDay_TextField2;
     private javax.swing.JTextField ProfileBirthDay_TextField3;
     private javax.swing.JTextField ProfileCompany_TextField;
     private javax.swing.JTextField ProfileGender_TextField;
     private javax.swing.JTextField ProfileGender_TextField1;
-    private javax.swing.JTextField ProfileGender_TextField2;
     private javax.swing.JTextField ProfileGender_TextField3;
     private javax.swing.JTextField ProfileLastName_TextField;
     private javax.swing.JTextField ProfileLastName_TextField1;
-    private javax.swing.JTextField ProfileLastName_TextField2;
     private javax.swing.JTextField ProfileLastName_TextField3;
     private javax.swing.JTextField ProfileName_TextField1;
     private javax.swing.JTextField ProfileName_TextField2;
-    private javax.swing.JTextField ProfileName_TextField3;
     private javax.swing.JTextField ProfilePassword_TextField;
     private javax.swing.JTextField ProfilePassword_TextField1;
-    private javax.swing.JTextField ProfilePassword_TextField2;
     private javax.swing.JTextField ProfileUsername_TextField;
     private javax.swing.JTextField ProfileUsername_TextField1;
-    private javax.swing.JTextField ProfileUsername_TextField2;
     private javax.swing.JButton Profile_Button;
     private javax.swing.JButton Profile_Button10;
     private javax.swing.JButton Profile_Button2;
@@ -6761,12 +6779,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Reviews_Button2;
     private javax.swing.JButton Reviews_Button3;
     private javax.swing.JButton Reviews_Button4;
+    private javax.swing.JButton Reviews_Button5;
     private javax.swing.JButton Reviews_Button6;
     private javax.swing.JInternalFrame Reviews_JInternalFrame;
     private javax.swing.JPanel SearchCriminalFile_Panel;
     private javax.swing.JButton SearchProduct_Button;
     private javax.swing.JInternalFrame Search_Product_JInternalFrame;
     private javax.swing.JButton SendMessage_Button;
+    private javax.swing.JButton ShoppingCart_Button;
     private javax.swing.JInternalFrame ShoppingCart_JInternalFrame;
     private javax.swing.JTextArea ShowList_TextArea;
     private javax.swing.JTextArea ShowList_TextArea1;
@@ -6889,15 +6909,12 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel178;
     private javax.swing.JLabel jLabel179;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel180;
-    private javax.swing.JLabel jLabel181;
     private javax.swing.JLabel jLabel182;
     private javax.swing.JLabel jLabel183;
     private javax.swing.JLabel jLabel184;
     private javax.swing.JLabel jLabel186;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -6912,23 +6929,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
@@ -7072,6 +7083,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;

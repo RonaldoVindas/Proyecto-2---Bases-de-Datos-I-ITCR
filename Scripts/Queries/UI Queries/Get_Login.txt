@@ -1,0 +1,24 @@
+USE `pe`;
+DROP function IF EXISTS `get_Login`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_Login`(pUsername VARCHAR(45),/* pEmail VARCHAR(45),*/ pPassword VARCHAR(45) ) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE Res INT;
+	DECLARE EncryptPassword VARCHAR(45);
+    
+    SET EncryptPassword = SHA(pPassword);
+    SET Res = (	SELECT id_type_person
+				FROM person
+				WHERE user_name = pUsername AND password = EncryptPassword AND EXISTS( 	SELECT user_name
+																						FROM person
+																						WHERE user_name = pUsername));
+	
+    
+    RETURN Res ; /*1 == TRUE*/
+    
+END$$
+
+DELIMITER ;
