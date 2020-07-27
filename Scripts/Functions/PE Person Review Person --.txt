@@ -1,0 +1,70 @@
+/*=============Tabla:Person_review_person_NN
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `pe`.`get_person_review_person_qualification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_review_person_qualification`(pTransmitter INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
+	DECLARE vcValue INT;
+    	SET vcValue = (SELECT qualification FROM person_review_person WHERE id_person_transmitter = pTransmitter);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_person_review_person_id_person_transmitter`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_review_person_id_person_transmitter` ()
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+	
+    DECLARE vcValue INT;
+    SET vcValue = (SELECT id_person_transmitter FROM person_review_person WHERE id_person_transmitter = pTransmitter);
+	RETURN vcValue;
+
+END$$
+
+DELIMITER ;
+
+
+
+
+/*////////////////////////////////////////////////////*/
+DROP function IF EXISTS `get_person_review_person_id_person_receiver`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_review_person_id_person_receiver` (pTransmitter INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+ DECLARE vcValue INT;
+    SET vcValue = (SELECT id_person_receiver FROM person_review_person WHERE id_person_transmitter = pTransmitter);
+	RETURN vcValue;
+RETURN vcValue;
+END$$
+
+DELIMITER ;

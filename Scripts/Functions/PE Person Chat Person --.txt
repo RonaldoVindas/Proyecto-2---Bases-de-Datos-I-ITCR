@@ -1,0 +1,99 @@
+/*=============Tabla:Person_chat_person_N_N
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_person_chat_with_person_id_transmitter`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_chat_with_person_id_transmitter`(pTransmitter INT,pReceiver INT) RETURNS varchar(100) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
+	DECLARE vcValue VARCHAR(100);
+    SET vcValue = (SELECT id_transmitter FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_person_chat_with_person_id_transmitter`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_chat_with_person_id_transmitter`(pTransmitter INT,pReceiver INT) RETURNS varchar(100) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
+	DECLARE vcValue VARCHAR(100);/**/
+    SET vcValue = (SELECT id_receiver FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
+	RETURN vcValue;
+END$$
+
+DELIMITER ;
+
+
+/*////////////////////////////////////////////*/
+DROP function IF EXISTS `get_person_chat_with_person_message`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_chat_with_person_message`(pTransmitter INT,pReceiver INT) RETURNS varchar(100) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+DECLARE vcValue VARCHAR(100);
+		SET vcValue = (SELECT message 
+		FROM person_chat_with_person 
+		WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_person_chat_with_person_message_date`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_chat_with_person_message_date`(pTransmitter INT,pReceiver INT) RETURNS date
+    DETERMINISTIC
+BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+DECLARE vcValue DATE;
+    SET vcValue = (SELECT message_date FROM person_chat_with_person WHERE id_person_transmitter = pTransmitter AND id_person_receiver = pReceiver);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;

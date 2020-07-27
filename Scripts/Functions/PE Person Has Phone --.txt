@@ -1,0 +1,54 @@
+/*=============Tabla:Person Has Phone ================*/
+=======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_person_has_phone_id_person`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_has_phone_id_person`(pId INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_person FROM person_has_phone WHERE id_phone = pId);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////////////*/
+
+DROP function IF EXISTS `get_person_has_phone_id_phone`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_person_has_phone_id_phone`(pId INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+
+
+	DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Message;
+	DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
+	DECLARE EXIT HANDLER FOR 1105 SELECT 'Unknown error encountered.' Message;
+
+
+
+	DECLARE vcValue INT;
+    	SET vcValue = (SELECT id_phone FROM person_has_phone WHERE id_person = pId);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;
