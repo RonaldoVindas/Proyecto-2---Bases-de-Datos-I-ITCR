@@ -1,0 +1,38 @@
+/*=============Tabla:Shopping Cart Has Pay Method =======================================*/
+/*Author: Luis Diego Rodriguez 2018148987*/
+USE `pe`;
+
+/*=============Getters===========================*/
+
+DROP function IF EXISTS `get_shopping_cart_has_pay_method_id_pay_method`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_cart_has_pay_method_id_pay_method`(pId INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_pay_method FROM shopping_cart_has_pay_method WHERE id_shopping_cart = pId);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;
+
+/*/////////////////////////////////////////////////*/
+
+USE `pe`;
+DROP function IF EXISTS `get_shopping_cart_has_pay_method_id_shopping_cart`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_cart_has_pay_method_id_shopping_cart`(pId INT) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE vcValue INT;
+    SET vcValue = (SELECT id_shopping_cart FROM shopping_cart_has_pay_method WHERE id_shopping_cart = pId);
+	RETURN vcValue;
+    /**/
+END$$
+
+DELIMITER ;

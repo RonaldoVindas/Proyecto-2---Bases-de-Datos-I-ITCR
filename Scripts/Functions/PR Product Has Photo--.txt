@@ -1,17 +1,16 @@
-/*=============Tabla:product_has_photo
+/*=============Tabla: Product Has Photo ====================*/
 =======================================*/
 /*Author: Luis Diego Rodriguez 2018148987*/
 USE `pe`;
 
 /*=============Getters===========================*/
 
-DROP function IF EXISTS `get_id_product_php`;
+DROP function IF EXISTS `get_prouct_has_photo_id_photo`;
 
 DELIMITER $$
-USE `pe`$$
-CREATE FUNCTION `get_id_product_php` (pId INT)
-RETURNS INTEGER
-DETERMINISTIC
+USE `pr`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_photo`(pId INT) RETURNS int
+    DETERMINISTIC
 BEGIN
 
 
@@ -21,23 +20,23 @@ BEGIN
 
 
 
-	DECLARE vcValue INT;
-    SET vcValue = (SELECT id_product FROM product_has_photo WHERE id_photo = pId);
-	RETURN vcValue;
-END$$
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_photo FROM product_has_photo  WHERE id_photo = pId);
+    RETURN vcId;
+    /**/
 
+END$$
 DELIMITER ;
 
 
 /*//////////////////////////////////////////////*/
 
-DROP function IF EXISTS `get_id_photo_php`;
+DROP function IF EXISTS `get_prouct_has_photo_id_product`;
 
 DELIMITER $$
-USE `pe`$$
-CREATE FUNCTION `get_id_photo_php` (pId INT)
-RETURNS INTEGER
-DETERMINISTIC
+USE `pr`$$
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_product`(pId INT) RETURNS int
+    DETERMINISTIC
 BEGIN
 
 
@@ -47,9 +46,10 @@ BEGIN
 
 
 
-	DECLARE vcValue INT;
-    SET vcValue = (SELECT id_photo FROM product_has_photo WHERE id_product = pId);
-	RETURN vcValue;
+	DECLARE vcId INT;
+    SET vcId = (SELECT id_product FROM product_has_photo  WHERE id_photo = pId);
+    RETURN vcId;
+/**/
 END$$
 
 DELIMITER ;
