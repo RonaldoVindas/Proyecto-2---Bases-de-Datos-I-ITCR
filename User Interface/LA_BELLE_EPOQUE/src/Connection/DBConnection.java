@@ -749,9 +749,39 @@ public class DBConnection {
         return rs;   
 
   }
+  //=========================== QUERIES =============================//
   
+//Admins
+  public static ResultSet get_best_qualified_vendors() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_best_qualified_vendors()}");
+ 
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
   
-
+  public static ResultSet get_less_expensive_products_by_type() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ get_less_expensive_products_by_type()}");
+ 
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+  
+  public static ResultSet get_most_expensive_products_by_type() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ get_most_expensive_products_by_type()}");
+ 
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+  
   
   ///Procedimientos de PE
   //TODO de PAR

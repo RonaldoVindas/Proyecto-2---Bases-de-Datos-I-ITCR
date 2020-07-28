@@ -6194,15 +6194,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     
     
     
-    String pName;
+    String pName = "";;
     int pYear = 0;
     int pPrice = 0;
     
     
     pName = SearchProductName_TextField.getText();
-    if(pName == null){
-        pName = "";
-    }
+
     pYear = Integer.parseInt(SearchProductYear_TextField.getText());
     
     pPrice = Integer.parseInt(SearchProductPrice_TextField.getText());
