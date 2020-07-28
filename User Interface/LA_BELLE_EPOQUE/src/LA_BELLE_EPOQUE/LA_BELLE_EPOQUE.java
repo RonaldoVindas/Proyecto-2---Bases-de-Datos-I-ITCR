@@ -11,7 +11,7 @@ import com.mysql.jdbc.Connection;
 public class LA_BELLE_EPOQUE {
 
     public static String username = null;
-            
+    public static int identification;        
             
     private static Connection con;
     private static final String driver="com.mysql.jdbc.Driver";

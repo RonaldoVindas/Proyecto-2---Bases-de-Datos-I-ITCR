@@ -5,6 +5,10 @@
  */
 package UIFrames;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 
@@ -19,7 +23,11 @@ public class User_Main_Menu extends javax.swing.JFrame {
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
-
+        
+        int pIdentification = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification;
+        String pUsername = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username;
+        
+        
     }
 
     /**
@@ -57,23 +65,23 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        ProfileLastName_TextField = new javax.swing.JTextField();
-        ProfilePassword_TextField = new javax.swing.JTextField();
-        ProfileGender_TextField = new javax.swing.JTextField();
-        ProfileBirthDay_TextField = new javax.swing.JTextField();
-        ProfileUsername_TextField = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        ProfileAge_TextField = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        ProfileCompany_TextField = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        ProfileName_TextField1 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         Reviews_Button = new javax.swing.JButton();
+        ProfileName_TextField = new javax.swing.JTextField();
+        ProfileLastName_TextField = new javax.swing.JTextField();
+        ProfileGender_TextField = new javax.swing.JTextField();
+        ProfileBirthDay_TextField = new javax.swing.JTextField();
+        ProfileAge_TextField = new javax.swing.JTextField();
+        ProfileEmail_TextField = new javax.swing.JTextField();
+        ProfileUsername_TextField = new javax.swing.JTextField();
+        ProfilePassword_TextField = new javax.swing.JTextField();
         Panel_Wallpaper = new javax.swing.JLabel();
         Search_Product_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo2 = new javax.swing.JLabel();
@@ -473,11 +481,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel23.setText("Age:");
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 110, 30));
-        Decoration_Panel5.add(ProfileLastName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 240, 30));
-        Decoration_Panel5.add(ProfilePassword_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 240, 30));
-        Decoration_Panel5.add(ProfileGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 30));
-        Decoration_Panel5.add(ProfileBirthDay_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, 30));
-        Decoration_Panel5.add(ProfileUsername_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 240, 30));
 
         jLabel24.setBackground(new java.awt.Color(219, 219, 219));
         jLabel24.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -485,7 +488,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel24.setText("Gender:");
         jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 110, 30));
-        Decoration_Panel5.add(ProfileAge_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, 30));
 
         jLabel25.setBackground(new java.awt.Color(219, 219, 219));
         jLabel25.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -493,7 +495,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel25.setText("Email:");
         jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, 30));
-        Decoration_Panel5.add(ProfileCompany_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 30));
 
         jLabel26.setBackground(new java.awt.Color(219, 219, 219));
         jLabel26.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -530,7 +531,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel17.setText("Name:");
         jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 90, 40));
-        Decoration_Panel5.add(ProfileName_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 240, 30));
 
         jLabel18.setBackground(new java.awt.Color(219, 219, 219));
         jLabel18.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -559,6 +559,54 @@ public class User_Main_Menu extends javax.swing.JFrame {
             }
         });
         Decoration_Panel5.add(Reviews_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 90, 30));
+
+        ProfileName_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileName_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileName_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileName_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 240, 30));
+
+        ProfileLastName_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileLastName_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileLastName_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileLastName_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileLastName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 240, 30));
+
+        ProfileGender_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileGender_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileGender_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileGender_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 30));
+
+        ProfileBirthDay_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileBirthDay_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileBirthDay_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileBirthDay_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileBirthDay_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, 30));
+
+        ProfileAge_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileAge_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileAge_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileAge_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileAge_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, 30));
+
+        ProfileEmail_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileEmail_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileEmail_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileEmail_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileEmail_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 30));
+
+        ProfileUsername_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileUsername_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileUsername_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileUsername_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileUsername_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 240, 30));
+
+        ProfilePassword_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfilePassword_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfilePassword_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfilePassword_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfilePassword_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 240, 30));
 
         Profile_JInternalFrame.getContentPane().add(Decoration_Panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 950, 350));
 
@@ -2158,6 +2206,31 @@ public class User_Main_Menu extends javax.swing.JFrame {
         
         Profile_JInternalFrame.setVisible(true);
         
+        
+        
+        try {
+            ProfileName_TextField.setText(Connection.DBConnection.get_person_first_name(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            ProfileLastName_TextField.setText(Connection.DBConnection.get_person_last_name(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            int id_gender = Connection.DBConnection.get_person_id_genre(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification);
+                    ProfileGender_TextField.setText(Connection.DBConnection.get_genre_name(id_gender));
+            Date birth_day = Connection.DBConnection.get_person_birthday(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification);       
+                    ProfileBirthDay_TextField.setText(birth_day.toString());
+           /* int birth_day_year = birth_day.getYear();
+                    Calendar today = new GregorianCalendar();
+                    int today_year = today.getWeekYear();
+                    ProfileAge_TextField.setText("");*/
+            ProfileEmail_TextField.setText(Connection.DBConnection.get_person_email(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            ProfileUsername_TextField.setText(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username);
+            ProfilePassword_TextField.setText(Connection.DBConnection.get_person_password(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            
+            
+                    
+                    
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_Profile_ButtonActionPerformed
 
     private void RecentProducts_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecentProducts_ButtonActionPerformed
@@ -2487,18 +2560,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         BoughtProducts_JInternalFrame.setVisible(true);
     }//GEN-LAST:event_BoughtProducts_ButtonActionPerformed
 
-    private void Reviews_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseEntered
-        Reviews_Button.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_Reviews_ButtonMouseEntered
-
-    private void Reviews_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseExited
-        Reviews_Button.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_Reviews_ButtonMouseExited
-
-    private void Reviews_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_ButtonActionPerformed
-        Reviews_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_Reviews_ButtonActionPerformed
-
     private void SendMessage_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendMessage_ButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SendMessage_ButtonActionPerformed
@@ -2634,6 +2695,18 @@ public class User_Main_Menu extends javax.swing.JFrame {
         ShoppingCart_JInternalFrame.setVisible(true);
     }//GEN-LAST:event_ShoppingCart_ButtonActionPerformed
 
+    private void Reviews_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_ButtonActionPerformed
+        Reviews_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_Reviews_ButtonActionPerformed
+
+    private void Reviews_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseExited
+        Reviews_Button.setBackground(new java.awt.Color(0,102,204));
+    }//GEN-LAST:event_Reviews_ButtonMouseExited
+
+    private void Reviews_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseEntered
+        Reviews_Button.setBackground(new java.awt.Color(19,79,139));
+    }//GEN-LAST:event_Reviews_ButtonMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -2730,7 +2803,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField ProfileBirthDay_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField2;
     private javax.swing.JTextField ProfileBirthDay_TextField3;
-    private javax.swing.JTextField ProfileCompany_TextField;
+    private javax.swing.JTextField ProfileEmail_TextField;
     private javax.swing.JTextField ProfileGender_TextField;
     private javax.swing.JTextField ProfileGender_TextField1;
     private javax.swing.JTextField ProfileGender_TextField2;
@@ -2739,7 +2812,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField ProfileLastName_TextField1;
     private javax.swing.JTextField ProfileLastName_TextField2;
     private javax.swing.JTextField ProfileLastName_TextField3;
-    private javax.swing.JTextField ProfileName_TextField1;
+    private javax.swing.JTextField ProfileName_TextField;
     private javax.swing.JTextField ProfileName_TextField2;
     private javax.swing.JTextField ProfileName_TextField3;
     private javax.swing.JTextField ProfilePassword_TextField;

@@ -5,6 +5,7 @@
  */
 package UIFrames;
 
+import Connection.DBConnection;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -96,7 +97,7 @@ public class Login_Window extends javax.swing.JFrame {
 
         Username_TextField.setBackground(new java.awt.Color(219, 219, 219));
         Username_TextField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Username_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Username_TextField.setForeground(new java.awt.Color(153, 153, 153));
         Username_TextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Username_TextField.setBorder(null);
         Username_TextField.setCaretColor(new java.awt.Color(0, 102, 204));
@@ -152,7 +153,7 @@ public class Login_Window extends javax.swing.JFrame {
 
         Password_TextField.setBackground(new java.awt.Color(219, 219, 219));
         Password_TextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        Password_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Password_TextField.setForeground(new java.awt.Color(153, 153, 153));
         Password_TextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Password_TextField.setBorder(null);
         Password_TextField.setCaretColor(new java.awt.Color(0, 102, 204));
@@ -173,9 +174,18 @@ public class Login_Window extends javax.swing.JFrame {
     private void Login_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Login_ButtonActionPerformed
        
        LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username = Username_TextField.getText();
-               
+        
+       
        String pUsername = Username_TextField.getText();
        String pPassword = Password_TextField.getText(); 
+        try {
+            int identification = Connection.DBConnection.get_person_identification(pUsername);
+            LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification = identification;
+         
+        } catch (SQLException ex) {
+            Logger.getLogger(Login_Window.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
        
        
        int res = 0;
@@ -186,12 +196,13 @@ public class Login_Window extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login_Window.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (res == 1){
+        if (res == 1){ //Si es Admin
              Admin_Main_Menu result = new Admin_Main_Menu();
              result.setVisible(true); 
              this.setVisible(false);
+             
         }
-        else if (res == 2){
+        else if (res == 2){ // Si es User
              User_Main_Menu result = new User_Main_Menu();
              result.setVisible(true); 
              this.setVisible(false);
@@ -200,7 +211,7 @@ public class Login_Window extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid Username or Password!", "Error", JOptionPane.ERROR_MESSAGE);
            
         }
-        System.out.println(res);
+       
         
           
     }//GEN-LAST:event_Login_ButtonActionPerformed

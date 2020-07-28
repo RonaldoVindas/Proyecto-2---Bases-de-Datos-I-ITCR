@@ -8,6 +8,17 @@ package UIFrames;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import static jdk.nashorn.internal.runtime.regexp.joni.Syntax.Java;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
@@ -35,8 +46,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         
         
         
+        int pIdentification = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification;
+        String pUsername = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username;
+                
         
-        
+                
         
         
         
@@ -69,7 +83,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         DangerousZones_Logo9 = new javax.swing.JLabel();
         Profile_JInternalFrame = new javax.swing.JInternalFrame();
-        DangerousZones_Logo1 = new javax.swing.JLabel();
         Decoration_Panel3 = new javax.swing.JPanel();
         jPanel54 = new javax.swing.JPanel();
         jLabel51 = new javax.swing.JLabel();
@@ -80,25 +93,26 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        ProfileLastName_TextField = new javax.swing.JTextField();
-        ProfilePassword_TextField = new javax.swing.JTextField();
-        ProfileGender_TextField = new javax.swing.JTextField();
-        ProfileBirthDay_TextField = new javax.swing.JTextField();
-        ProfileUsername_TextField = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        ProfileAge_TextField = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        ProfileCompany_TextField = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel141 = new javax.swing.JLabel();
         jLabel142 = new javax.swing.JLabel();
         jLabel143 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        ProfileName_TextField1 = new javax.swing.JTextField();
+        ProfilePassword_TextField = new javax.swing.JTextField();
         jLabel144 = new javax.swing.JLabel();
         Reviews_Button = new javax.swing.JButton();
+        ProfileName_TextField = new javax.swing.JTextField();
+        ProfileLastName_TextField = new javax.swing.JTextField();
+        ProfileGender_TextField = new javax.swing.JTextField();
+        ProfileBirthDay_TextField = new javax.swing.JTextField();
+        ProfileAge_TextField = new javax.swing.JTextField();
+        ProfileEmail_TextField = new javax.swing.JTextField();
+        ProfileUsername_TextField = new javax.swing.JTextField();
         Panel_Wallpaper = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        DangerousZones_Logo1 = new javax.swing.JLabel();
         RegisterInfo_JInternalFrame = new javax.swing.JInternalFrame();
         Decoration_Panel18 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -343,12 +357,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel46 = new javax.swing.JPanel();
         jLabel145 = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
-        RegisterInfoLastName_TextField1 = new javax.swing.JTextField();
-        RegisterInfoName_TextField26 = new javax.swing.JTextField();
-        RegisterInfoGender_TextField1 = new javax.swing.JTextField();
+        SearchProductYear_TextField = new javax.swing.JTextField();
+        SearchProductName_TextField = new javax.swing.JTextField();
+        SearchProductPrice_TextField = new javax.swing.JTextField();
         jLabel147 = new javax.swing.JLabel();
-        RegisterPersonGo_Button = new javax.swing.JButton();
+        SearchProductList_Button = new javax.swing.JButton();
         jLabel148 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         Panel_Wallpaper18 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         ProductResultList_JInternalFrame = new javax.swing.JInternalFrame();
@@ -358,7 +374,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel72 = new javax.swing.JPanel();
         jLabel174 = new javax.swing.JLabel();
         Decoration_Panel58 = new javax.swing.JPanel();
-        RegisterInfoName_TextField32 = new javax.swing.JTextField();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        ProductResutlist_JTable = new javax.swing.JTable();
         Panel_Wallpaper26 = new javax.swing.JLabel();
         jPanel73 = new javax.swing.JPanel();
         DangerousZones_Logo26 = new javax.swing.JLabel();
@@ -739,12 +756,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Profile_JInternalFrame.setVisible(false);
         Profile_JInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        DangerousZones_Logo1.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
-        DangerousZones_Logo1.setForeground(new java.awt.Color(0, 0, 0));
-        DangerousZones_Logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Profile Big.png"))); // NOI18N
-        DangerousZones_Logo1.setText("  Profile");
-        Profile_JInternalFrame.getContentPane().add(DangerousZones_Logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 370, 140));
-
         Decoration_Panel3.setBackground(new java.awt.Color(0, 102, 204));
         Decoration_Panel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -760,13 +771,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel54.add(jPanel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 170, 180));
 
         jLabel136.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel136.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel136.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel136.setForeground(new java.awt.Color(0, 0, 0));
         jLabel136.setText("See your info");
         jLabel136.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel54.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 130, 50));
+        jPanel54.add(jLabel136, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 150, 50));
 
-        Decoration_Panel3.add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1070, 70));
+        Decoration_Panel3.add(jPanel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1050, 73));
 
         Profile_JInternalFrame.getContentPane().add(Decoration_Panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1040, 80));
 
@@ -800,11 +811,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel23.setText("Age:");
         jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 110, 30));
-        Decoration_Panel5.add(ProfileLastName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 240, 30));
-        Decoration_Panel5.add(ProfilePassword_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 240, 30));
-        Decoration_Panel5.add(ProfileGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 30));
-        Decoration_Panel5.add(ProfileBirthDay_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, 30));
-        Decoration_Panel5.add(ProfileUsername_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 240, 30));
 
         jLabel24.setBackground(new java.awt.Color(219, 219, 219));
         jLabel24.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -812,7 +818,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel24.setText("Gender:");
         jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 110, 30));
-        Decoration_Panel5.add(ProfileAge_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, 30));
 
         jLabel25.setBackground(new java.awt.Color(219, 219, 219));
         jLabel25.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -820,7 +825,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel25.setText("Email:");
         jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, 30));
-        Decoration_Panel5.add(ProfileCompany_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 30));
 
         jLabel26.setBackground(new java.awt.Color(219, 219, 219));
         jLabel26.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -856,8 +860,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Name:");
         jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 90, 40));
-        Decoration_Panel5.add(ProfileName_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 240, 30));
+        Decoration_Panel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 90, -1));
+
+        ProfilePassword_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfilePassword_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfilePassword_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfilePassword_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfilePassword_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 240, 30));
 
         jLabel144.setBackground(new java.awt.Color(219, 219, 219));
         jLabel144.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -887,6 +896,48 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         Decoration_Panel5.add(Reviews_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 90, 30));
 
+        ProfileName_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileName_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileName_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileName_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 240, 30));
+
+        ProfileLastName_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileLastName_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileLastName_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileLastName_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileLastName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 240, 30));
+
+        ProfileGender_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileGender_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileGender_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileGender_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 240, 30));
+
+        ProfileBirthDay_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileBirthDay_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileBirthDay_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileBirthDay_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileBirthDay_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 240, 30));
+
+        ProfileAge_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileAge_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileAge_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileAge_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileAge_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 240, 30));
+
+        ProfileEmail_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileEmail_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileEmail_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileEmail_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileEmail_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 240, 30));
+
+        ProfileUsername_TextField.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ProfileUsername_TextField.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 102, 204)));
+        ProfileUsername_TextField.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        ProfileUsername_TextField.setEnabled(false);
+        Decoration_Panel5.add(ProfileUsername_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 240, 30));
+
         Profile_JInternalFrame.getContentPane().add(Decoration_Panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 950, 350));
 
         Panel_Wallpaper.setBackground(new java.awt.Color(219, 219, 219));
@@ -898,6 +949,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Profile_JInternalFrame.getContentPane().add(Panel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 1050, 390));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        DangerousZones_Logo1.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
+        DangerousZones_Logo1.setForeground(new java.awt.Color(0, 0, 0));
+        DangerousZones_Logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Profile Big.png"))); // NOI18N
+        DangerousZones_Logo1.setText("  Profile");
+        jPanel6.add(DangerousZones_Logo1);
+
         Profile_JInternalFrame.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 160));
 
         getContentPane().add(Profile_JInternalFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 1050, 650));
@@ -2679,19 +2737,19 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel145.setBackground(new java.awt.Color(219, 219, 219));
         jLabel145.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel145.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel145.setText("Mostrar recomendaciones con J Table");
+        jLabel145.setText("Our Recomendations!");
         jLabel145.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel46.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 310, 80));
+        Decoration_Panel46.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 210, 40));
 
         jLabel146.setBackground(new java.awt.Color(219, 219, 219));
         jLabel146.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel146.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel146.setText("Age:");
+        jLabel146.setText("Year:");
         jLabel146.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel46.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 50, 30));
-        Decoration_Panel46.add(RegisterInfoLastName_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 140, 30));
-        Decoration_Panel46.add(RegisterInfoName_TextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 140, 30));
-        Decoration_Panel46.add(RegisterInfoGender_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 140, 30));
+        Decoration_Panel46.add(SearchProductYear_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 140, 30));
+        Decoration_Panel46.add(SearchProductName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 140, 30));
+        Decoration_Panel46.add(SearchProductPrice_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 140, 30));
 
         jLabel147.setBackground(new java.awt.Color(219, 219, 219));
         jLabel147.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2700,26 +2758,26 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel147.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel46.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 50, 30));
 
-        RegisterPersonGo_Button.setBackground(new java.awt.Color(0, 102, 204));
-        RegisterPersonGo_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        RegisterPersonGo_Button.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterPersonGo_Button.setText("Go!");
-        RegisterPersonGo_Button.setBorder(null);
-        RegisterPersonGo_Button.setFocusable(false);
-        RegisterPersonGo_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+        SearchProductList_Button.setBackground(new java.awt.Color(0, 102, 204));
+        SearchProductList_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        SearchProductList_Button.setForeground(new java.awt.Color(255, 255, 255));
+        SearchProductList_Button.setText("Go!");
+        SearchProductList_Button.setBorder(null);
+        SearchProductList_Button.setFocusable(false);
+        SearchProductList_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_ButtonMouseEntered(evt);
+                SearchProductList_ButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_ButtonMouseExited(evt);
+                SearchProductList_ButtonMouseExited(evt);
             }
         });
-        RegisterPersonGo_Button.addActionListener(new java.awt.event.ActionListener() {
+        SearchProductList_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterPersonGo_ButtonActionPerformed(evt);
+                SearchProductList_ButtonActionPerformed(evt);
             }
         });
-        Decoration_Panel46.add(RegisterPersonGo_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 90, 40));
+        Decoration_Panel46.add(SearchProductList_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 90, 40));
 
         jLabel148.setBackground(new java.awt.Color(219, 219, 219));
         jLabel148.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2727,6 +2785,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel148.setText("Name:");
         jLabel148.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel46.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 90, 40));
+
+        jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jTable1.setEnabled(false);
+        jScrollPane4.setViewportView(jTable1);
+
+        Decoration_Panel46.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 440, 220));
 
         Search_Product_JInternalFrame.getContentPane().add(Decoration_Panel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 840, 360));
 
@@ -2776,8 +2850,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel58.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel58.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField32.setFocusable(false);
-        Decoration_Panel58.add(RegisterInfoName_TextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        ProductResutlist_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane16.setViewportView(ProductResutlist_JTable);
+
+        Decoration_Panel58.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 730, 340));
 
         ProductResultList_JInternalFrame.getContentPane().add(Decoration_Panel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -3091,7 +3174,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Reviews_Button5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Reviews_Button5.setForeground(new java.awt.Color(255, 255, 255));
         Reviews_Button5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Icon White.png"))); // NOI18N
-        Reviews_Button5.setText("Add to Wishlist!");
+        Reviews_Button5.setText("See your Wishlist!");
         Reviews_Button5.setBorder(null);
         Reviews_Button5.setFocusable(false);
         Reviews_Button5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3107,7 +3190,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Reviews_Button5ActionPerformed(evt);
             }
         });
-        Decoration_Panel17.add(Reviews_Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 200, 40));
+        Decoration_Panel17.add(Reviews_Button5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 210, 40));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4735,6 +4818,45 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     
      
       Profile_JInternalFrame.setVisible(true);
+      
+      
+      
+        try {
+            ProfileName_TextField.setText(Connection.DBConnection.get_person_first_name(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            ProfileLastName_TextField.setText(Connection.DBConnection.get_person_last_name(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            int id_gender = Connection.DBConnection.get_person_id_genre(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification);
+                    ProfileGender_TextField.setText(Connection.DBConnection.get_genre_name(id_gender));
+            Date birth_day = Connection.DBConnection.get_person_birthday(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification);       
+                    ProfileBirthDay_TextField.setText(birth_day.toString());
+           /* int birth_day_year = birth_day.getYear();
+                    Calendar today = new GregorianCalendar();
+                    int today_year = today.getWeekYear();
+                    ProfileAge_TextField.setText("");*/
+            ProfileEmail_TextField.setText(Connection.DBConnection.get_person_email(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            ProfileUsername_TextField.setText(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username);
+            ProfilePassword_TextField.setText(Connection.DBConnection.get_person_password(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification));
+            
+            
+                    
+                    
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
        
     }//GEN-LAST:event_Profile_ButtonActionPerformed
 
@@ -4862,6 +4984,50 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
            
         
      Search_Product_JInternalFrame.setVisible(true);
+     
+     
+   
+     
+     
+     
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Product Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Price");
+        
+        
+        jTable1.setModel(modelo);
+        
+         try {
+             ResultSet res = Connection.DBConnection.get_product_recomendations();
+             String data [] = new String[3];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+    SearchProductName_TextField.setText("");
+    SearchProductYear_TextField.setText("");
+    SearchProductPrice_TextField.setText("");
+        
+     
+     
+     
+     
+     
+     
+     
+     
+     
     }//GEN-LAST:event_SearchProduct_ButtonActionPerformed
 
     private void Profile_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseEntered
@@ -5975,70 +6141,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RegisterPersonGo_Button20ActionPerformed
 
-    private void Reviews_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Reviews_ButtonMouseEntered
+    private void SearchProductList_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductList_ButtonMouseEntered
+        SearchProductList_Button.setBackground(new java.awt.Color(19,79,139));
+    }//GEN-LAST:event_SearchProductList_ButtonMouseEntered
 
-    private void Reviews_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Reviews_ButtonMouseExited
+    private void SearchProductList_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductList_ButtonMouseExited
+        SearchProductList_Button.setBackground(new java.awt.Color(0,102,204));
+    }//GEN-LAST:event_SearchProductList_ButtonMouseExited
 
-    private void Reviews_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_ButtonActionPerformed
-        Profile_JInternalFrame.setVisible(false);
-     Reviews_JInternalFrame.setVisible(false);
-     RegisterInfo_JInternalFrame.setVisible(false);
-            RegisterInfo_Person_JInternalFrame.setVisible(false);
-            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-                        List_Panel.setVisible(false);
-            RegisterInfo_Place_JInternalFrame.setVisible(false);
-                        List_Panel1.setVisible(false);
-            RegisterInfo_Gender_JInternalFrame.setVisible(false);
-                        List_Panel2.setVisible(false);
-            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
-                        List_Panel3.setVisible(false);
-            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-                        List_Panel4.setVisible(false);
-                        
-    Search_Product_JInternalFrame.setVisible(false);
-            ProductResultList_JInternalFrame.setVisible(false);
-            ShoppingCart_JInternalFrame.setVisible(false);
-             Pay_Method_JInternalFrame.setVisible(false);
-         
-    Wishlist_JInternalFrame.setVisible(false); 
-    Chat_JInternalFrame.setVisible(false);
-    Sold_Products_JInternalFrame.setVisible(false);
-    BoughtProducts_JInternalFrame.setVisible(false);
-    AdditionalQueries_JInternalFrame.setVisible(false); 
-            
-            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
-            BestSellingUsers_JInternalFrame.setVisible(false);
-            BestQualifiedUsers_JInternalFrame.setVisible(false);
-            UsersMorePurchases_JInternalFrame.setVisible(false);
-            ExpensiveProducts_JInternalFrame.setVisible(false);
-            
-            Statistics_JInternalFrame.setVisible(false);
-
-    Register_Product_JInternalFrame.setVisible(false);
-        
-        
-        
-        
-        
-        
-        
-        
-   Reviews_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_Reviews_ButtonActionPerformed
-
-    private void RegisterPersonGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_ButtonMouseEntered
-        RegisterPersonGo_Button.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_RegisterPersonGo_ButtonMouseEntered
-
-    private void RegisterPersonGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_ButtonMouseExited
-        RegisterPersonGo_Button.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_RegisterPersonGo_ButtonMouseExited
-
-    private void RegisterPersonGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_ButtonActionPerformed
+    private void SearchProductList_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProductList_ButtonActionPerformed
      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -6077,7 +6188,61 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
 
     ProductResultList_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_RegisterPersonGo_ButtonActionPerformed
+    
+    
+    
+    
+    
+    
+    String pName;
+    int pYear = 0;
+    int pPrice = 0;
+    
+    
+    pName = SearchProductName_TextField.getText();
+    if(pName == null){
+        pName = "";
+    }
+    pYear = Integer.parseInt(SearchProductYear_TextField.getText());
+    
+    pPrice = Integer.parseInt(SearchProductPrice_TextField.getText());
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Product Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Price");
+        
+        
+        ProductResutlist_JTable.setModel(modelo);
+        
+         try {
+             ResultSet res = Connection.DBConnection.get_product_results(pName, pYear, pPrice);
+             String data [] = new String[3];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }//GEN-LAST:event_SearchProductList_ButtonActionPerformed
 
     private void SendMessage_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SendMessage_ButtonMouseEntered
         SendMessage_Button.setBackground(new java.awt.Color(19,79,139));
@@ -6453,6 +6618,54 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void Reviews_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_ButtonActionPerformed
+        Profile_JInternalFrame.setVisible(false);
+        Reviews_JInternalFrame.setVisible(false);
+        RegisterInfo_JInternalFrame.setVisible(false);
+        RegisterInfo_Person_JInternalFrame.setVisible(false);
+        RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+        List_Panel.setVisible(false);
+        RegisterInfo_Place_JInternalFrame.setVisible(false);
+        List_Panel1.setVisible(false);
+        RegisterInfo_Gender_JInternalFrame.setVisible(false);
+        List_Panel2.setVisible(false);
+        RegisterInfo_ProductType_JInternalFrame.setVisible(false);
+        List_Panel3.setVisible(false);
+        RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+        List_Panel4.setVisible(false);
+
+        Search_Product_JInternalFrame.setVisible(false);
+        ProductResultList_JInternalFrame.setVisible(false);
+        ShoppingCart_JInternalFrame.setVisible(false);
+        Pay_Method_JInternalFrame.setVisible(false);
+
+        Wishlist_JInternalFrame.setVisible(false);
+        Chat_JInternalFrame.setVisible(false);
+        Sold_Products_JInternalFrame.setVisible(false);
+        BoughtProducts_JInternalFrame.setVisible(false);
+        AdditionalQueries_JInternalFrame.setVisible(false);
+
+        WorstQualifiedUsers_JInternalFrame.setVisible(false);
+        BestSellingUsers_JInternalFrame.setVisible(false);
+        BestQualifiedUsers_JInternalFrame.setVisible(false);
+        UsersMorePurchases_JInternalFrame.setVisible(false);
+        ExpensiveProducts_JInternalFrame.setVisible(false);
+
+        Statistics_JInternalFrame.setVisible(false);
+
+        Register_Product_JInternalFrame.setVisible(false);
+
+        Reviews_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_Reviews_ButtonActionPerformed
+
+    private void Reviews_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Reviews_ButtonMouseExited
+
+    private void Reviews_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_ButtonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Reviews_ButtonMouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -6491,6 +6704,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Admin_Main_Menu().setVisible(true);
+
             }
         });
     }
@@ -6679,19 +6893,20 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Places2;
     private javax.swing.JInternalFrame ProductInfo_JInternalFrame;
     private javax.swing.JInternalFrame ProductResultList_JInternalFrame;
+    private javax.swing.JTable ProductResutlist_JTable;
     private javax.swing.JTextField ProfileAge_TextField;
     private javax.swing.JTextField ProfileAge_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField;
     private javax.swing.JTextField ProfileBirthDay_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField3;
-    private javax.swing.JTextField ProfileCompany_TextField;
+    private javax.swing.JTextField ProfileEmail_TextField;
     private javax.swing.JTextField ProfileGender_TextField;
     private javax.swing.JTextField ProfileGender_TextField1;
     private javax.swing.JTextField ProfileGender_TextField3;
     private javax.swing.JTextField ProfileLastName_TextField;
     private javax.swing.JTextField ProfileLastName_TextField1;
     private javax.swing.JTextField ProfileLastName_TextField3;
-    private javax.swing.JTextField ProfileName_TextField1;
+    private javax.swing.JTextField ProfileName_TextField;
     private javax.swing.JTextField ProfileName_TextField2;
     private javax.swing.JTextField ProfilePassword_TextField;
     private javax.swing.JTextField ProfilePassword_TextField1;
@@ -6710,11 +6925,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton RegisteProduct_Button;
     private javax.swing.JComboBox<String> RegisterInfoCompany_ComboBox;
     private javax.swing.JTextField RegisterInfoGender_TextField;
-    private javax.swing.JTextField RegisterInfoGender_TextField1;
     private javax.swing.JTextField RegisterInfoGender_TextField2;
     private javax.swing.JTextField RegisterInfoIdentification_TextField;
     private javax.swing.JTextField RegisterInfoIdentification_TextField2;
-    private javax.swing.JTextField RegisterInfoLastName_TextField1;
     private javax.swing.JTextField RegisterInfoLastName_TextField2;
     private javax.swing.JTextField RegisterInfoName_TextField10;
     private javax.swing.JTextField RegisterInfoName_TextField11;
@@ -6731,13 +6944,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField RegisterInfoName_TextField23;
     private javax.swing.JTextField RegisterInfoName_TextField24;
     private javax.swing.JTextField RegisterInfoName_TextField25;
-    private javax.swing.JTextField RegisterInfoName_TextField26;
     private javax.swing.JTextField RegisterInfoName_TextField27;
     private javax.swing.JTextField RegisterInfoName_TextField28;
     private javax.swing.JTextField RegisterInfoName_TextField29;
     private javax.swing.JTextField RegisterInfoName_TextField30;
     private javax.swing.JTextField RegisterInfoName_TextField31;
-    private javax.swing.JTextField RegisterInfoName_TextField32;
     private javax.swing.JTextField RegisterInfoName_TextField5;
     private javax.swing.JTextField RegisterInfoName_TextField6;
     private javax.swing.JTextField RegisterInfoName_TextField7;
@@ -6752,7 +6963,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JInternalFrame RegisterInfo_Place_JInternalFrame;
     private javax.swing.JInternalFrame RegisterInfo_ProductType_JInternalFrame;
     private javax.swing.JInternalFrame RegisterInfo_ShippingType_JInternalFrame;
-    private javax.swing.JButton RegisterPersonGo_Button;
     private javax.swing.JButton RegisterPersonGo_Button1;
     private javax.swing.JButton RegisterPersonGo_Button11;
     private javax.swing.JButton RegisterPersonGo_Button13;
@@ -6783,6 +6993,10 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Reviews_Button6;
     private javax.swing.JInternalFrame Reviews_JInternalFrame;
     private javax.swing.JPanel SearchCriminalFile_Panel;
+    private javax.swing.JButton SearchProductList_Button;
+    private javax.swing.JTextField SearchProductName_TextField;
+    private javax.swing.JTextField SearchProductPrice_TextField;
+    private javax.swing.JTextField SearchProductYear_TextField;
     private javax.swing.JButton SearchProduct_Button;
     private javax.swing.JInternalFrame Search_Product_JInternalFrame;
     private javax.swing.JButton SendMessage_Button;
@@ -7071,13 +7285,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
