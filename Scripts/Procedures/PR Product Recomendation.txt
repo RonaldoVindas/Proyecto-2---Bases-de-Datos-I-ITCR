@@ -1,0 +1,19 @@
+/*=============Tabla: Product =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+USE `pr`;
+
+
+USE `pr`;
+DROP procedure IF EXISTS `get_product_recomendations`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `get_product_recomendations` ()
+BEGIN
+	SELECT name, description, price
+    FROM product
+    WHERE id_status = 1;
+END$$
+
+DELIMITER ;

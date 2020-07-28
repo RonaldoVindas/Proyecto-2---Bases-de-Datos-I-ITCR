@@ -1,0 +1,15 @@
+/*=============Query: Product Result  =======================================*/
+/*Author: Ronaldo Vindas B 2018238697*/
+
+DROP procedure IF EXISTS `get_product_results`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `get_product_results` (IN pName VARCHAR(45),In pYear INT, IN pPrice INT)
+BEGIN
+	SELECT name, description, price
+    FROM product
+    WHERE id_status = 1 AND (name = pName OR year = pYear OR price = pPrice);
+END$$
+
+DELIMITER ;

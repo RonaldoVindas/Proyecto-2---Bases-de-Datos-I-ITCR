@@ -28,11 +28,11 @@ DELIMITER ;
 
 /*////////////////////////////////////*/
 
-DROP function IF EXISTS `get_canton_id_province`;
+DROP function IF EXISTS `get_province_id_country`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE FUNCTION `get_canton_id_province` (pId INT)
+CREATE FUNCTION `get_province_id_country` (pId INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN
@@ -43,8 +43,8 @@ BEGIN
 
 
 	DECLARE vcId INT;
-    SET vcId = (SELECT id_province FROM canton WHERE id_canton = pID);
-	RETURN vcId;
+    SET vcId = (SELECT id_country FROM province WHERE id_province = pId);
+RETURN vcId;
 END$$
 
 DELIMITER ;

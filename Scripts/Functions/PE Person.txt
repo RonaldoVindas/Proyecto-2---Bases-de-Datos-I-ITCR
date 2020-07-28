@@ -4,6 +4,24 @@ USE `pe`;
 
 /*=============Getters===========================*/
 
+DROP function IF EXISTS `get_person_identification`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_identification` (pUsername VARCHAR(45))
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+	DECLARE vcIdentification INT;
+    SET vcIdentification = (SELECT identification FROM person WHERE user_name = pUsername);
+    RETURN vcIdentification;
+END$$
+
+DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
 DROP function IF EXISTS `get_person_first_name`;
 
 DELIMITER $$
@@ -83,6 +101,25 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+/*////////////////////////////////////*/
+
+
+DROP function IF EXISTS `get_person_email`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE FUNCTION `get_person_email` (pId INT)
+RETURNS VARCHAR (45)
+DETERMINISTIC
+BEGIN
+	DECLARE vcEmail VARCHAR(45);
+    SET vcEmail = (SELECT email FROM person WHERE identification = pId);
+RETURN vcEmail;
+END$$
+
+DELIMITER ;
+
 
 /*////////////////////////////////////*/
 

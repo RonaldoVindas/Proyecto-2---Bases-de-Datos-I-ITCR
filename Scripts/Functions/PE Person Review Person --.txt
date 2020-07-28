@@ -33,7 +33,7 @@ DROP function IF EXISTS `get_person_review_person_id_person_transmitter`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE FUNCTION `get_person_review_person_id_person_transmitter` ()
+CREATE FUNCTION `get_person_review_person_id_person_transmitter` (pTransmitter INT)
 RETURNS INTEGER
 DETERMINISTIC
 BEGIN

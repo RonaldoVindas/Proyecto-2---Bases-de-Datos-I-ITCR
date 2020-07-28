@@ -5,11 +5,11 @@ USE `pe`;
 
 /*=============Getters===========================*/
 
-DROP function IF EXISTS `get_cart_status`;
+DROP function IF EXISTS `get_shopping_cart_status`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE FUNCTION `get_cart_status` (pId INT)
+CREATE FUNCTION `get_shopping_cart_status` (pId INT)
 RETURNS VARCHAR(30)
 DETERMINISTIC
 BEGIN

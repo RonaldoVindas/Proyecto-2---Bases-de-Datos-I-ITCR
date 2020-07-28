@@ -65,3 +65,20 @@ IF NEW.date_last_modification IS NULL OR NEW.user_last_modification IS NULL THEN
 	END IF;
 END$$
 DELIMITER ;
+
+
+
+
+/*================ ALter =======================================*/
+
+
+ALTER TABLE `pr`.`product` 
+ADD COLUMN `id_status` INT NULL AFTER `id_product_type`,
+ADD INDEX `fk_product_id_status_idx` (`id_status` ASC) VISIBLE;
+;
+ALTER TABLE `pr`.`product` 
+ADD CONSTRAINT `fk_product_id_status`
+  FOREIGN KEY (`id_status`)
+  REFERENCES `pr`.`status` (`id_status`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

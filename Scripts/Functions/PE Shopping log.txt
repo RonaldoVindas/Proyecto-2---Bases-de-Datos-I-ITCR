@@ -5,19 +5,17 @@ USE `pe`;
 
 /*=============Getters===========================*/
 
-DROP function IF EXISTS `get_log_record_owner`;
+DROP function IF EXISTS `get_shopping_log_record_owner`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE FUNCTION `get_log_record_owner` (pId INT)
-RETURNS VARCHAR(45)
-DETERMINISTIC
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_shopping_log_record_owner`(pId INT) RETURNS varchar(45) CHARSET utf8mb4
+    DETERMINISTIC
 BEGIN
-
 	DECLARE vcValue VARCHAR(45);
     SET vcValue = (SELECT record_owner FROM shopping_log WHERE id_shopping_log = pId);
 	RETURN vcValue;
+    /**/
 END$$
 
 DELIMITER ;
-

@@ -16,7 +16,7 @@ BEGIN
 
 
 	DECLARE vcStars INT;
-    SET vcStars = (SELECT Stars From reputation WHERE id_Reputation = pId);
+    SET vcStars = (SELECT stars From reputation WHERE id_reputation = pId);
 	RETURN vcStars;
 END$$
 
@@ -38,7 +38,7 @@ BEGIN
 
 
 	DECLARE vcClasification INT;
-    SET vcClasification = (SELECT Clasification From reputation WHERE id_Reputation = pId);
+    SET vcClasification = (SELECT clasification From reputation WHERE id_reputation = pId);
 	RETURN vcClasification;
 END$$
 
