@@ -1,0 +1,18 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pe`;
+DROP procedure IF EXISTS `get_my_complete_wishlist`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_my_complete_wishlist` (In pId INT)
+BEGIN
+	SELECT wishlist_has_product.id_product, product.name, product.price, wishlist_has_product.creation_date
+FROM wishlist_has_product
+INNER JOIN pr.product
+ON wishlist_has_product.id_product = product.id_product
+JOIN person
+ON person.id_wishlist = pId;
+END$$
+
+DELIMITER ;

@@ -5,11 +5,11 @@ USE `pe`;
 
 /*============= INSERT ===========================*/
 
-DROP procedure IF EXISTS `wishlist_has_product`;
+DROP procedure IF EXISTS `insert_wishlist_has_product`;
 
 DELIMITER $$
 USE `pe`$$
-CREATE PROCEDURE `wishlist_has_product` (IN pIdWishlist INT, IN pIdProduct INT)
+CREATE PROCEDURE `insert_wishlist_has_product` (IN pIdWishlist INT, IN pIdProduct INT)
 BEGIN
 
 DECLARE EXIT HANDLER FOR 1062 SELECT 'Duplicate keys error encountered.' Message;

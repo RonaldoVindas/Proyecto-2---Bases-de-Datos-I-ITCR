@@ -1,0 +1,14 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pr`;
+DROP procedure IF EXISTS `get_all_product_types`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `get_all_product_types` ()
+BEGIN
+	SELECT id_product_type, type
+	FROM product_type;
+END$$
+
+DELIMITER ;

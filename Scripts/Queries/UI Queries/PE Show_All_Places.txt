@@ -1,0 +1,14 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pe`;
+DROP procedure IF EXISTS `get_all_places`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_all_places` ()
+BEGIN
+     SELECT *
+     FROM country, province, canton, district, community;
+END$$
+
+DELIMITER ;

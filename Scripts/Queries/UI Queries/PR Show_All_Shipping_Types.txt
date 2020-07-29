@@ -1,0 +1,14 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pr`;
+DROP procedure IF EXISTS `get_all_shipping_types`;
+
+DELIMITER $$
+USE `pr`$$
+CREATE PROCEDURE `get_all_shipping_types` ()
+BEGIN
+	SELECT id_shipping_type, type
+	FROM shipping_type;
+END$$
+
+DELIMITER ;

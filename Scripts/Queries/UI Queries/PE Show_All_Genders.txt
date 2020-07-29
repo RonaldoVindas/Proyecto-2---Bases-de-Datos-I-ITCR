@@ -1,0 +1,14 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pe`;
+DROP procedure IF EXISTS `get_all_genders`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `get_all_genders` ()
+BEGIN
+	SELECT id_genre, name
+	FROM genre;
+END$$
+
+DELIMITER ;

@@ -1,0 +1,14 @@
+//Author: Ronaldo Vindas B.  2018239697
+
+USE `pe`;
+DROP procedure IF EXISTS `show_nationalities`;
+
+DELIMITER $$
+USE `pe`$$
+CREATE PROCEDURE `show_nationalities` ()
+BEGIN
+	SELECT id_nationality, name
+	FROM nationality;
+END$$
+
+DELIMITER ;
