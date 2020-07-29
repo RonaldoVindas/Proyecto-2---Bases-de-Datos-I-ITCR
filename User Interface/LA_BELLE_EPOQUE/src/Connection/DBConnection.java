@@ -1641,38 +1641,229 @@ public class DBConnection {
     
   //==============================FUNCIONES DE ESQUEMA PR =========================================
   
+    
+    //Photo
+    public static String get_photo_photo_information(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_photo_photo_information(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
+  
+    
+    //Product Has Photo
+  public static int get_product_has_photo_id_photo(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_has_photo_id_photo(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  public static int get_product_has_photo_id_product(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_has_photo_id_product(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  //Product Has Shipping Type
+  
+  public static int get_product_has_shipping_type_id_product(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_has_shipping_type_id_product(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  public static int get_product_has_shipping_type_id_shipping_type(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_has_shipping_type_id_shipping_type(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  // Product
+  
+  public static String get_product_name(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_name(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
+  
+  public static String get_product_product_condition(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_product_condition(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
+  
+  public static String get_product_description(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_description(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
+  
+  public static int get_product_object_age(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_object_age(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  public static int get_product_price(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_price(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  public static int get_product_id_product_binnacle(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_id_product_binnacle(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+   public static int get_product_id_product_type(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_id_product_type(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
   
   
+  //Product Binnacle
   
+  public static int get_product_binnacle_last_price(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_binnacle_last_price(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
   
+  public static int get_product_binnacle_actual_price(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_binnacle_actual_price(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
   
+  public static String get_product_binnacle_last_owner(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_binnacle_last_owner(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
   
+  public static String get_product_binnacle_actual_owner(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_binnacle_actual_owner(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
   
+  //Product Type
   
+  public static String get_product_type_type(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_type_type(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
   
+  //Shipping Type
   
+  public static String get_shipping_type_type(int pId) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_shipping_type_type(?)}");
+        stmt.registerOutParameter(1, Types.VARCHAR);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        String rs = stmt.getString(1);
+        System.out.println(rs);
+        return rs;
+   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  public static int get_shipping_type_iD(int pId) throws SQLException{
+     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_shipping_type_iD(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setInt(2, pId);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
   
   //=========================== QUERIES =============================//
   
@@ -1748,10 +1939,12 @@ public class DBConnection {
         System.out.println(rs);
         return rs;
    }               
-            
-            
-  
-  ///Procedimientos de PE
+           
+    
+    
+    
+    
+    
   //TODO de PAR
   
 }

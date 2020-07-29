@@ -5,11 +5,11 @@ USE `pe`;
 
 /*=============Getters===========================*/
 
-DROP function IF EXISTS `get_prouct_has_photo_id_photo`;
+DROP function IF EXISTS `get_product_has_photo_id_photo`;
 
 DELIMITER $$
 USE `pr`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_photo`(pId INT) RETURNS int
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_product_has_photo_id_photo`(pId INT) RETURNS int
     DETERMINISTIC
 BEGIN
 
@@ -25,11 +25,11 @@ DELIMITER ;
 
 /*//////////////////////////////////////////////*/
 
-DROP function IF EXISTS `get_prouct_has_photo_id_product`;
+DROP function IF EXISTS `get_product_has_photo_id_product`;
 
 DELIMITER $$
 USE `pr`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `get_prouct_has_photo_id_product`(pId INT) RETURNS int
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_product_has_photo_id_product`(pId INT) RETURNS int
     DETERMINISTIC
 BEGIN
 

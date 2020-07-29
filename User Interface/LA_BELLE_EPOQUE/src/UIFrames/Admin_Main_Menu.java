@@ -385,7 +385,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel174 = new javax.swing.JLabel();
         Decoration_Panel58 = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
-        ProductResutlist_JTable = new javax.swing.JTable();
+        ProductResultlist_JTable = new javax.swing.JTable();
         Panel_Wallpaper26 = new javax.swing.JLabel();
         jPanel73 = new javax.swing.JPanel();
         DangerousZones_Logo26 = new javax.swing.JLabel();
@@ -400,24 +400,26 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        ProfileLastName_TextField1 = new javax.swing.JTextField();
-        ProfilePassword_TextField1 = new javax.swing.JTextField();
-        ProfileGender_TextField1 = new javax.swing.JTextField();
-        ProfileBirthDay_TextField1 = new javax.swing.JTextField();
-        ProfileUsername_TextField1 = new javax.swing.JTextField();
+        Product_Price_TextField = new javax.swing.JTextField();
+        ProductOwner_TextField = new javax.swing.JTextField();
+        Product_Condition_TextField = new javax.swing.JTextField();
+        Product_Age_TextField = new javax.swing.JTextField();
+        Product_Owner_Qualification_TextField = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        ProfileAge_TextField1 = new javax.swing.JTextField();
+        ProductShipping_TextField = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel176 = new javax.swing.JLabel();
         jLabel177 = new javax.swing.JLabel();
         jLabel178 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        ProfileName_TextField2 = new javax.swing.JTextField();
+        ProductName_TextField = new javax.swing.JTextField();
         Reviews_Button1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ProductDescription_TextField = new javax.swing.JTextArea();
         Reviews_Button2 = new javax.swing.JButton();
+        Product_Type_TextField = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
         Panel_Wallpaper1 = new javax.swing.JLabel();
         jPanel26 = new javax.swing.JPanel();
         DangerousZones_Logo3 = new javax.swing.JLabel();
@@ -1713,7 +1715,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         List_Panel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 610, 310));
 
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 680, 370));
+        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 680, 370));
 
         Show_Panel1.setBackground(new java.awt.Color(255, 255, 255));
         Show_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3038,7 +3040,18 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel58.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel58.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ProductResutlist_JTable.setModel(new javax.swing.table.DefaultTableModel(
+        ProductResultlist_JTable= new JTable(){
+            public boolean isCellEditable(int row, int column){
+                for (int i = 0; i < ProductResultlist_JTable.getRowCount(); i++){
+                    if(row == i && column == 3){
+                        return false;
+                    }
+
+                } return true;
+            }
+
+        };
+        ProductResultlist_JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -3046,12 +3059,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
             }
         ));
-        ProductResutlist_JTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        ProductResultlist_JTable.setFocusable(false);
+        ProductResultlist_JTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProductResutlist_JTableMouseClicked(evt);
+                ProductResultlist_JTableMouseClicked(evt);
             }
         });
-        jScrollPane16.setViewportView(ProductResutlist_JTable);
+        jScrollPane16.setViewportView(ProductResultlist_JTable);
 
         Decoration_Panel58.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 730, 340));
 
@@ -3079,7 +3093,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         ProductInfo_JInternalFrame.setBackground(new java.awt.Color(255, 255, 255));
         ProductInfo_JInternalFrame.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 102, 204)));
-        ProductInfo_JInternalFrame.setVisible(false);
+        ProductInfo_JInternalFrame.setPreferredSize(new java.awt.Dimension(1056, 1056));
+        ProductInfo_JInternalFrame.setVisible(true);
         ProductInfo_JInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Decoration_Panel7.setBackground(new java.awt.Color(0, 102, 204));
@@ -3099,11 +3114,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel175.setBackground(new java.awt.Color(219, 219, 219));
         jLabel175.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel175.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel175.setText("See information about your product");
+        jLabel175.setText("See Information About a Product !");
         jLabel175.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel74.add(jLabel175, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 340, 50));
 
-        Decoration_Panel7.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1070, 70));
+        Decoration_Panel7.add(jPanel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1050, 70));
 
         ProductInfo_JInternalFrame.getContentPane().add(Decoration_Panel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1040, 80));
 
@@ -3115,55 +3130,79 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Price:");
         jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, 30));
+        Decoration_Panel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 110, 30));
 
         jLabel27.setBackground(new java.awt.Color(219, 219, 219));
         jLabel27.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Description:");
         jLabel27.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 120, 30));
+        Decoration_Panel9.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 120, 30));
 
         jLabel28.setBackground(new java.awt.Color(219, 219, 219));
         jLabel28.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Seller Qualification:");
         jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 190, 30));
+        Decoration_Panel9.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 190, 30));
 
         jLabel29.setBackground(new java.awt.Color(219, 219, 219));
         jLabel29.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel29.setText("Product Age:");
+        jLabel29.setText("Product Year:");
         jLabel29.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 30));
-        Decoration_Panel9.add(ProfileLastName_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 240, 30));
-        Decoration_Panel9.add(ProfilePassword_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 240, 30));
-        Decoration_Panel9.add(ProfileGender_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 240, 30));
-        Decoration_Panel9.add(ProfileBirthDay_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 240, 30));
-        Decoration_Panel9.add(ProfileUsername_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 240, 30));
+        Decoration_Panel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 30));
+
+        Product_Price_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Product_Price_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Product_Price_TextField.setFocusable(false);
+        Decoration_Panel9.add(Product_Price_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 240, 30));
+
+        ProductOwner_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ProductOwner_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        ProductOwner_TextField.setFocusable(false);
+        Decoration_Panel9.add(ProductOwner_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 240, 30));
+
+        Product_Condition_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Product_Condition_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Product_Condition_TextField.setFocusable(false);
+        Decoration_Panel9.add(Product_Condition_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 240, 30));
+
+        Product_Age_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Product_Age_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Product_Age_TextField.setFocusable(false);
+        Decoration_Panel9.add(Product_Age_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 240, 30));
+
+        Product_Owner_Qualification_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Product_Owner_Qualification_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Product_Owner_Qualification_TextField.setFocusable(false);
+        Decoration_Panel9.add(Product_Owner_Qualification_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 240, 30));
 
         jLabel30.setBackground(new java.awt.Color(219, 219, 219));
         jLabel30.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Condition:");
         jLabel30.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, 30));
-        Decoration_Panel9.add(ProfileAge_TextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 240, 30));
+        Decoration_Panel9.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 30));
+
+        ProductShipping_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ProductShipping_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        ProductShipping_TextField.setFocusable(false);
+        Decoration_Panel9.add(ProductShipping_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 240, 30));
 
         jLabel31.setBackground(new java.awt.Color(219, 219, 219));
         jLabel31.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel31.setText("Shipping Type:");
+        jLabel31.setText("Product Type:");
         jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
+        Decoration_Panel9.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, 30));
 
         jLabel32.setBackground(new java.awt.Color(219, 219, 219));
         jLabel32.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("By:");
         jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 110, 30));
+        Decoration_Panel9.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 110, 30));
 
         jLabel176.setBackground(new java.awt.Color(219, 219, 219));
         jLabel176.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -3171,7 +3210,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel176.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel176.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Camera Icon.png"))); // NOI18N
         jLabel176.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel176, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 230, 210));
+        Decoration_Panel9.add(jLabel176, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 230, 210));
 
         jLabel177.setBackground(new java.awt.Color(219, 219, 219));
         jLabel177.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -3192,13 +3231,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Name:");
         jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, 30));
-        Decoration_Panel9.add(ProfileName_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 240, 30));
+        Decoration_Panel9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 90, 30));
+
+        ProductName_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ProductName_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        ProductName_TextField.setFocusable(false);
+        ProductName_TextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProductName_TextFieldActionPerformed(evt);
+            }
+        });
+        Decoration_Panel9.add(ProductName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 240, 30));
 
         Reviews_Button1.setBackground(new java.awt.Color(0, 102, 204));
         Reviews_Button1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Reviews_Button1.setForeground(new java.awt.Color(255, 255, 255));
-        Reviews_Button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Icon White.png"))); // NOI18N
+        Reviews_Button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Icon White 2.png"))); // NOI18N
         Reviews_Button1.setText("Add to Wishlist!");
         Reviews_Button1.setBorder(null);
         Reviews_Button1.setFocusable(false);
@@ -3215,13 +3263,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Reviews_Button1ActionPerformed(evt);
             }
         });
-        Decoration_Panel9.add(Reviews_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 290, 200, 40));
+        Decoration_Panel9.add(Reviews_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 290, 200, 40));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ProductDescription_TextField.setColumns(20);
+        ProductDescription_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        ProductDescription_TextField.setRows(5);
+        ProductDescription_TextField.setFocusable(false);
+        jScrollPane1.setViewportView(ProductDescription_TextField);
 
-        Decoration_Panel9.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 240, -1));
+        Decoration_Panel9.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 240, 60));
 
         Reviews_Button2.setBackground(new java.awt.Color(0, 102, 204));
         Reviews_Button2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -3243,9 +3293,21 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Reviews_Button2ActionPerformed(evt);
             }
         });
-        Decoration_Panel9.add(Reviews_Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 340, 90, 40));
+        Decoration_Panel9.add(Reviews_Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 340, 90, 40));
 
-        ProductInfo_JInternalFrame.getContentPane().add(Decoration_Panel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 950, 390));
+        Product_Type_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        Product_Type_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Product_Type_TextField.setFocusable(false);
+        Decoration_Panel9.add(Product_Type_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 240, 30));
+
+        jLabel34.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel34.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setText("Shipping Type:");
+        jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel9.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
+
+        ProductInfo_JInternalFrame.getContentPane().add(Decoration_Panel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 970, 400));
 
         Panel_Wallpaper1.setBackground(new java.awt.Color(219, 219, 219));
         Panel_Wallpaper1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -3253,7 +3315,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Panel_Wallpaper1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Internal Frame Wallpaper.png"))); // NOI18N
         Panel_Wallpaper1.setText("Password:");
         Panel_Wallpaper1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        ProductInfo_JInternalFrame.getContentPane().add(Panel_Wallpaper1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 1050, 410));
+        ProductInfo_JInternalFrame.getContentPane().add(Panel_Wallpaper1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 230, 1050, 440));
 
         jPanel26.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -3265,7 +3327,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         ProductInfo_JInternalFrame.getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 160));
 
-        getContentPane().add(ProductInfo_JInternalFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 1050, 650));
+        getContentPane().add(ProductInfo_JInternalFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 1050, 670));
 
         ShoppingCart_JInternalFrame.setBackground(new java.awt.Color(255, 255, 255));
         ShoppingCart_JInternalFrame.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 102, 204)));
@@ -5220,7 +5282,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_ButtonActionPerformed
 
     private void WishList_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WishList_ButtonActionPerformed
-    Profile_JInternalFrame.setVisible(false);
+     Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5238,6 +5300,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5254,7 +5317,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);    
+    Register_Product_JInternalFrame.setVisible(false);  
       
         
 
@@ -5282,8 +5345,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                  data [0] = res.getString(1);
                  data [1] = res.getString(2);
                  data [2] = res.getString(3);
-                 data [3] = res.getString(3);
-                 
+                 data [3] = res.getString(4);           
                  modelo.addRow(data);
              }
 
@@ -5298,7 +5360,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_WishList_ButtonActionPerformed
 
     private void Chat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chat_ButtonActionPerformed
-    Profile_JInternalFrame.setVisible(false);
+     Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5316,6 +5378,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5341,7 +5404,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Chat_ButtonActionPerformed
 
     private void SearchProduct_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProduct_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5359,6 +5422,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5390,7 +5454,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         modelo.addColumn("Product Name");
         modelo.addColumn("Description");
         modelo.addColumn("Price");
-        
+       
         
         Recomendation_JTable.setModel(modelo);
         
@@ -5401,7 +5465,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
              while(res.next()){
                  data [0] = res.getString(1);
                  data [1] = res.getString(2);
-                 data [2] = res.getString(3);
+                 data [2] = "$" + res.getString(3);
+                
                  
                  modelo.addRow(data);
              }
@@ -5436,7 +5501,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_ButtonMouseExited
 
     private void RegisteProduct_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisteProduct_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5454,6 +5519,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5527,7 +5593,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Sold_Products_ButtonMouseExited
 
     private void Sold_Products_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sold_Products_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5545,6 +5611,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5561,7 +5628,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);    
             
         
      Sold_Products_JInternalFrame.setVisible(true);
@@ -5620,57 +5687,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterInfo_ButtonMouseExited
 
     private void RegisterInfo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterInfo_ButtonActionPerformed
-  Profile_JInternalFrame.setVisible(false);
-     Reviews_JInternalFrame.setVisible(false);
-     RegisterInfo_JInternalFrame.setVisible(false);
-            RegisterInfo_Person_JInternalFrame.setVisible(false);
-            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-                        List_Panel.setVisible(false);
-            RegisterInfo_Place_JInternalFrame.setVisible(false);
-                        List_Panel1.setVisible(false);
-            RegisterInfo_Gender_JInternalFrame.setVisible(false);
-                        List_Panel2.setVisible(false);
-            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
-                        List_Panel3.setVisible(false);
-            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-                        List_Panel4.setVisible(false);
-                        
-    Search_Product_JInternalFrame.setVisible(false);
-            ProductResultList_JInternalFrame.setVisible(false);
-            ShoppingCart_JInternalFrame.setVisible(false);
-             Pay_Method_JInternalFrame.setVisible(false);
-         
-    Wishlist_JInternalFrame.setVisible(false); 
-    Chat_JInternalFrame.setVisible(false);
-    Sold_Products_JInternalFrame.setVisible(false);
-    BoughtProducts_JInternalFrame.setVisible(false);
-    AdditionalQueries_JInternalFrame.setVisible(false); 
-            
-            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
-            BestSellingUsers_JInternalFrame.setVisible(false);
-            BestQualifiedUsers_JInternalFrame.setVisible(false);
-            UsersMorePurchases_JInternalFrame.setVisible(false);
-            ExpensiveProducts_JInternalFrame.setVisible(false);
-            
-            Statistics_JInternalFrame.setVisible(false);
-
-    Register_Product_JInternalFrame.setVisible(false);   
-            
-        
-     RegisterInfo_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_RegisterInfo_ButtonActionPerformed
-
-    private void Bought_Products_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonMouseEntered
-     ExpireFiles_Panel.setBackground(new java.awt.Color(200,200,200));
-     Bought_Products_Button.setForeground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_Bought_Products_ButtonMouseEntered
-
-    private void Bought_Products_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonMouseExited
-     ExpireFiles_Panel.setBackground(new java.awt.Color(219,219,219));
-     Bought_Products_Button.setForeground(new java.awt.Color(102,102,102));
-    }//GEN-LAST:event_Bought_Products_ButtonMouseExited
-
-    private void Bought_Products_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonActionPerformed
    Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -5689,6 +5705,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5705,23 +5722,23 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);    
-           
-     
-     BoughtProducts_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_Bought_Products_ButtonActionPerformed
+    Register_Product_JInternalFrame.setVisible(false);
+            
+        
+     RegisterInfo_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_RegisterInfo_ButtonActionPerformed
 
-    private void AdditionalQueries_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonMouseEntered
-     AdditionalQueries_Panel.setBackground(new java.awt.Color(200,200,200));
-     AdditionalQueries_Button.setForeground(new java.awt.Color(255,255,255));
-    }//GEN-LAST:event_AdditionalQueries_ButtonMouseEntered
+    private void Bought_Products_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonMouseEntered
+     ExpireFiles_Panel.setBackground(new java.awt.Color(200,200,200));
+     Bought_Products_Button.setForeground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_Bought_Products_ButtonMouseEntered
 
-    private void AdditionalQueries_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonMouseExited
-     AdditionalQueries_Panel.setBackground(new java.awt.Color(219,219,219));
-     AdditionalQueries_Button.setForeground(new java.awt.Color(102,102,102));
-    }//GEN-LAST:event_AdditionalQueries_ButtonMouseExited
+    private void Bought_Products_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonMouseExited
+     ExpireFiles_Panel.setBackground(new java.awt.Color(219,219,219));
+     Bought_Products_Button.setForeground(new java.awt.Color(102,102,102));
+    }//GEN-LAST:event_Bought_Products_ButtonMouseExited
 
-    private void AdditionalQueries_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonActionPerformed
+    private void Bought_Products_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bought_Products_ButtonActionPerformed
     Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -5740,6 +5757,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5756,7 +5774,59 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);    
+    Register_Product_JInternalFrame.setVisible(false);
+           
+     
+     BoughtProducts_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_Bought_Products_ButtonActionPerformed
+
+    private void AdditionalQueries_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonMouseEntered
+     AdditionalQueries_Panel.setBackground(new java.awt.Color(200,200,200));
+     AdditionalQueries_Button.setForeground(new java.awt.Color(255,255,255));
+    }//GEN-LAST:event_AdditionalQueries_ButtonMouseEntered
+
+    private void AdditionalQueries_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonMouseExited
+     AdditionalQueries_Panel.setBackground(new java.awt.Color(219,219,219));
+     AdditionalQueries_Button.setForeground(new java.awt.Color(102,102,102));
+    }//GEN-LAST:event_AdditionalQueries_ButtonMouseExited
+
+    private void AdditionalQueries_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdditionalQueries_ButtonActionPerformed
+     Profile_JInternalFrame.setVisible(false);
+     Reviews_JInternalFrame.setVisible(false);
+     RegisterInfo_JInternalFrame.setVisible(false);
+            RegisterInfo_Person_JInternalFrame.setVisible(false);
+            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                        List_Panel.setVisible(false);
+            RegisterInfo_Place_JInternalFrame.setVisible(false);
+                        List_Panel1.setVisible(false);
+            RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                        List_Panel2.setVisible(false);
+            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                        List_Panel3.setVisible(false);
+            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                        List_Panel4.setVisible(false);
+                        
+    Search_Product_JInternalFrame.setVisible(false);
+            ProductResultList_JInternalFrame.setVisible(false);
+            ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
+             Pay_Method_JInternalFrame.setVisible(false);
+         
+    Wishlist_JInternalFrame.setVisible(false); 
+    Chat_JInternalFrame.setVisible(false);
+    Sold_Products_JInternalFrame.setVisible(false);
+    BoughtProducts_JInternalFrame.setVisible(false);
+    AdditionalQueries_JInternalFrame.setVisible(false); 
+            
+            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+            BestSellingUsers_JInternalFrame.setVisible(false);
+            BestQualifiedUsers_JInternalFrame.setVisible(false);
+            UsersMorePurchases_JInternalFrame.setVisible(false);
+            ExpensiveProducts_JInternalFrame.setVisible(false);
+            
+            Statistics_JInternalFrame.setVisible(false);
+
+    Register_Product_JInternalFrame.setVisible(false);   
      
         
      AdditionalQueries_JInternalFrame.setVisible(true);
@@ -5789,6 +5859,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5805,7 +5876,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);  
   
         
         RegisterInfo_Place_JInternalFrame.setVisible(true);
@@ -5844,7 +5915,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_Button2MouseExited
 
     private void Profile_Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button2ActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5862,6 +5933,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5878,7 +5950,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);   
     
         
         RegisterInfo_ShippingType_JInternalFrame.setVisible(true);
@@ -5893,7 +5965,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Places1MouseExited
 
     private void Places1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Places1ActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5911,6 +5983,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5927,7 +6000,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);    
            
         
      RegisterInfo_Nationality_JInternalFrame.setVisible(true);
@@ -5954,7 +6027,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_Button3MouseExited
 
     private void Profile_Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button3ActionPerformed
-    Profile_JInternalFrame.setVisible(false);
+     Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -5972,6 +6045,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -5988,7 +6062,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);    
+    Register_Product_JInternalFrame.setVisible(false);
         
         
         
@@ -6004,55 +6078,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_Button4MouseExited
 
     private void Profile_Button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button4ActionPerformed
-    Profile_JInternalFrame.setVisible(false);
-     Reviews_JInternalFrame.setVisible(false);
-     RegisterInfo_JInternalFrame.setVisible(false);
-            RegisterInfo_Person_JInternalFrame.setVisible(false);
-            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-                        List_Panel.setVisible(false);
-            RegisterInfo_Place_JInternalFrame.setVisible(false);
-                        List_Panel1.setVisible(false);
-            RegisterInfo_Gender_JInternalFrame.setVisible(false);
-                        List_Panel2.setVisible(false);
-            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
-                        List_Panel3.setVisible(false);
-            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-                        List_Panel4.setVisible(false);
-                        
-    Search_Product_JInternalFrame.setVisible(false);
-            ProductResultList_JInternalFrame.setVisible(false);
-            ShoppingCart_JInternalFrame.setVisible(false);
-             Pay_Method_JInternalFrame.setVisible(false);
-         
-    Wishlist_JInternalFrame.setVisible(false); 
-    Chat_JInternalFrame.setVisible(false);
-    Sold_Products_JInternalFrame.setVisible(false);
-    BoughtProducts_JInternalFrame.setVisible(false);
-    AdditionalQueries_JInternalFrame.setVisible(false); 
-            
-            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
-            BestSellingUsers_JInternalFrame.setVisible(false);
-            BestQualifiedUsers_JInternalFrame.setVisible(false);
-            UsersMorePurchases_JInternalFrame.setVisible(false);
-            ExpensiveProducts_JInternalFrame.setVisible(false);
-            
-            Statistics_JInternalFrame.setVisible(false);
-
-    Register_Product_JInternalFrame.setVisible(false);  
-       
-        
-     RegisterInfo_Gender_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_Profile_Button4ActionPerformed
-
-    private void Profile_Button5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button5MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Profile_Button5MouseEntered
-
-    private void Profile_Button5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Profile_Button5MouseExited
-
-    private void Profile_Button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button5ActionPerformed
      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -6071,6 +6096,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -6087,7 +6113,57 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);      
+    Register_Product_JInternalFrame.setVisible(false); 
+       
+        
+     RegisterInfo_Gender_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_Profile_Button4ActionPerformed
+
+    private void Profile_Button5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button5MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Profile_Button5MouseEntered
+
+    private void Profile_Button5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button5MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Profile_Button5MouseExited
+
+    private void Profile_Button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button5ActionPerformed
+      Profile_JInternalFrame.setVisible(false);
+     Reviews_JInternalFrame.setVisible(false);
+     RegisterInfo_JInternalFrame.setVisible(false);
+            RegisterInfo_Person_JInternalFrame.setVisible(false);
+            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                        List_Panel.setVisible(false);
+            RegisterInfo_Place_JInternalFrame.setVisible(false);
+                        List_Panel1.setVisible(false);
+            RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                        List_Panel2.setVisible(false);
+            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                        List_Panel3.setVisible(false);
+            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                        List_Panel4.setVisible(false);
+                        
+    Search_Product_JInternalFrame.setVisible(false);
+            ProductResultList_JInternalFrame.setVisible(false);
+            ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
+             Pay_Method_JInternalFrame.setVisible(false);
+         
+    Wishlist_JInternalFrame.setVisible(false); 
+    Chat_JInternalFrame.setVisible(false);
+    Sold_Products_JInternalFrame.setVisible(false);
+    BoughtProducts_JInternalFrame.setVisible(false);
+    AdditionalQueries_JInternalFrame.setVisible(false); 
+            
+            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+            BestSellingUsers_JInternalFrame.setVisible(false);
+            BestQualifiedUsers_JInternalFrame.setVisible(false);
+            UsersMorePurchases_JInternalFrame.setVisible(false);
+            ExpensiveProducts_JInternalFrame.setVisible(false);
+            
+            Statistics_JInternalFrame.setVisible(false);
+
+    Register_Product_JInternalFrame.setVisible(false);     
       
      
      
@@ -6103,6 +6179,57 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Places2MouseExited
 
     private void Places2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Places2ActionPerformed
+      Profile_JInternalFrame.setVisible(false);
+     Reviews_JInternalFrame.setVisible(false);
+     RegisterInfo_JInternalFrame.setVisible(false);
+            RegisterInfo_Person_JInternalFrame.setVisible(false);
+            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                        List_Panel.setVisible(false);
+            RegisterInfo_Place_JInternalFrame.setVisible(false);
+                        List_Panel1.setVisible(false);
+            RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                        List_Panel2.setVisible(false);
+            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                        List_Panel3.setVisible(false);
+            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                        List_Panel4.setVisible(false);
+                        
+    Search_Product_JInternalFrame.setVisible(false);
+            ProductResultList_JInternalFrame.setVisible(false);
+            ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
+             Pay_Method_JInternalFrame.setVisible(false);
+         
+    Wishlist_JInternalFrame.setVisible(false); 
+    Chat_JInternalFrame.setVisible(false);
+    Sold_Products_JInternalFrame.setVisible(false);
+    BoughtProducts_JInternalFrame.setVisible(false);
+    AdditionalQueries_JInternalFrame.setVisible(false); 
+            
+            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+            BestSellingUsers_JInternalFrame.setVisible(false);
+            BestQualifiedUsers_JInternalFrame.setVisible(false);
+            UsersMorePurchases_JInternalFrame.setVisible(false);
+            ExpensiveProducts_JInternalFrame.setVisible(false);
+            
+            Statistics_JInternalFrame.setVisible(false);
+
+    Register_Product_JInternalFrame.setVisible(false);   
+  
+        
+     
+     Statistics_JInternalFrame.setVisible(true);
+    }//GEN-LAST:event_Places2ActionPerformed
+
+    private void UsersMorePurchases_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseEntered
+
+    private void UsersMorePurchases_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseExited
+
+    private void UsersMorePurchases_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonActionPerformed
      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -6121,6 +6248,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -6137,57 +6265,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
-  
-        
-     
-     Statistics_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_Places2ActionPerformed
-
-    private void UsersMorePurchases_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseEntered
-
-    private void UsersMorePurchases_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseExited
-
-    private void UsersMorePurchases_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonActionPerformed
-    Profile_JInternalFrame.setVisible(false);
-     Reviews_JInternalFrame.setVisible(false);
-     RegisterInfo_JInternalFrame.setVisible(false);
-            RegisterInfo_Person_JInternalFrame.setVisible(false);
-            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-                        List_Panel.setVisible(false);
-            RegisterInfo_Place_JInternalFrame.setVisible(false);
-                        List_Panel1.setVisible(false);
-            RegisterInfo_Gender_JInternalFrame.setVisible(false);
-                        List_Panel2.setVisible(false);
-            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
-                        List_Panel3.setVisible(false);
-            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-                        List_Panel4.setVisible(false);
-                        
-    Search_Product_JInternalFrame.setVisible(false);
-            ProductResultList_JInternalFrame.setVisible(false);
-            ShoppingCart_JInternalFrame.setVisible(false);
-             Pay_Method_JInternalFrame.setVisible(false);
-         
-    Wishlist_JInternalFrame.setVisible(false); 
-    Chat_JInternalFrame.setVisible(false);
-    Sold_Products_JInternalFrame.setVisible(false);
-    BoughtProducts_JInternalFrame.setVisible(false);
-    AdditionalQueries_JInternalFrame.setVisible(false); 
-            
-            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
-            BestSellingUsers_JInternalFrame.setVisible(false);
-            BestQualifiedUsers_JInternalFrame.setVisible(false);
-            UsersMorePurchases_JInternalFrame.setVisible(false);
-            ExpensiveProducts_JInternalFrame.setVisible(false);
-            
-            Statistics_JInternalFrame.setVisible(false);
-
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);   
          
         
      UsersMorePurchases_JInternalFrame.setVisible(true);
@@ -6241,7 +6319,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_WorstQualifiedUsers_ButtonMouseExited
 
     private void WorstQualifiedUsers_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorstQualifiedUsers_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -6259,6 +6337,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -6275,7 +6354,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);      
+    Register_Product_JInternalFrame.setVisible(false);  
      
         
     WorstQualifiedUsers_JInternalFrame.setVisible(true);    
@@ -6343,7 +6422,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterNationalityName_ButtonActionPerformed
 
     private void Home_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -6361,6 +6440,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -6377,9 +6457,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);
-
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);    
 
 
     }//GEN-LAST:event_Home_ButtonActionPerformed
@@ -6920,7 +6998,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchProductList_ButtonMouseExited
 
     private void SearchProductList_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProductList_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -6938,6 +7016,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -6954,7 +7033,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false); 
+    Register_Product_JInternalFrame.setVisible(false);
 
 
     ProductResultList_JInternalFrame.setVisible(true);
@@ -6987,23 +7066,25 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     
     
     DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id Product");
         modelo.addColumn("Product Name");
         modelo.addColumn("Description");
         modelo.addColumn("Price");
-        modelo.addColumn("");
+        modelo.addColumn("See");
         
         
-        ProductResutlist_JTable.setModel(modelo);
+        ProductResultlist_JTable.setModel(modelo);
         
          try {
              ResultSet res = Connection.DBConnection.get_product_results(pName, pYear, pPrice);
-             String data [] = new String[3];
+             String data [] = new String[5];
              
              while(res.next()){
                  data [0] = res.getString(1);
                  data [1] = res.getString(2);
                  data [2] = res.getString(3);
-                 data [4] = "See Product";
+                 data [3] = "$"+res.getString(4);
+                 data [4] = "CLICK HERE TO SEE";
                  modelo.addRow(data);
              }
              
@@ -7049,7 +7130,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_Button8MouseExited
 
     private void Profile_Button8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button8ActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -7067,6 +7148,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -7083,7 +7165,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);       
+    Register_Product_JInternalFrame.setVisible(false);
             
      BestSellingUsers_JInternalFrame.setVisible(true);
             
@@ -7131,7 +7213,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Profile_Button9MouseExited
 
     private void Profile_Button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button9ActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -7149,6 +7231,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -7165,7 +7248,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);   
+    Register_Product_JInternalFrame.setVisible(false);  
     
     ExpensiveProducts_JInternalFrame.setVisible(true);
     
@@ -7209,6 +7292,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Profile_Button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Profile_Button10ActionPerformed
    Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -7226,6 +7310,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -7242,7 +7327,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false);     
+    Register_Product_JInternalFrame.setVisible(false);    
     
     BestQualifiedUsers_JInternalFrame.setVisible(true);  
     
@@ -7314,7 +7399,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Reviews_Button2MouseExited
 
     private void Reviews_Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_Button2ActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -7332,7 +7417,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
-            Pay_Method_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
+             Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
     Chat_JInternalFrame.setVisible(false);
@@ -7393,6 +7479,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -7409,8 +7496,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false); 
-        
+    Register_Product_JInternalFrame.setVisible(false);
         
         
         
@@ -7433,7 +7519,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Reviews_Button6ActionPerformed
 
     private void ShoppingCart_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShoppingCart_ButtonActionPerformed
-     Profile_JInternalFrame.setVisible(false);
+      Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
             RegisterInfo_Person_JInternalFrame.setVisible(false);
@@ -7451,6 +7537,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Search_Product_JInternalFrame.setVisible(false);
             ProductResultList_JInternalFrame.setVisible(false);
             ShoppingCart_JInternalFrame.setVisible(false);
+            ProductInfo_JInternalFrame.setVisible(false);
              Pay_Method_JInternalFrame.setVisible(false);
          
     Wishlist_JInternalFrame.setVisible(false); 
@@ -7467,7 +7554,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
             Statistics_JInternalFrame.setVisible(false);
 
-    Register_Product_JInternalFrame.setVisible(false); 
+    Register_Product_JInternalFrame.setVisible(false);
         
         
         
@@ -7494,38 +7581,39 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Profile_JInternalFrame.setVisible(false);
         Reviews_JInternalFrame.setVisible(false);
         RegisterInfo_JInternalFrame.setVisible(false);
-        RegisterInfo_Person_JInternalFrame.setVisible(false);
-        RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-        List_Panel.setVisible(false);
-        RegisterInfo_Place_JInternalFrame.setVisible(false);
-        List_Panel1.setVisible(false);
-        RegisterInfo_Gender_JInternalFrame.setVisible(false);
-        List_Panel2.setVisible(false);
-        RegisterInfo_ProductType_JInternalFrame.setVisible(false);
-        List_Panel3.setVisible(false);
-        RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-        List_Panel4.setVisible(false);
+               RegisterInfo_Person_JInternalFrame.setVisible(false);
+               RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                           List_Panel.setVisible(false);
+               RegisterInfo_Place_JInternalFrame.setVisible(false);
+                           List_Panel1.setVisible(false);
+               RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                           List_Panel2.setVisible(false);
+               RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                           List_Panel3.setVisible(false);
+               RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                           List_Panel4.setVisible(false);
 
-        Search_Product_JInternalFrame.setVisible(false);
-        ProductResultList_JInternalFrame.setVisible(false);
-        ShoppingCart_JInternalFrame.setVisible(false);
-        Pay_Method_JInternalFrame.setVisible(false);
+       Search_Product_JInternalFrame.setVisible(false);
+               ProductResultList_JInternalFrame.setVisible(false);
+               ShoppingCart_JInternalFrame.setVisible(false);
+               ProductInfo_JInternalFrame.setVisible(false);
+                Pay_Method_JInternalFrame.setVisible(false);
 
-        Wishlist_JInternalFrame.setVisible(false);
-        Chat_JInternalFrame.setVisible(false);
-        Sold_Products_JInternalFrame.setVisible(false);
-        BoughtProducts_JInternalFrame.setVisible(false);
-        AdditionalQueries_JInternalFrame.setVisible(false);
+       Wishlist_JInternalFrame.setVisible(false); 
+       Chat_JInternalFrame.setVisible(false);
+       Sold_Products_JInternalFrame.setVisible(false);
+       BoughtProducts_JInternalFrame.setVisible(false);
+       AdditionalQueries_JInternalFrame.setVisible(false); 
 
-        WorstQualifiedUsers_JInternalFrame.setVisible(false);
-        BestSellingUsers_JInternalFrame.setVisible(false);
-        BestQualifiedUsers_JInternalFrame.setVisible(false);
-        UsersMorePurchases_JInternalFrame.setVisible(false);
-        ExpensiveProducts_JInternalFrame.setVisible(false);
+               WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+               BestSellingUsers_JInternalFrame.setVisible(false);
+               BestQualifiedUsers_JInternalFrame.setVisible(false);
+               UsersMorePurchases_JInternalFrame.setVisible(false);
+               ExpensiveProducts_JInternalFrame.setVisible(false);
 
-        Statistics_JInternalFrame.setVisible(false);
+               Statistics_JInternalFrame.setVisible(false);
 
-        Register_Product_JInternalFrame.setVisible(false);
+       Register_Product_JInternalFrame.setVisible(false);
 
         Reviews_JInternalFrame.setVisible(true);
     }//GEN-LAST:event_Reviews_ButtonActionPerformed
@@ -7922,15 +8010,91 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Community_TextField.setEnabled(true);
     }//GEN-LAST:event_Community_CheckBoxActionPerformed
 
-    private void ProductResutlist_JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductResutlist_JTableMouseClicked
+    private void ProductResultlist_JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductResultlist_JTableMouseClicked
         
-        if(evt.getClickCount() == 2){
+            String productId = String.valueOf(ProductResultlist_JTable.getValueAt(ProductResultlist_JTable.getSelectedRow(),0)); // pId = id_product 
+            int pId = Integer.parseInt(productId);
+            
+            Profile_JInternalFrame.setVisible(false);
+            Reviews_JInternalFrame.setVisible(false);
+            RegisterInfo_JInternalFrame.setVisible(false);
+            RegisterInfo_Person_JInternalFrame.setVisible(false);
+            RegisterInfo_Nationality_JInternalFrame.setVisible(false);
+                        List_Panel.setVisible(false);
+            RegisterInfo_Place_JInternalFrame.setVisible(false);
+                        List_Panel1.setVisible(false);
+            RegisterInfo_Gender_JInternalFrame.setVisible(false);
+                        List_Panel2.setVisible(false);
+            RegisterInfo_ProductType_JInternalFrame.setVisible(false);            
+                        List_Panel3.setVisible(false);
+            RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
+                        List_Panel4.setVisible(false);
+                        
+            Search_Product_JInternalFrame.setVisible(false);
+                    ProductResultList_JInternalFrame.setVisible(false);
+                    ShoppingCart_JInternalFrame.setVisible(false);
+                    ProductInfo_JInternalFrame.setVisible(false);
+                     Pay_Method_JInternalFrame.setVisible(false);
+         
+             Wishlist_JInternalFrame.setVisible(false); 
+            Chat_JInternalFrame.setVisible(false);
+            Sold_Products_JInternalFrame.setVisible(false);
+            BoughtProducts_JInternalFrame.setVisible(false);
+            AdditionalQueries_JInternalFrame.setVisible(false); 
+            
+            WorstQualifiedUsers_JInternalFrame.setVisible(false);  
+            BestSellingUsers_JInternalFrame.setVisible(false);
+            BestQualifiedUsers_JInternalFrame.setVisible(false);
+            UsersMorePurchases_JInternalFrame.setVisible(false);
+            ExpensiveProducts_JInternalFrame.setVisible(false);
+            
+            Statistics_JInternalFrame.setVisible(false);
+
+            Register_Product_JInternalFrame.setVisible(false);
+            
+            ProductInfo_JInternalFrame.setVisible(true);
+                
+                ////////////
+                
+            try {
+
+                ProductName_TextField.setText(Connection.DBConnection.get_product_name(pId));
+                int productPrice = Connection.DBConnection.get_product_price(pId);
+               
+                Product_Price_TextField.setText("$"+ productPrice);
+                Product_Condition_TextField.setText(Connection.DBConnection.get_product_product_condition(pId));
+                int productAge = Connection.DBConnection.get_product_object_age(pId);
+                
+                Product_Age_TextField.setText(productAge + "");
+                
+                int id_product_type = Connection.DBConnection.get_product_id_product_type(pId);               
+                Product_Type_TextField.setText(Connection.DBConnection.get_product_type_type(id_product_type));
+                
+                int id_product_shipping_type = Connection.DBConnection.get_product_has_shipping_type_id_shipping_type(pId);
+                
+                
+                ProductShipping_TextField.setText(Connection.DBConnection.get_shipping_type_type(id_product_shipping_type));
+                
+                ProductDescription_TextField.setText(Connection.DBConnection.get_product_description(pId));
+                
+                int id_product_owner = Connection.DBConnection.get_person_sell_product_id_person(pId);
+                ProductOwner_TextField.setText(Connection.DBConnection.get_person_user_name(id_product_owner));
+                int id_owner_reputation = Connection.DBConnection.get_person_id_reputation(id_product_owner);
+                Product_Owner_Qualification_TextField.setText(Connection.DBConnection.get_reputation_clasification(id_owner_reputation)+"");
+                
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
-            
-            
-        }
-    }//GEN-LAST:event_ProductResutlist_JTableMouseClicked
+       
+    }//GEN-LAST:event_ProductResultlist_JTableMouseClicked
+
+    private void ProductName_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductName_TextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProductName_TextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -8182,28 +8346,30 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Places1;
     private javax.swing.JButton Places2;
     private javax.swing.JTable Places_JTable;
+    private javax.swing.JTextArea ProductDescription_TextField;
     private javax.swing.JInternalFrame ProductInfo_JInternalFrame;
+    private javax.swing.JTextField ProductName_TextField;
+    private javax.swing.JTextField ProductOwner_TextField;
     private javax.swing.JInternalFrame ProductResultList_JInternalFrame;
-    private javax.swing.JTable ProductResutlist_JTable;
+    private javax.swing.JTable ProductResultlist_JTable;
+    private javax.swing.JTextField ProductShipping_TextField;
     private javax.swing.JTable ProductType_JTable;
+    private javax.swing.JTextField Product_Age_TextField;
+    private javax.swing.JTextField Product_Condition_TextField;
+    private javax.swing.JTextField Product_Owner_Qualification_TextField;
+    private javax.swing.JTextField Product_Price_TextField;
+    private javax.swing.JTextField Product_Type_TextField;
     private javax.swing.JTextField ProfileAge_TextField;
-    private javax.swing.JTextField ProfileAge_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField;
-    private javax.swing.JTextField ProfileBirthDay_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField3;
     private javax.swing.JTextField ProfileEmail_TextField;
     private javax.swing.JTextField ProfileGender_TextField;
-    private javax.swing.JTextField ProfileGender_TextField1;
     private javax.swing.JTextField ProfileGender_TextField3;
     private javax.swing.JTextField ProfileLastName_TextField;
-    private javax.swing.JTextField ProfileLastName_TextField1;
     private javax.swing.JTextField ProfileLastName_TextField3;
     private javax.swing.JTextField ProfileName_TextField;
-    private javax.swing.JTextField ProfileName_TextField2;
     private javax.swing.JTextField ProfilePassword_TextField;
-    private javax.swing.JTextField ProfilePassword_TextField1;
     private javax.swing.JTextField ProfileUsername_TextField;
-    private javax.swing.JTextField ProfileUsername_TextField1;
     private javax.swing.JButton Profile_Button;
     private javax.swing.JButton Profile_Button10;
     private javax.swing.JButton Profile_Button2;
@@ -8434,6 +8600,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -8586,7 +8753,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;

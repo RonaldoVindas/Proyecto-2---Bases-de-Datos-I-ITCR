@@ -29,18 +29,14 @@ DROP function IF EXISTS `get_photo_photo_information`;
 
 DELIMITER $$
 USE `pr`$$
-CREATE FUNCTION `get_photo_photo_information` (pId INT)
-RETURNS MEDIUMBLOB
-DETERMINISTIC
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_photo_photo_information`(pId INT) RETURNS VARCHAR(100)
+    DETERMINISTIC
 BEGIN
-
-
-
-
-	DECLARE vcPhotoInfo MEDIUMBLOB;
+	DECLARE vcPhotoInfo VARCHAR(100);
     SET vcPhotoInfo = (SELECT photo_info FROM photo WHERE id_photo = pId);
 	RETURN vcPhotoInfo;
 END$$
 
 DELIMITER ;
+
 

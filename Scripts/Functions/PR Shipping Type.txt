@@ -21,4 +21,21 @@ END$$
 
 DELIMITER ;
 
+/*/////////////////////////////////////////////*/
 
+USE pr;
+DROP function IF EXISTS get_shipping_type_iD;
+
+DELIMITER $$
+USE pr$$
+CREATE FUNCTION `get_shipping_type_iD` (ptype varchar(45))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+
+    DECLARE vcId int;
+    SET vcId = (SELECT id_shipping_type FROM shipping_type WHERE type= ptype);
+    RETURN vcId;
+END$$
+
+DELIMITER ;
