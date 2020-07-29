@@ -489,8 +489,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jLabel155 = new javax.swing.JLabel();
         Decoration_Panel13 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        BannedUsers_TextField = new javax.swing.JTextArea();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        SoldProduct_JTable = new javax.swing.JTable();
         Panel_Wallpaper5 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         BoughtProducts_JInternalFrame = new javax.swing.JInternalFrame();
@@ -517,7 +517,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel26 = new javax.swing.JPanel();
         Company4 = new javax.swing.JLabel();
         Places2 = new javax.swing.JButton();
-        UserLists_Button = new javax.swing.JButton();
+        UsersMorePurchases_Button = new javax.swing.JButton();
         WorstQualifiedUsers_Button = new javax.swing.JButton();
         jLabel52 = new javax.swing.JLabel();
         Company6 = new javax.swing.JLabel();
@@ -535,9 +535,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel47 = new javax.swing.JPanel();
         jLabel84 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
-        jLabel93 = new javax.swing.JLabel();
+        jLabel180 = new javax.swing.JLabel();
         Decoration_Panel41 = new javax.swing.JPanel();
-        RegisterInfoName_TextField19 = new javax.swing.JTextField();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        BestSellingUsers_JTable = new javax.swing.JTable();
+        BestSelling_ComboBox = new javax.swing.JComboBox<>();
+        jLabel93 = new javax.swing.JLabel();
+        BestSelling_Button = new javax.swing.JButton();
         Panel_Wallpaper16 = new javax.swing.JLabel();
         jPanel50 = new javax.swing.JPanel();
         DangerousZones_Logo16 = new javax.swing.JLabel();
@@ -548,7 +552,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel60 = new javax.swing.JPanel();
         jLabel166 = new javax.swing.JLabel();
         Decoration_Panel50 = new javax.swing.JPanel();
-        RegisterInfoName_TextField28 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        BestQualifiedUsers_JTable = new javax.swing.JTable();
         Panel_Wallpaper22 = new javax.swing.JLabel();
         jPanel61 = new javax.swing.JPanel();
         DangerousZones_Logo22 = new javax.swing.JLabel();
@@ -559,7 +564,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel63 = new javax.swing.JPanel();
         jLabel168 = new javax.swing.JLabel();
         Decoration_Panel52 = new javax.swing.JPanel();
-        RegisterInfoName_TextField29 = new javax.swing.JTextField();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        WorstQualifiedUsers_JTable = new javax.swing.JTable();
         Panel_Wallpaper23 = new javax.swing.JLabel();
         jPanel64 = new javax.swing.JPanel();
         DangerousZones_Logo23 = new javax.swing.JLabel();
@@ -570,7 +576,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel66 = new javax.swing.JPanel();
         jLabel170 = new javax.swing.JLabel();
         Decoration_Panel54 = new javax.swing.JPanel();
-        RegisterInfoName_TextField30 = new javax.swing.JTextField();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        UsersMorePurchases_JTable = new javax.swing.JTable();
+        jLabel181 = new javax.swing.JLabel();
+        MorePurchases_ComboBox = new javax.swing.JComboBox<>();
+        MorePurchases_Button = new javax.swing.JButton();
         Panel_Wallpaper24 = new javax.swing.JLabel();
         jPanel67 = new javax.swing.JPanel();
         DangerousZones_Logo24 = new javax.swing.JLabel();
@@ -3566,11 +3576,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel13.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BannedUsers_TextField.setColumns(20);
-        BannedUsers_TextField.setRows(5);
-        jScrollPane2.setViewportView(BannedUsers_TextField);
+        SoldProduct_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        Decoration_Panel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 520, 330));
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane18.setViewportView(SoldProduct_JTable);
+
+        Decoration_Panel13.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 590, 330));
 
         Sold_Products_JInternalFrame.getContentPane().add(Decoration_Panel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 640, 370));
 
@@ -3726,28 +3742,28 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         Decoration_Panel26.add(Places2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 190, 50));
 
-        UserLists_Button.setBackground(new java.awt.Color(235, 235, 235));
-        UserLists_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        UserLists_Button.setForeground(new java.awt.Color(0, 0, 0));
-        UserLists_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Buy Icon.png"))); // NOI18N
-        UserLists_Button.setText("  Users With More Purchases");
-        UserLists_Button.setBorderPainted(false);
-        UserLists_Button.setContentAreaFilled(false);
-        UserLists_Button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        UserLists_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+        UsersMorePurchases_Button.setBackground(new java.awt.Color(235, 235, 235));
+        UsersMorePurchases_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        UsersMorePurchases_Button.setForeground(new java.awt.Color(0, 0, 0));
+        UsersMorePurchases_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Buy Icon.png"))); // NOI18N
+        UsersMorePurchases_Button.setText("  Users With More Purchases");
+        UsersMorePurchases_Button.setBorderPainted(false);
+        UsersMorePurchases_Button.setContentAreaFilled(false);
+        UsersMorePurchases_Button.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        UsersMorePurchases_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                UserLists_ButtonMouseEntered(evt);
+                UsersMorePurchases_ButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                UserLists_ButtonMouseExited(evt);
+                UsersMorePurchases_ButtonMouseExited(evt);
             }
         });
-        UserLists_Button.addActionListener(new java.awt.event.ActionListener() {
+        UsersMorePurchases_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLists_ButtonActionPerformed(evt);
+                UsersMorePurchases_ButtonActionPerformed(evt);
             }
         });
-        Decoration_Panel26.add(UserLists_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 340, 50));
+        Decoration_Panel26.add(UsersMorePurchases_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 340, 50));
 
         WorstQualifiedUsers_Button.setBackground(new java.awt.Color(235, 235, 235));
         WorstQualifiedUsers_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -3917,12 +3933,12 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel47.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 290, 80, -1));
         jPanel47.add(jPanel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 170, 180));
 
-        jLabel93.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel93.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel93.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel93.setText("See the list of Best - Selling Users in the database");
-        jLabel93.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel47.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 470, 40));
+        jLabel180.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel180.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel180.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel180.setText("See the list of Best - Selling Users in the database");
+        jLabel180.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel47.add(jLabel180, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 470, 40));
 
         Decoration_Panel40.add(jPanel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1070, 64));
 
@@ -3931,8 +3947,51 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel41.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel41.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField19.setFocusable(false);
-        Decoration_Panel41.add(RegisterInfoName_TextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        BestSellingUsers_JTable.setBackground(new java.awt.Color(255, 255, 255));
+        BestSellingUsers_JTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        BestSellingUsers_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        BestSellingUsers_JTable.setFocusable(false);
+        jScrollPane17.setViewportView(BestSellingUsers_JTable);
+
+        Decoration_Panel41.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 790, 290));
+
+        BestSelling_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "5", "10", "20", "50", "100" }));
+        Decoration_Panel41.add(BestSelling_ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, 30));
+
+        jLabel93.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel93.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel93.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel93.setText("Show Top:");
+        jLabel93.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel41.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 100, 40));
+
+        BestSelling_Button.setBackground(new java.awt.Color(0, 102, 204));
+        BestSelling_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        BestSelling_Button.setForeground(new java.awt.Color(255, 255, 255));
+        BestSelling_Button.setText("Go!");
+        BestSelling_Button.setBorder(null);
+        BestSelling_Button.setFocusable(false);
+        BestSelling_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BestSelling_ButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BestSelling_ButtonMouseExited(evt);
+            }
+        });
+        BestSelling_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BestSelling_ButtonActionPerformed(evt);
+            }
+        });
+        Decoration_Panel41.add(BestSelling_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, 30));
 
         BestSellingUsers_JInternalFrame.getContentPane().add(Decoration_Panel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -3989,8 +4048,21 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel50.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel50.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField28.setFocusable(false);
-        Decoration_Panel50.add(RegisterInfoName_TextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setEnabled(false);
+        jScrollPane2.setFocusable(false);
+
+        BestQualifiedUsers_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(BestQualifiedUsers_JTable);
+
+        Decoration_Panel50.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 770, 330));
 
         BestQualifiedUsers_JInternalFrame.getContentPane().add(Decoration_Panel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -4047,8 +4119,21 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel52.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel52.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField29.setFocusable(false);
-        Decoration_Panel52.add(RegisterInfoName_TextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        jScrollPane19.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane19.setEnabled(false);
+        jScrollPane19.setFocusable(false);
+
+        WorstQualifiedUsers_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane19.setViewportView(WorstQualifiedUsers_JTable);
+
+        Decoration_Panel52.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 770, 330));
 
         WorstQualifiedUsers_JInternalFrame.getContentPane().add(Decoration_Panel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -4105,8 +4190,51 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel54.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel54.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField30.setFocusable(false);
-        Decoration_Panel54.add(RegisterInfoName_TextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        UsersMorePurchases_JTable.setBackground(new java.awt.Color(255, 255, 255));
+        UsersMorePurchases_JTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        UsersMorePurchases_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        UsersMorePurchases_JTable.setFocusable(false);
+        jScrollPane20.setViewportView(UsersMorePurchases_JTable);
+
+        Decoration_Panel54.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 790, 290));
+
+        jLabel181.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel181.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel181.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel181.setText("Show Top:");
+        jLabel181.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel54.add(jLabel181, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 100, 40));
+
+        MorePurchases_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "5", "10", "20", "50", "100" }));
+        Decoration_Panel54.add(MorePurchases_ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, 30));
+
+        MorePurchases_Button.setBackground(new java.awt.Color(0, 102, 204));
+        MorePurchases_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        MorePurchases_Button.setForeground(new java.awt.Color(255, 255, 255));
+        MorePurchases_Button.setText("Go!");
+        MorePurchases_Button.setBorder(null);
+        MorePurchases_Button.setFocusable(false);
+        MorePurchases_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MorePurchases_ButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MorePurchases_ButtonMouseExited(evt);
+            }
+        });
+        MorePurchases_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MorePurchases_ButtonActionPerformed(evt);
+            }
+        });
+        Decoration_Panel54.add(MorePurchases_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, 30));
 
         UsersMorePurchases_JInternalFrame.getContentPane().add(Decoration_Panel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -4123,7 +4251,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         DangerousZones_Logo24.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         DangerousZones_Logo24.setForeground(new java.awt.Color(0, 0, 0));
         DangerousZones_Logo24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Buy Big.png"))); // NOI18N
-        DangerousZones_Logo24.setText("  Result List");
+        DangerousZones_Logo24.setText("  Users With More Purchases");
         jPanel67.add(DangerousZones_Logo24);
 
         UsersMorePurchases_JInternalFrame.getContentPane().add(jPanel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 160));
@@ -4582,9 +4710,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Sold_Products_ButtonActionPerformed(evt);
             }
         });
-        SearchCriminalFile_Panel.add(Sold_Products_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 50));
+        SearchCriminalFile_Panel.add(Sold_Products_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
 
-        Lateral_Menu_Panel.add(SearchCriminalFile_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 385, 320, 50));
+        Lateral_Menu_Panel.add(SearchCriminalFile_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 385, 330, 50));
 
         UserList_Panel.setBackground(new java.awt.Color(219, 219, 219));
         UserList_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4640,9 +4768,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Chat_ButtonActionPerformed(evt);
             }
         });
-        BannedUsers_Panel.add(Chat_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 320, 50));
+        BannedUsers_Panel.add(Chat_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 330, 50));
 
-        Lateral_Menu_Panel.add(BannedUsers_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 330, 330, 50));
+        Lateral_Menu_Panel.add(BannedUsers_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 330, 340, 50));
 
         ExpireFiles_Panel.setBackground(new java.awt.Color(219, 219, 219));
         ExpireFiles_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4669,9 +4797,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Bought_Products_ButtonActionPerformed(evt);
             }
         });
-        ExpireFiles_Panel.add(Bought_Products_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 320, 50));
+        ExpireFiles_Panel.add(Bought_Products_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 330, 50));
 
-        Lateral_Menu_Panel.add(ExpireFiles_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 440, 340, 50));
+        Lateral_Menu_Panel.add(ExpireFiles_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 440, 350, 50));
 
         AdditionalQueries_Panel.setBackground(new java.awt.Color(219, 219, 219));
         AdditionalQueries_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -4698,7 +4826,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 AdditionalQueries_ButtonActionPerformed(evt);
             }
         });
-        AdditionalQueries_Panel.add(AdditionalQueries_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 320, 50));
+        AdditionalQueries_Panel.add(AdditionalQueries_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 330, 50));
 
         Lateral_Menu_Panel.add(AdditionalQueries_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 495, 340, 50));
 
@@ -5170,6 +5298,48 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
         
      Sold_Products_JInternalFrame.setVisible(true);
+     
+     
+     
+     
+     
+     DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Product Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Price");
+        
+        
+        SoldProduct_JTable.setModel(modelo);
+        
+         try {
+             ResultSet res = Connection.DBConnection.get_product_recomendations();
+             String data [] = new String[3];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     }//GEN-LAST:event_Sold_Products_ButtonActionPerformed
 
     private void RegisterInfo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterInfo_ButtonMouseEntered
@@ -5671,15 +5841,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
      Statistics_JInternalFrame.setVisible(true);
     }//GEN-LAST:event_Places2ActionPerformed
 
-    private void UserLists_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserLists_ButtonMouseEntered
+    private void UsersMorePurchases_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserLists_ButtonMouseEntered
+    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseEntered
 
-    private void UserLists_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserLists_ButtonMouseExited
+    private void UsersMorePurchases_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserLists_ButtonMouseExited
+    }//GEN-LAST:event_UsersMorePurchases_ButtonMouseExited
 
-    private void UserLists_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLists_ButtonActionPerformed
+    private void UsersMorePurchases_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsersMorePurchases_ButtonActionPerformed
     Profile_JInternalFrame.setVisible(false);
      Reviews_JInternalFrame.setVisible(false);
      RegisterInfo_JInternalFrame.setVisible(false);
@@ -5718,7 +5888,46 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
          
         
      UsersMorePurchases_JInternalFrame.setVisible(true);
-    }//GEN-LAST:event_UserLists_ButtonActionPerformed
+     
+     
+     
+     
+     
+    
+     
+     DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Adquired Products");
+       
+
+
+         UsersMorePurchases_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_users_with_more_bought_products(5);
+             String data [] = new String[3];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+     
+     
+     
+         }
+     
+     
+     
+    }//GEN-LAST:event_UsersMorePurchases_ButtonActionPerformed
 
     private void WorstQualifiedUsers_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorstQualifiedUsers_ButtonMouseEntered
         // TODO add your handling code here:
@@ -5767,6 +5976,34 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
      
         
     WorstQualifiedUsers_JInternalFrame.setVisible(true);    
+    
+    
+     DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Calification");
+        modelo.addColumn("Stars");
+
+       WorstQualifiedUsers_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_worst_qualified_vendors(10);
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    
+    
        
      
     }//GEN-LAST:event_WorstQualifiedUsers_ButtonActionPerformed
@@ -6305,6 +6542,39 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
             
      BestSellingUsers_JInternalFrame.setVisible(true);
             
+     
+    
+     DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Products Quantity");
+        
+        
+        BestSellingUsers_JTable.setModel(modelo);
+         int pQuantity = 5;
+         try {
+            
+             ResultSet res = Connection.DBConnection.get_top_users_with_more_sales(pQuantity);
+             String data [] = new String[3];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+     
+     
+     
+     
+     
+     
+     
     }//GEN-LAST:event_Profile_Button8ActionPerformed
 
     private void Profile_Button9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button9MouseEntered
@@ -6400,7 +6670,37 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     Register_Product_JInternalFrame.setVisible(false);     
     
-    BestQualifiedUsers_JInternalFrame.setVisible(true);       
+    BestQualifiedUsers_JInternalFrame.setVisible(true);  
+    
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Calification");
+        modelo.addColumn("Stars");
+
+       BestQualifiedUsers_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_best_qualified_vendors(10);
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    
+    
+    
+    
     }//GEN-LAST:event_Profile_Button10ActionPerformed
 
     private void RegisterProduct_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterProduct_ButtonMouseEntered
@@ -6664,6 +6964,77 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Reviews_ButtonMouseEntered
 
+    private void BestSelling_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BestSelling_ButtonMouseEntered
+        BestSelling_Button.setBackground(new java.awt.Color(19,79,139));
+    }//GEN-LAST:event_BestSelling_ButtonMouseEntered
+
+    private void BestSelling_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BestSelling_ButtonMouseExited
+        BestSelling_Button.setBackground(new java.awt.Color(0,102,204));
+    }//GEN-LAST:event_BestSelling_ButtonMouseExited
+
+    private void BestSelling_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BestSelling_ButtonActionPerformed
+
+         int pQuantity = Integer.parseInt(BestSelling_ComboBox.getSelectedItem().toString());
+         
+         DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Products Quantity");
+        
+        
+        ((DefaultTableModel) BestSellingUsers_JTable.getModel()).setNumRows(0);
+        
+        BestSellingUsers_JTable.setModel(modelo);
+        
+         try {
+            
+             ResultSet res = Connection.DBConnection.get_top_users_with_more_sales(pQuantity);
+             String data [] = new String[3];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_BestSelling_ButtonActionPerformed
+
+    private void MorePurchases_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MorePurchases_ButtonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MorePurchases_ButtonMouseEntered
+
+    private void MorePurchases_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MorePurchases_ButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MorePurchases_ButtonMouseExited
+
+    private void MorePurchases_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MorePurchases_ButtonActionPerformed
+        int pQuantity = Integer.parseInt(MorePurchases_ComboBox.getSelectedItem().toString());        
+        DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("First Name");
+            modelo.addColumn("Username");
+            modelo.addColumn("Adquired Products");
+        ((DefaultTableModel) UsersMorePurchases_JTable.getModel()).setNumRows(0);
+        
+        UsersMorePurchases_JTable.setModel(modelo);
+         try {
+             ResultSet res = Connection.DBConnection.get_users_with_more_bought_products(pQuantity);
+             String data [] = new String[3];
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3); 
+                 modelo.addRow(data);
+             }   
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_MorePurchases_ButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -6717,11 +7088,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JInternalFrame AdditionalQueries_JInternalFrame;
     private javax.swing.JPanel AdditionalQueries_Panel;
     private javax.swing.JPanel BannedUsers_Panel;
-    private javax.swing.JTextArea BannedUsers_TextField;
     private javax.swing.JTextArea BannedUsers_TextField2;
     private javax.swing.JTextArea BannedUsers_TextField3;
     private javax.swing.JInternalFrame BestQualifiedUsers_JInternalFrame;
+    private javax.swing.JTable BestQualifiedUsers_JTable;
     private javax.swing.JInternalFrame BestSellingUsers_JInternalFrame;
+    private javax.swing.JTable BestSellingUsers_JTable;
+    private javax.swing.JButton BestSelling_Button;
+    private javax.swing.JComboBox<String> BestSelling_ComboBox;
     private javax.swing.JInternalFrame BoughtProducts_JInternalFrame;
     private javax.swing.JButton Bought_Products_Button;
     private javax.swing.JPanel Chart_Panel;
@@ -6859,6 +7233,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel List_Panel2;
     private javax.swing.JPanel List_Panel3;
     private javax.swing.JPanel List_Panel4;
+    private javax.swing.JButton MorePurchases_Button;
+    private javax.swing.JComboBox<String> MorePurchases_ComboBox;
     private javax.swing.JLabel Panel_Wallpaper;
     private javax.swing.JLabel Panel_Wallpaper1;
     private javax.swing.JLabel Panel_Wallpaper10;
@@ -6935,7 +7311,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField RegisterInfoName_TextField16;
     private javax.swing.JTextField RegisterInfoName_TextField17;
     private javax.swing.JTextField RegisterInfoName_TextField18;
-    private javax.swing.JTextField RegisterInfoName_TextField19;
     private javax.swing.JTextField RegisterInfoName_TextField20;
     private javax.swing.JTextField RegisterInfoName_TextField21;
     private javax.swing.JTextField RegisterInfoName_TextField22;
@@ -6943,9 +7318,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField RegisterInfoName_TextField24;
     private javax.swing.JTextField RegisterInfoName_TextField25;
     private javax.swing.JTextField RegisterInfoName_TextField27;
-    private javax.swing.JTextField RegisterInfoName_TextField28;
-    private javax.swing.JTextField RegisterInfoName_TextField29;
-    private javax.swing.JTextField RegisterInfoName_TextField30;
     private javax.swing.JTextField RegisterInfoName_TextField31;
     private javax.swing.JTextField RegisterInfoName_TextField5;
     private javax.swing.JTextField RegisterInfoName_TextField6;
@@ -7015,17 +7387,20 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel Show_Panel2;
     private javax.swing.JPanel Show_Panel3;
     private javax.swing.JPanel Show_Panel4;
+    private javax.swing.JTable SoldProduct_JTable;
     private javax.swing.JButton Sold_Products_Button;
     private javax.swing.JInternalFrame Sold_Products_JInternalFrame;
     private javax.swing.JInternalFrame Statistics_JInternalFrame;
     private javax.swing.JPanel UserList_Panel;
-    private javax.swing.JButton UserLists_Button;
+    private javax.swing.JButton UsersMorePurchases_Button;
     private javax.swing.JInternalFrame UsersMorePurchases_JInternalFrame;
+    private javax.swing.JTable UsersMorePurchases_JTable;
     private javax.swing.JLabel Wallpaper_User_Main_Menu;
     private javax.swing.JButton WishList_Button;
     private javax.swing.JInternalFrame Wishlist_JInternalFrame;
     private javax.swing.JButton WorstQualifiedUsers_Button;
     private javax.swing.JInternalFrame WorstQualifiedUsers_JInternalFrame;
+    private javax.swing.JTable WorstQualifiedUsers_JTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -7121,6 +7496,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel178;
     private javax.swing.JLabel jLabel179;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel180;
+    private javax.swing.JLabel jLabel181;
     private javax.swing.JLabel jLabel182;
     private javax.swing.JLabel jLabel183;
     private javax.swing.JLabel jLabel184;
@@ -7284,7 +7661,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;

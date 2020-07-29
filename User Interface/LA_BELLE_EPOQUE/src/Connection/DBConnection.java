@@ -752,36 +752,79 @@ public class DBConnection {
   //=========================== QUERIES =============================//
   
 //Admins
-  public static ResultSet get_best_qualified_vendors() throws SQLException{
-       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
-       CallableStatement stmt = con.prepareCall("{ call get_best_qualified_vendors()}");
- 
+  public static ResultSet get_best_qualified_vendors(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_best_qualified_vendors(?)}");
+        stmt.setInt(1, pQuantity);
         stmt.execute();
         ResultSet rs = stmt.getResultSet();
         System.out.println(rs);
         return rs;
    }
   
-  public static ResultSet get_less_expensive_products_by_type() throws SQLException{
+  public static ResultSet get_less_expensive_products_by_type(int pQuantity) throws SQLException{
        con = (Connection) DriverManager.getConnection(urlPR,user,pass);
-       CallableStatement stmt = con.prepareCall("{ get_less_expensive_products_by_type()}");
- 
+       CallableStatement stmt = con.prepareCall("{ call get_less_expensive_products_by_type(?)}");
+        stmt.setInt(1, pQuantity);
         stmt.execute();
         ResultSet rs = stmt.getResultSet();
         System.out.println(rs);
         return rs;
    }
   
-  public static ResultSet get_most_expensive_products_by_type() throws SQLException{
+  public static ResultSet get_most_expensive_products_by_type(int pQuantity) throws SQLException{
        con = (Connection) DriverManager.getConnection(urlPR,user,pass);
-       CallableStatement stmt = con.prepareCall("{ get_most_expensive_products_by_type()}");
- 
+       CallableStatement stmt = con.prepareCall("{ call get_most_expensive_products_by_type(?)}");
+        stmt.setInt(1, pQuantity);
         stmt.execute();
         ResultSet rs = stmt.getResultSet();
         System.out.println(rs);
         return rs;
    }
   
+    public static ResultSet get_most_expensive_products(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_most_expensive_products_by_type(?)}");
+        stmt.setInt(1, pQuantity);
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+    
+    public static ResultSet get_users_with_more_bought_products(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_users_with_more_bought_products(?)}");
+        stmt.setInt(1, pQuantity);
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+   
+            
+     public static ResultSet get_top_users_with_more_sales(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_top_users_with_more_sales(?)}");
+        stmt.setInt(1, pQuantity);
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }       
+            
+                    
+    public static ResultSet get_worst_qualified_vendors(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_worst_qualified_vendors(?)}");
+        stmt.setInt(1, pQuantity);
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }               
+            
+            
   
   ///Procedimientos de PE
   //TODO de PAR

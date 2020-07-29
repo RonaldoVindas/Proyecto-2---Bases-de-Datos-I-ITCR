@@ -2717,18 +2717,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private void Reviews_Button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_Button4ActionPerformed
         Profile_JInternalFrame.setVisible(false);
         Reviews_JInternalFrame.setVisible(false);
-        RegisterInfo_JInternalFrame.setVisible(false);
-        RegisterInfo_Person_JInternalFrame.setVisible(false);
-        RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-        List_Panel.setVisible(false);
-        RegisterInfo_Place_JInternalFrame.setVisible(false);
-        List_Panel1.setVisible(false);
-        RegisterInfo_Gender_JInternalFrame.setVisible(false);
-        List_Panel2.setVisible(false);
-        RegisterInfo_ProductType_JInternalFrame.setVisible(false);
-        List_Panel3.setVisible(false);
-        RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-        List_Panel4.setVisible(false);
+        
 
         Search_Product_JInternalFrame.setVisible(false);
         ProductResultList_JInternalFrame.setVisible(false);
@@ -2739,15 +2728,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Chat_JInternalFrame.setVisible(false);
         Sold_Products_JInternalFrame.setVisible(false);
         BoughtProducts_JInternalFrame.setVisible(false);
-        AdditionalQueries_JInternalFrame.setVisible(false);
-
-        WorstQualifiedUsers_JInternalFrame.setVisible(false);
-        BestSellingUsers_JInternalFrame.setVisible(false);
-        BestQualifiedUsers_JInternalFrame.setVisible(false);
-        UsersMorePurchases_JInternalFrame.setVisible(false);
-        ExpensiveProducts_JInternalFrame.setVisible(false);
-
-        Statistics_JInternalFrame.setVisible(false);
+        
 
         Register_Product_JInternalFrame.setVisible(false);
 
@@ -2793,18 +2774,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private void Reviews_Button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Reviews_Button7ActionPerformed
         Profile_JInternalFrame.setVisible(false);
         Reviews_JInternalFrame.setVisible(false);
-        RegisterInfo_JInternalFrame.setVisible(false);
-        RegisterInfo_Person_JInternalFrame.setVisible(false);
-        RegisterInfo_Nationality_JInternalFrame.setVisible(false);
-        List_Panel.setVisible(false);
-        RegisterInfo_Place_JInternalFrame.setVisible(false);
-        List_Panel1.setVisible(false);
-        RegisterInfo_Gender_JInternalFrame.setVisible(false);
-        List_Panel2.setVisible(false);
-        RegisterInfo_ProductType_JInternalFrame.setVisible(false);
-        List_Panel3.setVisible(false);
-        RegisterInfo_ShippingType_JInternalFrame.setVisible(false);
-        List_Panel4.setVisible(false);
+        
 
         Search_Product_JInternalFrame.setVisible(false);
         ProductResultList_JInternalFrame.setVisible(false);
@@ -2815,15 +2785,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Chat_JInternalFrame.setVisible(false);
         Sold_Products_JInternalFrame.setVisible(false);
         BoughtProducts_JInternalFrame.setVisible(false);
-        AdditionalQueries_JInternalFrame.setVisible(false);
-
-        WorstQualifiedUsers_JInternalFrame.setVisible(false);
-        BestSellingUsers_JInternalFrame.setVisible(false);
-        BestQualifiedUsers_JInternalFrame.setVisible(false);
-        UsersMorePurchases_JInternalFrame.setVisible(false);
-        ExpensiveProducts_JInternalFrame.setVisible(false);
-
-        Statistics_JInternalFrame.setVisible(false);
+        
 
         Register_Product_JInternalFrame.setVisible(false);
 
