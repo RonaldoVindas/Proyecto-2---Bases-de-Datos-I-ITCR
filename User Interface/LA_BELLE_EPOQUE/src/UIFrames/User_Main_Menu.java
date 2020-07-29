@@ -273,6 +273,8 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jComboBox11 = new javax.swing.JComboBox<>();
+        jLabel69 = new javax.swing.JLabel();
+        jComboBox9 = new javax.swing.JComboBox<>();
         Panel_Wallpaper7 = new javax.swing.JLabel();
         Chat_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo8 = new javax.swing.JLabel();
@@ -1696,22 +1698,22 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel50.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel17.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 100, 30));
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Air Shipping", "Mail Delivery", "Meeting Point" }));
-        Decoration_Panel17.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 140, 30));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vintage Clock", "Electronic Device", "Historical Gun", "Furniture" }));
+        Decoration_Panel17.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 140, 30));
 
         jLabel51.setBackground(new java.awt.Color(219, 219, 219));
         jLabel51.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel51.setText("Shipping Type:");
+        jLabel51.setText("Product Type:");
         jLabel51.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
+        Decoration_Panel17.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 140, 30));
 
         jLabel52.setBackground(new java.awt.Color(219, 219, 219));
         jLabel52.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(0, 0, 0));
         jLabel52.setText("Price:");
         jLabel52.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel17.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 60, 30));
+        Decoration_Panel17.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 60, 30));
 
         jLabel54.setBackground(new java.awt.Color(219, 219, 219));
         jLabel54.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1732,7 +1734,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel57.setText("Description:");
         jLabel57.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel17.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 170, 50));
-        Decoration_Panel17.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 140, 30));
+        Decoration_Panel17.add(jTextField29, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 140, 30));
 
         RegisterCriminalFileGo_Button.setBackground(new java.awt.Color(0, 102, 204));
         RegisterCriminalFileGo_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -1782,6 +1784,16 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100+", "200+" }));
         Decoration_Panel17.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, 30));
+
+        jLabel69.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel69.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel69.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel69.setText("Shipping Type:");
+        jLabel69.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel17.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 140, 30));
+
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Air Shipping", "Mail Delivery", "Meeting Point" }));
+        Decoration_Panel17.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 140, 30));
 
         Register_Product_JInternalFrame.getContentPane().add(Decoration_Panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 930, 350));
 
@@ -2946,6 +2958,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3021,6 +3034,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;

@@ -17,6 +17,8 @@ import java.util.GregorianCalendar;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import static jdk.nashorn.internal.runtime.regexp.joni.Syntax.Java;
 import org.jfree.chart.ChartFactory;
@@ -48,12 +50,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         
         int pIdentification = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification;
         String pUsername = LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username;
-                
+           
         
-                
-        
-        
-        
+
         
         
         
@@ -163,16 +162,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         DangerousZones_Logo2 = new javax.swing.JLabel();
         RegisterInfo_Nationality_JInternalFrame = new javax.swing.JInternalFrame();
         List_Panel = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ShowList_TextArea = new javax.swing.JTextArea();
         ExitList_Button = new javax.swing.JButton();
         jLabel75 = new javax.swing.JLabel();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        Nationalities_JTable = new javax.swing.JTable();
         Delete_Panel1 = new javax.swing.JPanel();
         jLabel106 = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
-        RegisterInfoName_TextField21 = new javax.swing.JTextField();
+        DeleteNationality_TextField = new javax.swing.JTextField();
         Go_Panel10 = new javax.swing.JPanel();
-        RegisterPersonGo_Button7 = new javax.swing.JButton();
+        DeleteNationalityGo_Button = new javax.swing.JButton();
         jLabel114 = new javax.swing.JLabel();
         Show_Panel = new javax.swing.JPanel();
         Show_Button = new javax.swing.JButton();
@@ -182,35 +181,29 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel31 = new javax.swing.JPanel();
         jLabel74 = new javax.swing.JLabel();
         Decoration_Panel11 = new javax.swing.JPanel();
-        RegisterInfoName_TextField5 = new javax.swing.JTextField();
+        RegisterNationalityName_TextField = new javax.swing.JTextField();
         Go_Panel6 = new javax.swing.JPanel();
-        RegisterPersonGo_Button6 = new javax.swing.JButton();
+        RegisterNationalityName_Button = new javax.swing.JButton();
         jLabel119 = new javax.swing.JLabel();
         jLabel120 = new javax.swing.JLabel();
         Decoration_Panel36 = new javax.swing.JPanel();
-        RegisterInfoName_TextField10 = new javax.swing.JTextField();
+        UpdateNationalityValue_TextField = new javax.swing.JTextField();
         jLabel118 = new javax.swing.JLabel();
         Go_Panel7 = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
-        RegisterInfoName_TextField11 = new javax.swing.JTextField();
+        UpdateNationalityId_TextField = new javax.swing.JTextField();
         jLabel121 = new javax.swing.JLabel();
         Go_Panel8 = new javax.swing.JPanel();
-        RegisterPersonGo_Button11 = new javax.swing.JButton();
+        Update_Nationality_Button = new javax.swing.JButton();
         Panel_Wallpaper4 = new javax.swing.JLabel();
         jPanel41 = new javax.swing.JPanel();
         DangerousZones_Logo4 = new javax.swing.JLabel();
         RegisterInfo_Place_JInternalFrame = new javax.swing.JInternalFrame();
         List_Panel1 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        ShowList_TextArea1 = new javax.swing.JTextArea();
         ExitList_Button1 = new javax.swing.JButton();
         jLabel76 = new javax.swing.JLabel();
-        Delete_Panel2 = new javax.swing.JPanel();
-        jLabel112 = new javax.swing.JLabel();
-        RegisterInfoName_TextField22 = new javax.swing.JTextField();
-        DeletePlaceGo_Panel = new javax.swing.JPanel();
-        DeletePlaceGo_Button = new javax.swing.JButton();
-        jLabel115 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Places_JTable = new javax.swing.JTable();
         Show_Panel1 = new javax.swing.JPanel();
         Show_Button1 = new javax.swing.JButton();
         Decoration_Panel28 = new javax.swing.JPanel();
@@ -219,53 +212,67 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel33 = new javax.swing.JPanel();
         jLabel83 = new javax.swing.JLabel();
         Decoration_Panel29 = new javax.swing.JPanel();
-        jLabel85 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
-        RegisterInfoLastName_TextField2 = new javax.swing.JTextField();
-        RegisterInfoName_TextField6 = new javax.swing.JTextField();
-        RegisterInfoGender_TextField2 = new javax.swing.JTextField();
-        jLabel87 = new javax.swing.JLabel();
-        RegisterInfoIdentification_TextField2 = new javax.swing.JTextField();
-        jLabel89 = new javax.swing.JLabel();
-        jLabel90 = new javax.swing.JLabel();
-        RegisterInfoName_TextField12 = new javax.swing.JTextField();
-        jLabel103 = new javax.swing.JLabel();
+        Canton_TextField = new javax.swing.JTextField();
+        Country_TextField = new javax.swing.JTextField();
+        District_TextField = new javax.swing.JTextField();
+        Province_TextField = new javax.swing.JTextField();
         RegisterPlaceGo_Panel = new javax.swing.JPanel();
         RegisterPlaceGo_Button = new javax.swing.JButton();
+        jLabel112 = new javax.swing.JLabel();
+        DeletePlaces_TextField = new javax.swing.JTextField();
+        jLabel115 = new javax.swing.JLabel();
+        DeletePlaceGo_Panel = new javax.swing.JPanel();
+        DeletePlaceGo_Button = new javax.swing.JButton();
+        Community_TextField = new javax.swing.JTextField();
+        Register_CheckBox = new javax.swing.JCheckBox();
+        Update_CheckBox = new javax.swing.JCheckBox();
+        jLabel187 = new javax.swing.JLabel();
+        Canton_CheckBox = new javax.swing.JCheckBox();
+        Country_CheckBox = new javax.swing.JCheckBox();
+        Province_CheckBox = new javax.swing.JCheckBox();
+        District_CheckBox = new javax.swing.JCheckBox();
+        Community_CheckBox = new javax.swing.JCheckBox();
+        jLabel103 = new javax.swing.JLabel();
+        Associated_Id_TextField = new javax.swing.JTextField();
+        Update_Panel = new javax.swing.JPanel();
+        Column_Id_TextField = new javax.swing.JTextField();
+        jLabel90 = new javax.swing.JLabel();
+        Delete_ComboBox = new javax.swing.JComboBox<>();
+        jLabel188 = new javax.swing.JLabel();
         Panel_Wallpaper12 = new javax.swing.JLabel();
         jPanel42 = new javax.swing.JPanel();
         DangerousZones_Logo12 = new javax.swing.JLabel();
         RegisterInfo_Gender_JInternalFrame = new javax.swing.JInternalFrame();
         List_Panel2 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        ShowList_TextArea2 = new javax.swing.JTextArea();
         ExitList_Button2 = new javax.swing.JButton();
         jLabel77 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        Gender_Table = new javax.swing.JTable();
         Delete_Panel3 = new javax.swing.JPanel();
         jLabel116 = new javax.swing.JLabel();
         jLabel134 = new javax.swing.JLabel();
-        RegisterInfoName_TextField23 = new javax.swing.JTextField();
         Go_Panel12 = new javax.swing.JPanel();
         RegisterPersonGo_Button13 = new javax.swing.JButton();
         jLabel135 = new javax.swing.JLabel();
+        DeleteGender_TextField = new javax.swing.JTextField();
         Show_Panel2 = new javax.swing.JPanel();
         Show_Button2 = new javax.swing.JButton();
         Decoration_Panel37 = new javax.swing.JPanel();
         jLabel123 = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
         jLabel125 = new javax.swing.JLabel();
-        RegisterInfoName_TextField14 = new javax.swing.JTextField();
         RegisterPlaceGo_Panel1 = new javax.swing.JPanel();
         RegisterPlaceGo_Button1 = new javax.swing.JButton();
         jLabel156 = new javax.swing.JLabel();
-        RegisterInfoName_TextField27 = new javax.swing.JTextField();
+        UpdateGenderId_TextField = new javax.swing.JTextField();
+        UpdateGenderValue_TextField = new javax.swing.JTextField();
         Decoration_Panel30 = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
         jLabel91 = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         jLabel92 = new javax.swing.JLabel();
         Decoration_Panel31 = new javax.swing.JPanel();
-        RegisterInfoName_TextField7 = new javax.swing.JTextField();
+        RegisterGender_TextField = new javax.swing.JTextField();
         jLabel99 = new javax.swing.JLabel();
         jLabel122 = new javax.swing.JLabel();
         Go_Panel16 = new javax.swing.JPanel();
@@ -276,15 +283,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         DangerousZones_Logo13 = new javax.swing.JLabel();
         RegisterInfo_ProductType_JInternalFrame = new javax.swing.JInternalFrame();
         List_Panel3 = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        ShowList_TextArea3 = new javax.swing.JTextArea();
         ExitList_Button3 = new javax.swing.JButton();
         jLabel78 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        ProductType_JTable = new javax.swing.JTable();
         Show_Panel3 = new javax.swing.JPanel();
         Show_Button3 = new javax.swing.JButton();
         Delete_Panel4 = new javax.swing.JPanel();
         jLabel137 = new javax.swing.JLabel();
-        RegisterInfoName_TextField24 = new javax.swing.JTextField();
+        DeleteProductType_TextField = new javax.swing.JTextField();
         Go_Panel13 = new javax.swing.JPanel();
         RegisterPersonGo_Button14 = new javax.swing.JButton();
         jLabel138 = new javax.swing.JLabel();
@@ -295,55 +302,58 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel37 = new javax.swing.JPanel();
         jLabel101 = new javax.swing.JLabel();
         Decoration_Panel38 = new javax.swing.JPanel();
-        RegisterInfoName_TextField15 = new javax.swing.JTextField();
+        UpdateProductType_TextField = new javax.swing.JTextField();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
-        jLabel129 = new javax.swing.JLabel();
-        RegisterInfoName_TextField16 = new javax.swing.JTextField();
+        UpdateProductTypeValue_TextField = new javax.swing.JTextField();
         Go_Panel18 = new javax.swing.JPanel();
         RegisterPersonGo_Button17 = new javax.swing.JButton();
+        jLabel189 = new javax.swing.JLabel();
+        jLabel129 = new javax.swing.JLabel();
         Decoration_Panel33 = new javax.swing.JPanel();
-        RegisterInfoName_TextField8 = new javax.swing.JTextField();
+        RegisterProductType_Text_Field = new javax.swing.JTextField();
         jLabel108 = new javax.swing.JLabel();
         jLabel126 = new javax.swing.JLabel();
         Go_Panel19 = new javax.swing.JPanel();
         RegisterPersonGo_Button18 = new javax.swing.JButton();
+        jLabel190 = new javax.swing.JLabel();
         Panel_Wallpaper14 = new javax.swing.JLabel();
         jPanel44 = new javax.swing.JPanel();
         DangerousZones_Logo14 = new javax.swing.JLabel();
         RegisterInfo_ShippingType_JInternalFrame = new javax.swing.JInternalFrame();
         List_Panel4 = new javax.swing.JPanel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        ShowList_TextArea4 = new javax.swing.JTextArea();
         ExitList_Button4 = new javax.swing.JButton();
         jLabel79 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        Shipping_JTable = new javax.swing.JTable();
         Delete_Panel5 = new javax.swing.JPanel();
         jLabel139 = new javax.swing.JLabel();
-        RegisterInfoName_TextField25 = new javax.swing.JTextField();
+        DeleteShipping_TextField = new javax.swing.JTextField();
         Go_Panel14 = new javax.swing.JPanel();
         RegisterPersonGo_Button15 = new javax.swing.JButton();
         jLabel140 = new javax.swing.JLabel();
         Show_Panel4 = new javax.swing.JPanel();
         Show_Button4 = new javax.swing.JButton();
-        Decoration_Panel39 = new javax.swing.JPanel();
-        RegisterInfoName_TextField17 = new javax.swing.JTextField();
-        jLabel131 = new javax.swing.JLabel();
-        jLabel132 = new javax.swing.JLabel();
-        jLabel133 = new javax.swing.JLabel();
-        RegisterInfoName_TextField18 = new javax.swing.JTextField();
-        Go_Panel20 = new javax.swing.JPanel();
-        RegisterPersonGo_Button19 = new javax.swing.JButton();
         Decoration_Panel34 = new javax.swing.JPanel();
         jPanel38 = new javax.swing.JPanel();
         jLabel109 = new javax.swing.JLabel();
         jPanel39 = new javax.swing.JPanel();
         jLabel110 = new javax.swing.JLabel();
         Decoration_Panel35 = new javax.swing.JPanel();
-        RegisterInfoName_TextField9 = new javax.swing.JTextField();
+        RegisterShipping_TextField = new javax.swing.JTextField();
         jLabel117 = new javax.swing.JLabel();
-        jLabel130 = new javax.swing.JLabel();
         Go_Panel21 = new javax.swing.JPanel();
         RegisterPersonGo_Button20 = new javax.swing.JButton();
+        jLabel191 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        jLabel131 = new javax.swing.JLabel();
+        UpdateShippingValue_TextField = new javax.swing.JTextField();
+        jLabel132 = new javax.swing.JLabel();
+        UpdateShippingId_TextField = new javax.swing.JTextField();
+        Go_Panel20 = new javax.swing.JPanel();
+        RegisterPersonGo_Button19 = new javax.swing.JButton();
+        jLabel130 = new javax.swing.JLabel();
+        jLabel192 = new javax.swing.JLabel();
         Panel_Wallpaper15 = new javax.swing.JLabel();
         jPanel45 = new javax.swing.JPanel();
         DangerousZones_Logo15 = new javax.swing.JLabel();
@@ -364,7 +374,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         SearchProductList_Button = new javax.swing.JButton();
         jLabel148 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Recomendation_JTable = new javax.swing.JTable();
         Panel_Wallpaper18 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         ProductResultList_JInternalFrame = new javax.swing.JInternalFrame();
@@ -451,16 +461,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel46 = new javax.swing.JPanel();
         DangerousZones_Logo7 = new javax.swing.JLabel();
         Wishlist_JInternalFrame = new javax.swing.JInternalFrame();
-        DangerousZones_Logo19 = new javax.swing.JLabel();
         Decoration_Panel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         Decoration_Panel22 = new javax.swing.JPanel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        Districts_TextArea1 = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        Wishlist_JTable = new javax.swing.JTable();
         Panel_Wallpaper19 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        DangerousZones_Logo19 = new javax.swing.JLabel();
         Chat_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo10 = new javax.swing.JLabel();
         Decoration_Panel23 = new javax.swing.JPanel();
@@ -591,7 +601,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jPanel69 = new javax.swing.JPanel();
         jLabel172 = new javax.swing.JLabel();
         Decoration_Panel56 = new javax.swing.JPanel();
-        RegisterInfoName_TextField31 = new javax.swing.JTextField();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        ExpensiveProducts_JTable = new javax.swing.JTable();
+        jLabel185 = new javax.swing.JLabel();
+        ExpensiveProducts_ComboBox = new javax.swing.JComboBox<>();
+        ExpensiveProducts_Button = new javax.swing.JButton();
         Panel_Wallpaper25 = new javax.swing.JLabel();
         jPanel70 = new javax.swing.JPanel();
         DangerousZones_Logo25 = new javax.swing.JLabel();
@@ -1077,7 +1091,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Places1ActionPerformed(evt);
             }
         });
-        Decoration_Panel19.add(Places1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 200, 50));
+        Decoration_Panel19.add(Places1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 190, 50));
 
         Company1.setBackground(new java.awt.Color(219, 219, 219));
         Company1.setFont(new java.awt.Font("Malgun Gothic", 0, 12)); // NOI18N
@@ -1114,7 +1128,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel44.setForeground(new java.awt.Color(102, 102, 102));
         jLabel44.setText("<html>Register Info about person out of the database. Register First name, last name, identification, birth day, etc...");
         jLabel44.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel19.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 190, 60));
+        Decoration_Panel19.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 190, 60));
 
         Profile_Button4.setBackground(new java.awt.Color(235, 235, 235));
         Profile_Button4.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1144,7 +1158,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Company2.setForeground(new java.awt.Color(102, 102, 102));
         Company2.setText("<html>Register Info about nationalities. <p> Register their names.");
         Company2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel19.add(Company2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 200, 80));
+        Decoration_Panel19.add(Company2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 200, 80));
 
         Profile_Button5.setBackground(new java.awt.Color(235, 235, 235));
         Profile_Button5.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1174,7 +1188,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Company3.setForeground(new java.awt.Color(102, 102, 102));
         Company3.setText("<html>Register Info about different product types. Register if they are electronics, vintage clocks, etc.");
         Company3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel19.add(Company3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 180, 80));
+        Decoration_Panel19.add(Company3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 180, 80));
 
         RegisterInfo_JInternalFrame.getContentPane().add(Decoration_Panel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 930, 350));
 
@@ -1318,7 +1332,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
         jLabel72.setText("Set:");
         jLabel72.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel8.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 60, 40));
+        Decoration_Panel8.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 60, 30));
 
         RegisterUpdatePersonGo_Panel.setBackground(new java.awt.Color(0, 102, 204));
         RegisterUpdatePersonGo_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1385,13 +1399,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         List_Panel.setBackground(new java.awt.Color(255, 255, 255));
         List_Panel.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        List_Panel.setEnabled(false);
         List_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ShowList_TextArea.setColumns(20);
-        ShowList_TextArea.setRows(5);
-        jScrollPane5.setViewportView(ShowList_TextArea);
-
-        List_Panel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
 
         ExitList_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         ExitList_Button.setBorder(null);
@@ -1408,9 +1417,23 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel75.setForeground(new java.awt.Color(0, 0, 0));
         jLabel75.setText("Existing List:");
         jLabel75.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        List_Panel.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 120, 40));
+        List_Panel.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 120, 40));
 
-        RegisterInfo_Nationality_JInternalFrame.getContentPane().add(List_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 680, 370));
+        jScrollPane22.setBackground(new java.awt.Color(255, 255, 255));
+
+        Nationalities_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane22.setViewportView(Nationalities_JTable);
+
+        List_Panel.add(jScrollPane22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 510, 300));
+
+        RegisterInfo_Nationality_JInternalFrame.getContentPane().add(List_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 680, 390));
 
         Delete_Panel1.setBackground(new java.awt.Color(255, 255, 255));
         Delete_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1427,34 +1450,34 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel107.setText("ID:");
         jLabel107.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Delete_Panel1.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 30, 30));
-        Delete_Panel1.add(RegisterInfoName_TextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 140, 30));
+        Delete_Panel1.add(DeleteNationality_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 140, 30));
 
         Go_Panel10.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterPersonGo_Button7.setBackground(new java.awt.Color(48, 166, 109));
-        RegisterPersonGo_Button7.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        RegisterPersonGo_Button7.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterPersonGo_Button7.setText("Go!");
-        RegisterPersonGo_Button7.setBorder(null);
-        RegisterPersonGo_Button7.setBorderPainted(false);
-        RegisterPersonGo_Button7.setContentAreaFilled(false);
-        RegisterPersonGo_Button7.setFocusPainted(false);
-        RegisterPersonGo_Button7.setFocusable(false);
-        RegisterPersonGo_Button7.addMouseListener(new java.awt.event.MouseAdapter() {
+        DeleteNationalityGo_Button.setBackground(new java.awt.Color(48, 166, 109));
+        DeleteNationalityGo_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        DeleteNationalityGo_Button.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteNationalityGo_Button.setText("Go!");
+        DeleteNationalityGo_Button.setBorder(null);
+        DeleteNationalityGo_Button.setBorderPainted(false);
+        DeleteNationalityGo_Button.setContentAreaFilled(false);
+        DeleteNationalityGo_Button.setFocusPainted(false);
+        DeleteNationalityGo_Button.setFocusable(false);
+        DeleteNationalityGo_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button7MouseEntered(evt);
+                DeleteNationalityGo_ButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button7MouseExited(evt);
+                DeleteNationalityGo_ButtonMouseExited(evt);
             }
         });
-        RegisterPersonGo_Button7.addActionListener(new java.awt.event.ActionListener() {
+        DeleteNationalityGo_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterPersonGo_Button7ActionPerformed(evt);
+                DeleteNationalityGo_ButtonActionPerformed(evt);
             }
         });
-        Go_Panel10.add(RegisterPersonGo_Button7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
+        Go_Panel10.add(DeleteNationalityGo_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
 
         Delete_Panel1.add(Go_Panel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 100, 50));
 
@@ -1524,34 +1547,34 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel11.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel11.add(RegisterInfoName_TextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 210, 30));
+        Decoration_Panel11.add(RegisterNationalityName_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 210, 30));
 
         Go_Panel6.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterPersonGo_Button6.setBackground(new java.awt.Color(48, 166, 109));
-        RegisterPersonGo_Button6.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        RegisterPersonGo_Button6.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterPersonGo_Button6.setText("Go!");
-        RegisterPersonGo_Button6.setBorder(null);
-        RegisterPersonGo_Button6.setBorderPainted(false);
-        RegisterPersonGo_Button6.setContentAreaFilled(false);
-        RegisterPersonGo_Button6.setFocusPainted(false);
-        RegisterPersonGo_Button6.setFocusable(false);
-        RegisterPersonGo_Button6.addMouseListener(new java.awt.event.MouseAdapter() {
+        RegisterNationalityName_Button.setBackground(new java.awt.Color(48, 166, 109));
+        RegisterNationalityName_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        RegisterNationalityName_Button.setForeground(new java.awt.Color(255, 255, 255));
+        RegisterNationalityName_Button.setText("Go!");
+        RegisterNationalityName_Button.setBorder(null);
+        RegisterNationalityName_Button.setBorderPainted(false);
+        RegisterNationalityName_Button.setContentAreaFilled(false);
+        RegisterNationalityName_Button.setFocusPainted(false);
+        RegisterNationalityName_Button.setFocusable(false);
+        RegisterNationalityName_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button6MouseEntered(evt);
+                RegisterNationalityName_ButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button6MouseExited(evt);
+                RegisterNationalityName_ButtonMouseExited(evt);
             }
         });
-        RegisterPersonGo_Button6.addActionListener(new java.awt.event.ActionListener() {
+        RegisterNationalityName_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterPersonGo_Button6ActionPerformed(evt);
+                RegisterNationalityName_ButtonActionPerformed(evt);
             }
         });
-        Go_Panel6.add(RegisterPersonGo_Button6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
+        Go_Panel6.add(RegisterNationalityName_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
 
         Decoration_Panel11.add(Go_Panel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, 50));
 
@@ -1567,13 +1590,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel120.setForeground(new java.awt.Color(0, 0, 0));
         jLabel120.setText("Register:");
         jLabel120.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel11.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 90, 40));
+        Decoration_Panel11.add(jLabel120, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 90, 40));
 
         RegisterInfo_Nationality_JInternalFrame.getContentPane().add(Decoration_Panel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 350, 340));
 
         Decoration_Panel36.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel36.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel36.add(RegisterInfoName_TextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 210, 30));
+        Decoration_Panel36.add(UpdateNationalityValue_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 210, 30));
 
         jLabel118.setBackground(new java.awt.Color(219, 219, 219));
         jLabel118.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1592,7 +1615,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel81.setText("Update:");
         jLabel81.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel36.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 90, 40));
-        Decoration_Panel36.add(RegisterInfoName_TextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 210, 30));
+        Decoration_Panel36.add(UpdateNationalityId_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 210, 30));
 
         jLabel121.setBackground(new java.awt.Color(219, 219, 219));
         jLabel121.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1604,29 +1627,29 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Go_Panel8.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterPersonGo_Button11.setBackground(new java.awt.Color(48, 166, 109));
-        RegisterPersonGo_Button11.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        RegisterPersonGo_Button11.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterPersonGo_Button11.setText("Go!");
-        RegisterPersonGo_Button11.setBorder(null);
-        RegisterPersonGo_Button11.setBorderPainted(false);
-        RegisterPersonGo_Button11.setContentAreaFilled(false);
-        RegisterPersonGo_Button11.setFocusPainted(false);
-        RegisterPersonGo_Button11.setFocusable(false);
-        RegisterPersonGo_Button11.addMouseListener(new java.awt.event.MouseAdapter() {
+        Update_Nationality_Button.setBackground(new java.awt.Color(48, 166, 109));
+        Update_Nationality_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Update_Nationality_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Update_Nationality_Button.setText("Go!");
+        Update_Nationality_Button.setBorder(null);
+        Update_Nationality_Button.setBorderPainted(false);
+        Update_Nationality_Button.setContentAreaFilled(false);
+        Update_Nationality_Button.setFocusPainted(false);
+        Update_Nationality_Button.setFocusable(false);
+        Update_Nationality_Button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button11MouseEntered(evt);
+                Update_Nationality_ButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button11MouseExited(evt);
+                Update_Nationality_ButtonMouseExited(evt);
             }
         });
-        RegisterPersonGo_Button11.addActionListener(new java.awt.event.ActionListener() {
+        Update_Nationality_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterPersonGo_Button11ActionPerformed(evt);
+                Update_Nationality_ButtonActionPerformed(evt);
             }
         });
-        Go_Panel8.add(RegisterPersonGo_Button11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
+        Go_Panel8.add(Update_Nationality_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
 
         Decoration_Panel36.add(Go_Panel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, 50));
 
@@ -1661,12 +1684,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         List_Panel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         List_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ShowList_TextArea1.setColumns(20);
-        ShowList_TextArea1.setRows(5);
-        jScrollPane6.setViewportView(ShowList_TextArea1);
-
-        List_Panel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
-
         ExitList_Button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         ExitList_Button1.setBorder(null);
         ExitList_Button1.setContentAreaFilled(false);
@@ -1675,7 +1692,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 ExitList_Button1ActionPerformed(evt);
             }
         });
-        List_Panel1.add(ExitList_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 50, 50));
+        List_Panel1.add(ExitList_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, 50, 50));
 
         jLabel76.setBackground(new java.awt.Color(219, 219, 219));
         jLabel76.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -1684,56 +1701,19 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel76.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         List_Panel1.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 120, 40));
 
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 680, 370));
+        Places_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        Delete_Panel2.setBackground(new java.awt.Color(255, 255, 255));
-        Delete_Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            },
+            new String [] {
 
-        jLabel112.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel112.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel112.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel112.setText("ID:");
-        jLabel112.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Delete_Panel2.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 30, 30));
-        Delete_Panel2.add(RegisterInfoName_TextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 140, 30));
-
-        DeletePlaceGo_Panel.setBackground(new java.awt.Color(0, 102, 204));
-        DeletePlaceGo_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        DeletePlaceGo_Button.setBackground(new java.awt.Color(48, 166, 109));
-        DeletePlaceGo_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        DeletePlaceGo_Button.setForeground(new java.awt.Color(255, 255, 255));
-        DeletePlaceGo_Button.setText("Go!");
-        DeletePlaceGo_Button.setBorder(null);
-        DeletePlaceGo_Button.setBorderPainted(false);
-        DeletePlaceGo_Button.setContentAreaFilled(false);
-        DeletePlaceGo_Button.setFocusPainted(false);
-        DeletePlaceGo_Button.setFocusable(false);
-        DeletePlaceGo_Button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                DeletePlaceGo_ButtonMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                DeletePlaceGo_ButtonMouseExited(evt);
-            }
-        });
-        DeletePlaceGo_Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletePlaceGo_ButtonActionPerformed(evt);
-            }
-        });
-        DeletePlaceGo_Panel.add(DeletePlaceGo_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
+        ));
+        jScrollPane5.setViewportView(Places_JTable);
 
-        Delete_Panel2.add(DeletePlaceGo_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 100, 50));
+        List_Panel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 610, 310));
 
-        jLabel115.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel115.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel115.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel115.setText("Delete:");
-        jLabel115.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Delete_Panel2.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, 30));
-
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(Delete_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 340, 340));
+        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 680, 370));
 
         Show_Panel1.setBackground(new java.awt.Color(255, 255, 255));
         Show_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1760,9 +1740,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 Show_Button1ActionPerformed(evt);
             }
         });
-        Show_Panel1.add(Show_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 50));
+        Show_Panel1.add(Show_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
 
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(Show_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 410, 160, -1));
+        RegisterInfo_Place_JInternalFrame.getContentPane().add(Show_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, 140, 40));
 
         Decoration_Panel28.setBackground(new java.awt.Color(0, 102, 204));
         Decoration_Panel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1791,53 +1771,10 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel29.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel85.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel85.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel85.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel85.setText("Province:");
-        jLabel85.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 110, 30));
-
-        jLabel86.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel86.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel86.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel86.setText("Community:");
-        jLabel86.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 150, 30));
-        Decoration_Panel29.add(RegisterInfoLastName_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 140, 30));
-        Decoration_Panel29.add(RegisterInfoName_TextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 140, 30));
-        Decoration_Panel29.add(RegisterInfoGender_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 140, 30));
-
-        jLabel87.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel87.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel87.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel87.setText("Canton:");
-        jLabel87.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 110, 30));
-        Decoration_Panel29.add(RegisterInfoIdentification_TextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 140, 30));
-
-        jLabel89.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel89.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel89.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel89.setText("District:");
-        jLabel89.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 110, 30));
-
-        jLabel90.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel90.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel90.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel90.setText("Register or Update:");
-        jLabel90.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 180, 40));
-        Decoration_Panel29.add(RegisterInfoName_TextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 140, 30));
-
-        jLabel103.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel103.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel103.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel103.setText("Country:");
-        jLabel103.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel29.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 90, 40));
+        Decoration_Panel29.add(Canton_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 140, 30));
+        Decoration_Panel29.add(Country_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, 30));
+        Decoration_Panel29.add(District_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 140, 30));
+        Decoration_Panel29.add(Province_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 140, 30));
 
         RegisterPlaceGo_Panel.setBackground(new java.awt.Color(0, 102, 204));
         RegisterPlaceGo_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1866,9 +1803,188 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         RegisterPlaceGo_Panel.add(RegisterPlaceGo_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
 
-        Decoration_Panel29.add(RegisterPlaceGo_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, 40));
+        Decoration_Panel29.add(RegisterPlaceGo_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 100, 40));
 
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(Decoration_Panel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 440, 340));
+        jLabel112.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel112.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel112.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel112.setText("Select:");
+        jLabel112.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel29.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 60, 30));
+        Decoration_Panel29.add(DeletePlaces_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 140, 30));
+
+        jLabel115.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel115.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel115.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel115.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
+        jLabel115.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel29.add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 80, 250));
+
+        DeletePlaceGo_Panel.setBackground(new java.awt.Color(0, 102, 204));
+        DeletePlaceGo_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        DeletePlaceGo_Button.setBackground(new java.awt.Color(48, 166, 109));
+        DeletePlaceGo_Button.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        DeletePlaceGo_Button.setForeground(new java.awt.Color(255, 255, 255));
+        DeletePlaceGo_Button.setText("Go!");
+        DeletePlaceGo_Button.setBorder(null);
+        DeletePlaceGo_Button.setBorderPainted(false);
+        DeletePlaceGo_Button.setContentAreaFilled(false);
+        DeletePlaceGo_Button.setFocusPainted(false);
+        DeletePlaceGo_Button.setFocusable(false);
+        DeletePlaceGo_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeletePlaceGo_ButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DeletePlaceGo_ButtonMouseExited(evt);
+            }
+        });
+        DeletePlaceGo_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletePlaceGo_ButtonActionPerformed(evt);
+            }
+        });
+        DeletePlaceGo_Panel.add(DeletePlaceGo_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 40));
+
+        Decoration_Panel29.add(DeletePlaceGo_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 290, 100, 40));
+        Decoration_Panel29.add(Community_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 140, 30));
+
+        Register_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Register_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Register_CheckBox.setText("Register");
+        Register_CheckBox.setBorder(null);
+        Register_CheckBox.setContentAreaFilled(false);
+        Register_CheckBox.setFocusable(false);
+        Register_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Register_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Register_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        Update_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Update_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Update_CheckBox.setText("Update");
+        Update_CheckBox.setBorder(null);
+        Update_CheckBox.setContentAreaFilled(false);
+        Update_CheckBox.setFocusable(false);
+        Update_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Update_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Update_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        jLabel187.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel187.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel187.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel187.setText("Delete:");
+        jLabel187.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel29.add(jLabel187, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 70, 30));
+
+        Canton_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Canton_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Canton_CheckBox.setText("Canton");
+        Canton_CheckBox.setBorder(null);
+        Canton_CheckBox.setContentAreaFilled(false);
+        Canton_CheckBox.setFocusable(false);
+        Canton_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Canton_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Canton_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        Country_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Country_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Country_CheckBox.setText("Country");
+        Country_CheckBox.setBorder(null);
+        Country_CheckBox.setContentAreaFilled(false);
+        Country_CheckBox.setFocusable(false);
+        Country_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Country_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Country_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        Province_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Province_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Province_CheckBox.setText("Province");
+        Province_CheckBox.setBorder(null);
+        Province_CheckBox.setContentAreaFilled(false);
+        Province_CheckBox.setFocusable(false);
+        Province_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Province_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Province_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        District_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        District_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        District_CheckBox.setText("District");
+        District_CheckBox.setBorder(null);
+        District_CheckBox.setContentAreaFilled(false);
+        District_CheckBox.setFocusable(false);
+        District_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                District_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(District_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, 30));
+
+        Community_CheckBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Community_CheckBox.setForeground(new java.awt.Color(0, 0, 0));
+        Community_CheckBox.setText("Community");
+        Community_CheckBox.setBorder(null);
+        Community_CheckBox.setContentAreaFilled(false);
+        Community_CheckBox.setFocusable(false);
+        Community_CheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Community_CheckBoxActionPerformed(evt);
+            }
+        });
+        Decoration_Panel29.add(Community_CheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        jLabel103.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel103.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel103.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel103.setText("Associated Id:");
+        jLabel103.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel29.add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 130, 40));
+        Decoration_Panel29.add(Associated_Id_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 140, 30));
+
+        Update_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        Update_Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Update_Panel.add(Column_Id_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 30));
+
+        jLabel90.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel90.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel90.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel90.setText("Column Id:");
+        jLabel90.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Update_Panel.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 110, 40));
+
+        Decoration_Panel29.add(Update_Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 160, 80));
+
+        Delete_ComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        Delete_ComboBox.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        Delete_ComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        Delete_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Country", "Province", "Canton", "District", "Community" }));
+        Delete_ComboBox.setFocusable(false);
+        Delete_ComboBox.setInheritsPopupMenu(true);
+        Decoration_Panel29.add(Delete_ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, 140, 30));
+
+        jLabel188.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel188.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel188.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel188.setText("ID:");
+        jLabel188.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel29.add(jLabel188, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 140, 30, 30));
+
+        RegisterInfo_Place_JInternalFrame.getContentPane().add(Decoration_Panel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 870, 340));
 
         Panel_Wallpaper12.setBackground(new java.awt.Color(219, 219, 219));
         Panel_Wallpaper12.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -1899,12 +2015,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         List_Panel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         List_Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ShowList_TextArea2.setColumns(20);
-        ShowList_TextArea2.setRows(5);
-        jScrollPane7.setViewportView(ShowList_TextArea2);
-
-        List_Panel2.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
-
         ExitList_Button2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         ExitList_Button2.setBorder(null);
         ExitList_Button2.setContentAreaFilled(false);
@@ -1922,7 +2032,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel77.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         List_Panel2.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 120, 40));
 
-        RegisterInfo_Gender_JInternalFrame.getContentPane().add(List_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 640, 670, -1));
+        jScrollPane6.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane6.setForeground(new java.awt.Color(0, 0, 0));
+
+        Gender_Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(Gender_Table);
+
+        List_Panel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
+
+        RegisterInfo_Gender_JInternalFrame.getContentPane().add(List_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 670, 380));
 
         Delete_Panel3.setBackground(new java.awt.Color(255, 255, 255));
         Delete_Panel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1938,8 +2063,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel134.setForeground(new java.awt.Color(0, 0, 0));
         jLabel134.setText("ID:");
         jLabel134.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Delete_Panel3.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 30, 30));
-        Delete_Panel3.add(RegisterInfoName_TextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 140, 30));
+        Delete_Panel3.add(jLabel134, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 30, 30));
 
         Go_Panel12.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1975,7 +2099,12 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel135.setForeground(new java.awt.Color(0, 0, 0));
         jLabel135.setText("Delete:");
         jLabel135.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Delete_Panel3.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 80, 30));
+        Delete_Panel3.add(jLabel135, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 80, 30));
+
+        DeleteGender_TextField.setBackground(new java.awt.Color(255, 255, 255));
+        DeleteGender_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        DeleteGender_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Delete_Panel3.add(DeleteGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 140, 30));
 
         RegisterInfo_Gender_JInternalFrame.getContentPane().add(Delete_Panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 250, 310, 210));
 
@@ -2016,7 +2145,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel123.setForeground(new java.awt.Color(0, 0, 0));
         jLabel123.setText("Update:");
         jLabel123.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel37.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 90, 40));
+        Decoration_Panel37.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 90, 40));
 
         jLabel124.setBackground(new java.awt.Color(219, 219, 219));
         jLabel124.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2031,7 +2160,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel125.setText("Set Value:");
         jLabel125.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel37.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 110, 40));
-        Decoration_Panel37.add(RegisterInfoName_TextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 140, 30));
 
         RegisterPlaceGo_Panel1.setBackground(new java.awt.Color(0, 102, 204));
         RegisterPlaceGo_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2069,7 +2197,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel156.setText("Register:");
         jLabel156.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel37.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 90, 240));
-        Decoration_Panel37.add(RegisterInfoName_TextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 30));
+
+        UpdateGenderId_TextField.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateGenderId_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        UpdateGenderId_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Decoration_Panel37.add(UpdateGenderId_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, 30));
+
+        UpdateGenderValue_TextField.setBackground(new java.awt.Color(255, 255, 255));
+        UpdateGenderValue_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        UpdateGenderValue_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Decoration_Panel37.add(UpdateGenderValue_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 140, 30));
 
         RegisterInfo_Gender_JInternalFrame.getContentPane().add(Decoration_Panel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 320, 360));
 
@@ -2100,7 +2237,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel31.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel31.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel31.add(RegisterInfoName_TextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 140, 30));
+
+        RegisterGender_TextField.setBackground(new java.awt.Color(255, 255, 255));
+        RegisterGender_TextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        RegisterGender_TextField.setForeground(new java.awt.Color(0, 0, 0));
+        Decoration_Panel31.add(RegisterGender_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 140, 30));
 
         jLabel99.setBackground(new java.awt.Color(219, 219, 219));
         jLabel99.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2144,7 +2285,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         Go_Panel16.add(RegisterPersonGo_Button16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 40));
 
-        Decoration_Panel31.add(Go_Panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 90, -1));
+        Decoration_Panel31.add(Go_Panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 90, 40));
 
         jLabel111.setBackground(new java.awt.Color(219, 219, 219));
         jLabel111.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2184,12 +2325,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         List_Panel3.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         List_Panel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ShowList_TextArea3.setColumns(20);
-        ShowList_TextArea3.setRows(5);
-        jScrollPane8.setViewportView(ShowList_TextArea3);
-
-        List_Panel3.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
-
         ExitList_Button3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         ExitList_Button3.setBorder(null);
         ExitList_Button3.setContentAreaFilled(false);
@@ -2207,7 +2342,19 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel78.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         List_Panel3.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 120, 40));
 
-        RegisterInfo_ProductType_JInternalFrame.getContentPane().add(List_Panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 680, 370));
+        ProductType_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane7.setViewportView(ProductType_JTable);
+
+        List_Panel3.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 550, 310));
+
+        RegisterInfo_ProductType_JInternalFrame.getContentPane().add(List_Panel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 680, 370));
 
         Show_Panel3.setBackground(new java.awt.Color(255, 255, 255));
         Show_Panel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2247,7 +2394,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel137.setText("ID:");
         jLabel137.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Delete_Panel4.add(jLabel137, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 30, 30));
-        Delete_Panel4.add(RegisterInfoName_TextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 140, 30));
+        Delete_Panel4.add(DeleteProductType_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 140, 30));
 
         Go_Panel13.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2283,7 +2430,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel138.setForeground(new java.awt.Color(0, 0, 0));
         jLabel138.setText("Delete:");
         jLabel138.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Delete_Panel4.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 80, 30));
+        Delete_Panel4.add(jLabel138, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 80, 30));
 
         Go_Panel17.setBackground(new java.awt.Color(48, 166, 109));
         Go_Panel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2310,7 +2457,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel101.setForeground(new java.awt.Color(0, 0, 0));
         jLabel101.setText("Register, update or delete information about a product type");
         jLabel101.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel36.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 550, 40));
+        jPanel36.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 570, 40));
 
         Decoration_Panel32.add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1060, 64));
 
@@ -2318,29 +2465,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel38.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel38.add(RegisterInfoName_TextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 140, 30));
+        Decoration_Panel38.add(UpdateProductType_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 140, 30));
 
         jLabel127.setBackground(new java.awt.Color(219, 219, 219));
         jLabel127.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel127.setForeground(new java.awt.Color(0, 0, 0));
         jLabel127.setText("Update:");
         jLabel127.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel38.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 90, 40));
+        Decoration_Panel38.add(jLabel127, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 90, 40));
 
         jLabel128.setBackground(new java.awt.Color(219, 219, 219));
         jLabel128.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel128.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel128.setText("New Name:");
+        jLabel128.setText("To Identification:");
         jLabel128.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel38.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 110, 40));
-
-        jLabel129.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel129.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel129.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel129.setText("Old Name:");
-        jLabel129.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel38.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 110, 40));
-        Decoration_Panel38.add(RegisterInfoName_TextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 140, 30));
+        Decoration_Panel38.add(jLabel128, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, 40));
+        Decoration_Panel38.add(UpdateProductTypeValue_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 140, 30));
 
         Go_Panel18.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2369,13 +2509,28 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         Go_Panel18.add(RegisterPersonGo_Button17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 50));
 
-        Decoration_Panel38.add(Go_Panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 100, 50));
+        Decoration_Panel38.add(Go_Panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 100, 50));
+
+        jLabel189.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel189.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel189.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel189.setText("Value:");
+        jLabel189.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel38.add(jLabel189, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 70, 40));
+
+        jLabel129.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel129.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel129.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel129.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
+        jLabel129.setText("Value:");
+        jLabel129.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel38.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 80, -1));
 
         RegisterInfo_ProductType_JInternalFrame.getContentPane().add(Decoration_Panel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, 370, 360));
 
         Decoration_Panel33.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel33.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel33.add(RegisterInfoName_TextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 140, 30));
+        Decoration_Panel33.add(RegisterProductType_Text_Field, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 140, 30));
 
         jLabel108.setBackground(new java.awt.Color(219, 219, 219));
         jLabel108.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2420,6 +2575,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel33.add(Go_Panel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 90, 50));
 
+        jLabel190.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel190.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel190.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel190.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
+        jLabel190.setText("Value:");
+        jLabel190.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel33.add(jLabel190, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 80, 250));
+
         RegisterInfo_ProductType_JInternalFrame.getContentPane().add(Decoration_Panel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 360, 360));
 
         Panel_Wallpaper14.setBackground(new java.awt.Color(219, 219, 219));
@@ -2451,12 +2614,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         List_Panel4.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         List_Panel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ShowList_TextArea4.setColumns(20);
-        ShowList_TextArea4.setRows(5);
-        jScrollPane9.setViewportView(ShowList_TextArea4);
-
-        List_Panel4.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 490, 310));
-
         ExitList_Button4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/salida.png"))); // NOI18N
         ExitList_Button4.setBorder(null);
         ExitList_Button4.setContentAreaFilled(false);
@@ -2474,7 +2631,19 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel79.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         List_Panel4.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 120, 40));
 
-        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(List_Panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 680, 370));
+        Shipping_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane8.setViewportView(Shipping_JTable);
+
+        List_Panel4.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 550, 310));
+
+        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(List_Panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 680, 370));
 
         Delete_Panel5.setBackground(new java.awt.Color(255, 255, 255));
         Delete_Panel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2485,7 +2654,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel139.setText("ID:");
         jLabel139.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Delete_Panel5.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 30, 30));
-        Delete_Panel5.add(RegisterInfoName_TextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 150, 30));
+        Delete_Panel5.add(DeleteShipping_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 150, 30));
 
         Go_Panel14.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2523,7 +2692,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel140.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Delete_Panel5.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 80, 30));
 
-        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Delete_Panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 240, 160));
+        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Delete_Panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 240, 160));
 
         Show_Panel4.setBackground(new java.awt.Color(255, 255, 255));
         Show_Panel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2552,64 +2721,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         });
         Show_Panel4.add(Show_Button4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
 
-        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Show_Panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 470, 150, 50));
-
-        Decoration_Panel39.setBackground(new java.awt.Color(255, 255, 255));
-        Decoration_Panel39.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel39.add(RegisterInfoName_TextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 260, 30));
-
-        jLabel131.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel131.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel131.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel131.setText("Update:");
-        jLabel131.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel39.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 90, 40));
-
-        jLabel132.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel132.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel132.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel132.setText("To Identification:");
-        jLabel132.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel39.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 180, 40));
-
-        jLabel133.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel133.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel133.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel133.setText("New Value:");
-        jLabel133.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel39.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 110, 40));
-        Decoration_Panel39.add(RegisterInfoName_TextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 260, 30));
-
-        Go_Panel20.setBackground(new java.awt.Color(0, 102, 204));
-        Go_Panel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        RegisterPersonGo_Button19.setBackground(new java.awt.Color(48, 166, 109));
-        RegisterPersonGo_Button19.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        RegisterPersonGo_Button19.setForeground(new java.awt.Color(255, 255, 255));
-        RegisterPersonGo_Button19.setText("Go!");
-        RegisterPersonGo_Button19.setBorder(null);
-        RegisterPersonGo_Button19.setBorderPainted(false);
-        RegisterPersonGo_Button19.setContentAreaFilled(false);
-        RegisterPersonGo_Button19.setFocusPainted(false);
-        RegisterPersonGo_Button19.setFocusable(false);
-        RegisterPersonGo_Button19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button19MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegisterPersonGo_Button19MouseExited(evt);
-            }
-        });
-        RegisterPersonGo_Button19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegisterPersonGo_Button19ActionPerformed(evt);
-            }
-        });
-        Go_Panel20.add(RegisterPersonGo_Button19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
-
-        Decoration_Panel39.add(Go_Panel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 90, 50));
-
-        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Decoration_Panel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 380, 360));
+        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Show_Panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, 150, 50));
 
         Decoration_Panel34.setBackground(new java.awt.Color(0, 102, 204));
         Decoration_Panel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2638,7 +2750,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel35.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel35.add(RegisterInfoName_TextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 260, 30));
+        Decoration_Panel35.add(RegisterShipping_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 260, 30));
 
         jLabel117.setBackground(new java.awt.Color(219, 219, 219));
         jLabel117.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
@@ -2646,13 +2758,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel117.setText("Register:");
         jLabel117.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel35.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, 40));
-
-        jLabel130.setBackground(new java.awt.Color(219, 219, 219));
-        jLabel130.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
-        jLabel130.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel130.setText("New Shipping Type:");
-        jLabel130.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Decoration_Panel35.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 200, 40));
 
         Go_Panel21.setBackground(new java.awt.Color(0, 102, 204));
         Go_Panel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2683,7 +2788,80 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel35.add(Go_Panel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 90, 50));
 
-        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Decoration_Panel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 360, 360));
+        jLabel191.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel191.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel191.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel191.setText("New Shipping Type:");
+        jLabel191.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel191, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 200, 40));
+
+        jLabel133.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel133.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel133.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel133.setText("Value:");
+        jLabel133.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 70, 40));
+
+        jLabel131.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel131.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel131.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel131.setText("Update:");
+        jLabel131.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel131, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 90, 40));
+        Decoration_Panel35.add(UpdateShippingValue_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 260, 30));
+
+        jLabel132.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel132.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel132.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel132.setText("To Identification:");
+        jLabel132.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 160, 40));
+        Decoration_Panel35.add(UpdateShippingId_TextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 260, 30));
+
+        Go_Panel20.setBackground(new java.awt.Color(0, 102, 204));
+        Go_Panel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RegisterPersonGo_Button19.setBackground(new java.awt.Color(48, 166, 109));
+        RegisterPersonGo_Button19.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        RegisterPersonGo_Button19.setForeground(new java.awt.Color(255, 255, 255));
+        RegisterPersonGo_Button19.setText("Go!");
+        RegisterPersonGo_Button19.setBorder(null);
+        RegisterPersonGo_Button19.setBorderPainted(false);
+        RegisterPersonGo_Button19.setContentAreaFilled(false);
+        RegisterPersonGo_Button19.setFocusPainted(false);
+        RegisterPersonGo_Button19.setFocusable(false);
+        RegisterPersonGo_Button19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegisterPersonGo_Button19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RegisterPersonGo_Button19MouseExited(evt);
+            }
+        });
+        RegisterPersonGo_Button19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterPersonGo_Button19ActionPerformed(evt);
+            }
+        });
+        Go_Panel20.add(RegisterPersonGo_Button19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 50));
+
+        Decoration_Panel35.add(Go_Panel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 90, -1));
+
+        jLabel130.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel130.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel130.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel130.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
+        jLabel130.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel130, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 90, 260));
+
+        jLabel192.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel192.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel192.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel192.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
+        jLabel192.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel35.add(jLabel192, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 90, 260));
+
+        RegisterInfo_ShippingType_JInternalFrame.getContentPane().add(Decoration_Panel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, 360));
 
         Panel_Wallpaper15.setBackground(new java.awt.Color(219, 219, 219));
         Panel_Wallpaper15.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -2798,8 +2976,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         jScrollPane4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Recomendation_JTable.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Recomendation_JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -2807,8 +2985,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
             }
         ));
-        jTable1.setEnabled(false);
-        jScrollPane4.setViewportView(jTable1);
+        Recomendation_JTable.setEnabled(false);
+        jScrollPane4.setViewportView(Recomendation_JTable);
 
         Decoration_Panel46.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 440, 220));
 
@@ -2868,6 +3046,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
             }
         ));
+        ProductResutlist_JTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductResutlist_JTableMouseClicked(evt);
+            }
+        });
         jScrollPane16.setViewportView(ProductResutlist_JTable);
 
         Decoration_Panel58.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 730, 340));
@@ -3362,12 +3545,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Wishlist_JInternalFrame.setVisible(false);
         Wishlist_JInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        DangerousZones_Logo19.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
-        DangerousZones_Logo19.setForeground(new java.awt.Color(0, 0, 0));
-        DangerousZones_Logo19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Big.png"))); // NOI18N
-        DangerousZones_Logo19.setText("  Wish List");
-        Wishlist_JInternalFrame.getContentPane().add(DangerousZones_Logo19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 370, 140));
-
         Decoration_Panel4.setBackground(new java.awt.Color(0, 102, 204));
         Decoration_Panel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -3379,7 +3556,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("See your favorite products once again!");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 360, 40));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 360, 40));
 
         Decoration_Panel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 3, 1060, 64));
 
@@ -3388,23 +3565,24 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel22.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Districts_TextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        Districts_TextArea1.setColumns(20);
-        Districts_TextArea1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Districts_TextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        Districts_TextArea1.setRows(5);
-        Districts_TextArea1.setBorder(null);
-        Districts_TextArea1.setFocusable(false);
-        jScrollPane11.setViewportView(Districts_TextArea1);
-
-        Decoration_Panel22.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 760, 290));
-
         jLabel8.setBackground(new java.awt.Color(219, 219, 219));
         jLabel8.setFont(new java.awt.Font("Malgun Gothic", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Products:");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel22.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 110, -1));
+
+        Wishlist_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane9.setViewportView(Wishlist_JTable);
+
+        Decoration_Panel22.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 760, 300));
 
         Wishlist_JInternalFrame.getContentPane().add(Decoration_Panel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 900, 360));
 
@@ -3417,6 +3595,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Wishlist_JInternalFrame.getContentPane().add(Panel_Wallpaper19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 1050, 390));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        DangerousZones_Logo19.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
+        DangerousZones_Logo19.setForeground(new java.awt.Color(0, 0, 0));
+        DangerousZones_Logo19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Wishlist Big.png"))); // NOI18N
+        DangerousZones_Logo19.setText("  Wish List");
+        jPanel8.add(DangerousZones_Logo19);
+
         Wishlist_JInternalFrame.getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 160));
 
         getContentPane().add(Wishlist_JInternalFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 1050, 650));
@@ -4291,8 +4476,54 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel56.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel56.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RegisterInfoName_TextField31.setFocusable(false);
-        Decoration_Panel56.add(RegisterInfoName_TextField31, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+        ExpensiveProducts_JTable.setBackground(new java.awt.Color(255, 255, 255));
+        ExpensiveProducts_JTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ExpensiveProducts_JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        ExpensiveProducts_JTable.setFocusable(false);
+        jScrollPane21.setViewportView(ExpensiveProducts_JTable);
+
+        Decoration_Panel56.add(jScrollPane21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 790, 290));
+
+        jLabel185.setBackground(new java.awt.Color(219, 219, 219));
+        jLabel185.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
+        jLabel185.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel185.setText("Show Top:");
+        jLabel185.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Decoration_Panel56.add(jLabel185, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 100, 40));
+
+        ExpensiveProducts_ComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        ExpensiveProducts_ComboBox.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        ExpensiveProducts_ComboBox.setForeground(new java.awt.Color(0, 0, 0));
+        ExpensiveProducts_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "3", "5", "10", "20", "50", "100" }));
+        Decoration_Panel56.add(ExpensiveProducts_ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 100, 30));
+
+        ExpensiveProducts_Button.setBackground(new java.awt.Color(0, 102, 204));
+        ExpensiveProducts_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        ExpensiveProducts_Button.setForeground(new java.awt.Color(255, 255, 255));
+        ExpensiveProducts_Button.setText("Go!");
+        ExpensiveProducts_Button.setBorder(null);
+        ExpensiveProducts_Button.setFocusable(false);
+        ExpensiveProducts_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExpensiveProducts_ButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExpensiveProducts_ButtonMouseExited(evt);
+            }
+        });
+        ExpensiveProducts_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpensiveProducts_ButtonActionPerformed(evt);
+            }
+        });
+        Decoration_Panel56.add(ExpensiveProducts_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 90, 30));
 
         ExpensiveProducts_JInternalFrame.getContentPane().add(Decoration_Panel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -4309,7 +4540,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         DangerousZones_Logo25.setFont(new java.awt.Font("Rockwell", 0, 48)); // NOI18N
         DangerousZones_Logo25.setForeground(new java.awt.Color(0, 0, 0));
         DangerousZones_Logo25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Price Big.png"))); // NOI18N
-        DangerousZones_Logo25.setText("  Best Qualified Users");
+        DangerousZones_Logo25.setText("  Most Expensive Products");
         jPanel70.add(DangerousZones_Logo25);
 
         ExpensiveProducts_JInternalFrame.getContentPane().add(jPanel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 160));
@@ -5028,6 +5259,42 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         
 
     Wishlist_JInternalFrame.setVisible(true);
+    
+    
+    
+    
+    
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Product Id");
+        modelo.addColumn("Name");
+        modelo.addColumn("Price");
+        modelo.addColumn("Added");
+        modelo.addColumn("See");
+       Wishlist_JTable.setModel(modelo);
+
+         try {
+             int pId_Wishlist = Connection.DBConnection.get_person_id_wishlist(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.identification);
+             ResultSet res = Connection.DBConnection.get_my_complete_wishlist(pId_Wishlist);
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(3);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    
+    
+    
+    
+    
     }//GEN-LAST:event_WishList_ButtonActionPerformed
 
     private void Chat_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Chat_ButtonActionPerformed
@@ -5125,7 +5392,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         modelo.addColumn("Price");
         
         
-        jTable1.setModel(modelo);
+        Recomendation_JTable.setModel(modelo);
         
          try {
              ResultSet res = Connection.DBConnection.get_product_recomendations();
@@ -5542,6 +5809,30 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
   
         
         RegisterInfo_Place_JInternalFrame.setVisible(true);
+   
+        Country_TextField.setText("");
+        Province_TextField.setText("");
+        Canton_TextField.setText("");
+        District_TextField.setText("");
+        Community_TextField.setText("");
+        
+        Register_CheckBox.setSelected(false);
+        Update_CheckBox.setSelected(false);
+        Country_CheckBox.setSelected(false);
+        Province_CheckBox.setSelected(false);
+        District_CheckBox.setSelected(false);
+        Community_CheckBox.setSelected(false);
+        
+        
+        Country_TextField.setEnabled(false);
+        Province_TextField.setEnabled(false);
+        Canton_TextField.setEnabled(false);
+        District_TextField.setEnabled(false);
+        Community_TextField.setEnabled(false);
+        
+        Update_Panel.setVisible(false);
+        
+        
     }//GEN-LAST:event_PlacesActionPerformed
 
     private void Profile_Button2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button2MouseEntered
@@ -5640,6 +5931,18 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
            
         
      RegisterInfo_Nationality_JInternalFrame.setVisible(true);
+     
+     
+     RegisterNationalityName_TextField.setText("");
+     UpdateNationalityValue_TextField.setText("");
+     UpdateNationalityId_TextField.setText("");
+     DeleteNationality_TextField.setText("");
+     
+     
+     
+     
+     
+     
     }//GEN-LAST:event_Places1ActionPerformed
 
     private void Profile_Button3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button3MouseEntered
@@ -6020,17 +6323,24 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RegisterUpdatePersonGo_ButtonActionPerformed
 
-    private void RegisterPersonGo_Button6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button6MouseEntered
+    private void RegisterNationalityName_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterNationalityName_ButtonMouseEntered
         Go_Panel6.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_RegisterPersonGo_Button6MouseEntered
+    }//GEN-LAST:event_RegisterNationalityName_ButtonMouseEntered
 
-    private void RegisterPersonGo_Button6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button6MouseExited
+    private void RegisterNationalityName_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterNationalityName_ButtonMouseExited
         Go_Panel6.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_RegisterPersonGo_Button6MouseExited
+    }//GEN-LAST:event_RegisterNationalityName_ButtonMouseExited
 
-    private void RegisterPersonGo_Button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button6ActionPerformed
-       
-    }//GEN-LAST:event_RegisterPersonGo_Button6ActionPerformed
+    private void RegisterNationalityName_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterNationalityName_ButtonActionPerformed
+        String pName = RegisterNationalityName_TextField.getText();
+        try {
+            Connection.DBConnection.insertNationality(pName);
+            JOptionPane.showMessageDialog(null, "Nationality Created Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_RegisterNationalityName_ButtonActionPerformed
 
     private void Home_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home_ButtonActionPerformed
      Profile_JInternalFrame.setVisible(false);
@@ -6074,17 +6384,29 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Home_ButtonActionPerformed
 
-    private void RegisterPersonGo_Button11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button11MouseEntered
+    private void Update_Nationality_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update_Nationality_ButtonMouseEntered
        Go_Panel8.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_RegisterPersonGo_Button11MouseEntered
+    }//GEN-LAST:event_Update_Nationality_ButtonMouseEntered
 
-    private void RegisterPersonGo_Button11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button11MouseExited
+    private void Update_Nationality_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Update_Nationality_ButtonMouseExited
         Go_Panel8.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_RegisterPersonGo_Button11MouseExited
+    }//GEN-LAST:event_Update_Nationality_ButtonMouseExited
 
-    private void RegisterPersonGo_Button11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegisterPersonGo_Button11ActionPerformed
+    private void Update_Nationality_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_Nationality_ButtonActionPerformed
+        String pName = UpdateNationalityValue_TextField.getText();
+        int pId = Integer.parseInt(UpdateNationalityId_TextField.getText());
+        
+        try {
+            Connection.DBConnection.updateNationalityName(pId, pName);
+            JOptionPane.showMessageDialog(null, "Nationality Updated Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_Update_Nationality_ButtonActionPerformed
 
     private void Show_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Show_ButtonMouseEntered
         // TODO add your handling code here:
@@ -6096,6 +6418,37 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Show_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_ButtonActionPerformed
         List_Panel.setVisible(true);
+        
+        
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Name");
+        
+
+       Nationalities_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.show_nationalities();
+             String data [] = new String[2];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_Show_ButtonActionPerformed
 
     private void ExitList_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitList_ButtonActionPerformed
@@ -6116,6 +6469,51 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Show_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Button1ActionPerformed
        List_Panel1.setVisible(true);
+       
+       DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id Country");
+        modelo.addColumn("Country Name");
+        modelo.addColumn("Id Province");
+        modelo.addColumn("Province Name");
+        modelo.addColumn("Id Canton");
+        modelo.addColumn("Canton Name");
+        modelo.addColumn("Id District");
+        modelo.addColumn("District Name");
+        modelo.addColumn("Id Community");
+        modelo.addColumn("Community Name");
+        
+       Places_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_all_places();
+             String data [] = new String[10];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(7);
+                 data [3] = res.getString(8);
+                 data [4] = res.getString(14);
+                 data [5] = res.getString(15);
+                 data [6] = res.getString(21);
+                 data [7] = res.getString(22);
+                 data [8] = res.getString(28);
+                 data [9] = res.getString(29);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       
+       
+       
+       
+       
+       
+       
     }//GEN-LAST:event_Show_Button1ActionPerformed
 
     private void Show_Button2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Show_Button2MouseEntered
@@ -6128,6 +6526,33 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Show_Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Button2ActionPerformed
         List_Panel2.setVisible(true);
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Name");
+        
+
+       Gender_Table.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_all_genders();
+             String data [] = new String[2];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
+        
+        
     }//GEN-LAST:event_Show_Button2ActionPerformed
 
     private void ExitList_Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitList_Button2ActionPerformed
@@ -6144,6 +6569,31 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Show_Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Button3ActionPerformed
         List_Panel3.setVisible(true);
+                
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Type");
+        
+
+       ProductType_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_all_product_types();
+             String data [] = new String[2];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
     }//GEN-LAST:event_Show_Button3ActionPerformed
 
     private void ExitList_Button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitList_Button3ActionPerformed
@@ -6160,35 +6610,58 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void Show_Button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Button4ActionPerformed
         List_Panel4.setVisible(true);
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Type");
+        
+
+       Shipping_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_all_shipping_types();
+             String data [] = new String[2];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_Show_Button4ActionPerformed
 
     private void ExitList_Button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitList_Button4ActionPerformed
          List_Panel4.setVisible(false);
     }//GEN-LAST:event_ExitList_Button4ActionPerformed
 
-    private void RegisterPersonGo_Button7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button7MouseEntered
+    private void DeleteNationalityGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteNationalityGo_ButtonMouseEntered
        Go_Panel10.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_RegisterPersonGo_Button7MouseEntered
+    }//GEN-LAST:event_DeleteNationalityGo_ButtonMouseEntered
 
-    private void RegisterPersonGo_Button7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button7MouseExited
+    private void DeleteNationalityGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeleteNationalityGo_ButtonMouseExited
        Go_Panel10.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_RegisterPersonGo_Button7MouseExited
+    }//GEN-LAST:event_DeleteNationalityGo_ButtonMouseExited
 
-    private void RegisterPersonGo_Button7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegisterPersonGo_Button7ActionPerformed
-
-    private void DeletePlaceGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonMouseEntered
-        DeletePlaceGo_Panel.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_DeletePlaceGo_ButtonMouseEntered
-
-    private void DeletePlaceGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonMouseExited
-        DeletePlaceGo_Panel.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_DeletePlaceGo_ButtonMouseExited
-
-    private void DeletePlaceGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeletePlaceGo_ButtonActionPerformed
+    private void DeleteNationalityGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteNationalityGo_ButtonActionPerformed
+        int pId = Integer.parseInt(DeleteNationality_TextField.getText());
+        
+        try {
+            Connection.DBConnection.removeNationality(pId);
+            JOptionPane.showMessageDialog(null, "Entry Removed Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+    }//GEN-LAST:event_DeleteNationalityGo_ButtonActionPerformed
 
     private void RegisterPersonGo_Button13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button13MouseEntered
       Go_Panel12.setBackground(new java.awt.Color(19,79,139));
@@ -6199,7 +6672,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button13MouseExited
 
     private void RegisterPersonGo_Button13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button13ActionPerformed
+        int pId = Integer.parseInt(DeleteGender_TextField.getText());
         
+        try {
+            Connection.DBConnection.removeGenre(pId);
+            JOptionPane.showMessageDialog(null, "Entry Removed Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RegisterPersonGo_Button13ActionPerformed
 
     private void RegisterPersonGo_Button14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button14MouseEntered
@@ -6211,7 +6691,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button14MouseExited
 
     private void RegisterPersonGo_Button14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button14ActionPerformed
-        // TODO add your handling code here:
+        int pId = Integer.parseInt(DeleteProductType_TextField.getText());
+        try {
+            Connection.DBConnection.remove_product_type(pId);
+            JOptionPane.showMessageDialog(null, "Entry Removed Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RegisterPersonGo_Button14ActionPerformed
 
     private void RegisterPersonGo_Button15MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button15MouseEntered
@@ -6223,7 +6709,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button15MouseExited
 
     private void RegisterPersonGo_Button15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button15ActionPerformed
-        // TODO add your handling code here:
+       int pId = Integer.parseInt(DeleteShipping_TextField.getText());
+        try {
+            Connection.DBConnection.remove_shipping_type(pId);
+            JOptionPane.showMessageDialog(null, "Entry Removed Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RegisterPersonGo_Button15ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -6294,18 +6787,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
        Go_Panel9.setBackground(new java.awt.Color(19,79,139));
     }//GEN-LAST:event_RegisterPersonGo_Button1MouseEntered
 
-    private void RegisterPlaceGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonMouseEntered
-      RegisterPlaceGo_Panel.setBackground(new java.awt.Color(19,79,139));
-    }//GEN-LAST:event_RegisterPlaceGo_ButtonMouseEntered
-
-    private void RegisterPlaceGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonMouseExited
-      RegisterPlaceGo_Panel.setBackground(new java.awt.Color(0,102,204));
-    }//GEN-LAST:event_RegisterPlaceGo_ButtonMouseExited
-
-    private void RegisterPlaceGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegisterPlaceGo_ButtonActionPerformed
-
     private void RegisterPlaceGo_Button1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_Button1MouseEntered
         RegisterPlaceGo_Panel1.setBackground(new java.awt.Color(19,79,139));
     }//GEN-LAST:event_RegisterPlaceGo_Button1MouseEntered
@@ -6315,7 +6796,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPlaceGo_Button1MouseExited
 
     private void RegisterPlaceGo_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_Button1ActionPerformed
-        // TODO add your handling code here:
+        
+        String pName = UpdateGenderValue_TextField.getText();
+        int pId = Integer.parseInt(UpdateGenderId_TextField.getText());
+        
+        try {
+            Connection.DBConnection.updateGenreName(pId, pName);
+            JOptionPane.showMessageDialog(null, "Entry Updated Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RegisterPlaceGo_Button1ActionPerformed
 
     private void RegisterPersonGo_Button16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button16MouseEntered
@@ -6327,7 +6818,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button16MouseExited
 
     private void RegisterPersonGo_Button16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button16ActionPerformed
-        // TODO add your handling code here:
+        String pName = RegisterGender_TextField.getText();
+        
+        try {
+            Connection.DBConnection.insertGenre(pName);
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(null, "Gender Created Successfully");
+        
+        
     }//GEN-LAST:event_RegisterPersonGo_Button16ActionPerformed
 
     private void RegisterPersonGo_Button17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button17MouseEntered
@@ -6339,7 +6839,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button17MouseExited
 
     private void RegisterPersonGo_Button17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button17ActionPerformed
-        // TODO add your handling code here:
+        String pType = UpdateProductTypeValue_TextField.getText();
+        int pId = Integer.parseInt(UpdateProductType_TextField.getText());
+        
+        try {
+            Connection.DBConnection.update_product_type_type(pId, pType);
+            JOptionPane.showMessageDialog(null, "Product Type Updated Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RegisterPersonGo_Button17ActionPerformed
 
     private void RegisterPersonGo_Button18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button18MouseEntered
@@ -6351,7 +6859,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button18MouseExited
 
     private void RegisterPersonGo_Button18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button18ActionPerformed
-        // TODO add your handling code here:
+       String pType = RegisterProductType_Text_Field.getText();
+        try {
+            Connection.DBConnection.insert_product_type(pType);
+            JOptionPane.showMessageDialog(null, "Product Type Created Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_RegisterPersonGo_Button18ActionPerformed
 
     private void RegisterPersonGo_Button19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button19MouseEntered
@@ -6363,7 +6879,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button19MouseExited
 
     private void RegisterPersonGo_Button19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button19ActionPerformed
-         
+        String pType = UpdateShippingValue_TextField.getText();
+        int pId = Integer.parseInt(UpdateShippingId_TextField.getText());
+        
+        try {
+            Connection.DBConnection.update_shipping_type(pId, pType);
+            JOptionPane.showMessageDialog(null, "Shipping Type Updated Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RegisterPersonGo_Button19ActionPerformed
 
     private void RegisterPersonGo_Button20MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button20MouseEntered
@@ -6375,7 +6899,16 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterPersonGo_Button20MouseExited
 
     private void RegisterPersonGo_Button20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_Button20ActionPerformed
-        // TODO add your handling code here:
+        String pType = RegisterShipping_TextField.getText();
+        
+        try {
+            Connection.DBConnection.insert_shipping_type(pType);
+             JOptionPane.showMessageDialog(null, "Shipping Type Created Successfully");
+        } catch (SQLException ex) {
+            Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
     }//GEN-LAST:event_RegisterPersonGo_Button20ActionPerformed
 
     private void SearchProductList_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchProductList_ButtonMouseEntered
@@ -6431,21 +6964,33 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     
     
     
-    String pName = "";;
+    String pName = "";
     int pYear = 0;
     int pPrice = 0;
     
     
     pName = SearchProductName_TextField.getText();
-
-    pYear = Integer.parseInt(SearchProductYear_TextField.getText());
     
-    pPrice = Integer.parseInt(SearchProductPrice_TextField.getText());
+    String sYear = SearchProductYear_TextField.getText();
+    if(sYear.equals("")){
+        pYear = 0; 
+    }else{
+        pYear = Integer.parseInt(sYear);
+    }
+    
+    String sPrice =SearchProductPrice_TextField.getText();
+    if(sPrice.equals("")){
+        pPrice = 0; 
+    }else{
+        pPrice = Integer.parseInt(sPrice);
+    }
+    
     
     DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Product Name");
         modelo.addColumn("Description");
         modelo.addColumn("Price");
+        modelo.addColumn("");
         
         
         ProductResutlist_JTable.setModel(modelo);
@@ -6458,7 +7003,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                  data [0] = res.getString(1);
                  data [1] = res.getString(2);
                  data [2] = res.getString(3);
-                 
+                 data [4] = "See Product";
                  modelo.addRow(data);
              }
              
@@ -6623,6 +7168,35 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     Register_Product_JInternalFrame.setVisible(false);   
     
     ExpensiveProducts_JInternalFrame.setVisible(true);
+    
+    
+    
+    DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Products Quantity");
+        modelo.addColumn("Price");
+
+        ExpensiveProducts_JTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.get_most_expensive_products(5);
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    
+    
     }//GEN-LAST:event_Profile_Button9ActionPerformed
 
     private void Profile_Button10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_Button10MouseEntered
@@ -7035,6 +7609,329 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_MorePurchases_ButtonActionPerformed
 
+    private void ExpensiveProducts_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpensiveProducts_ButtonMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpensiveProducts_ButtonMouseEntered
+
+    private void ExpensiveProducts_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpensiveProducts_ButtonMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ExpensiveProducts_ButtonMouseExited
+
+    private void ExpensiveProducts_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpensiveProducts_ButtonActionPerformed
+       
+        
+        int pQuantity = Integer.parseInt(ExpensiveProducts_ComboBox.getSelectedItem().toString());
+         
+         DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("First Name");
+        modelo.addColumn("Username");
+        modelo.addColumn("Products Quantity");
+        modelo.addColumn("Price");
+        
+        
+        ((DefaultTableModel) ExpensiveProducts_JTable.getModel()).setNumRows(0);
+        
+        ExpensiveProducts_JTable.setModel(modelo);
+        
+         try {
+            
+             ResultSet res = Connection.DBConnection.get_most_expensive_products(pQuantity);
+             String data [] = new String[4];
+             
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 modelo.addRow(data);
+             }
+             
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }//GEN-LAST:event_ExpensiveProducts_ButtonActionPerformed
+
+    private void Province_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Province_CheckBoxActionPerformed
+        Country_CheckBox.setSelected(false);
+        Canton_CheckBox.setSelected(false);
+        District_CheckBox.setSelected(false);
+        Community_CheckBox.setSelected(false);
+        
+        Country_TextField.setEnabled(false);
+        Province_TextField.setEnabled(true);
+        Canton_TextField.setEnabled(false);
+        District_TextField.setEnabled(false);
+        Community_TextField.setEnabled(false);
+        
+        
+    }//GEN-LAST:event_Province_CheckBoxActionPerformed
+
+    private void Country_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Country_CheckBoxActionPerformed
+        
+        Province_CheckBox.setSelected(false);
+        Canton_CheckBox.setSelected(false);
+        District_CheckBox.setSelected(false);
+        Community_CheckBox.setSelected(false);
+        
+        Country_TextField.setEnabled(true);
+        Province_TextField.setEnabled(false);
+        Canton_TextField.setEnabled(false);
+        District_TextField.setEnabled(false);
+        Community_TextField.setEnabled(false);
+        
+        Associated_Id_TextField.setEnabled(false);      
+        
+        
+    }//GEN-LAST:event_Country_CheckBoxActionPerformed
+
+    private void Canton_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Canton_CheckBoxActionPerformed
+        Country_CheckBox.setSelected(false);
+        Province_CheckBox.setSelected(false);
+        District_CheckBox.setSelected(false);
+        Community_CheckBox.setSelected(false);
+        
+        Country_TextField.setEnabled(false);
+        Province_TextField.setEnabled(false);
+        Canton_TextField.setEnabled(true);
+        District_TextField.setEnabled(false);
+        Community_TextField.setEnabled(false);
+    }//GEN-LAST:event_Canton_CheckBoxActionPerformed
+
+    private void Update_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_CheckBoxActionPerformed
+        Register_CheckBox.setSelected(false);
+        
+        Update_Panel.setVisible(true);
+        
+        
+    }//GEN-LAST:event_Update_CheckBoxActionPerformed
+
+    private void Register_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register_CheckBoxActionPerformed
+        Update_CheckBox.setSelected(false);
+        Update_Panel.setVisible(false);
+    }//GEN-LAST:event_Register_CheckBoxActionPerformed
+
+    private void DeletePlaceGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonActionPerformed
+       
+        int pId = Integer.parseInt(DeletePlaces_TextField.getText());
+        String selection = Delete_ComboBox.getSelectedItem().toString();
+        if(pId > 0){
+            if(selection.equals("Country")){
+                try {
+                    Connection.DBConnection.removeCountry(pId);
+                    JOptionPane.showMessageDialog(null, "Country Removed Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if(selection.equals("Province")){
+                try {
+                    Connection.DBConnection.remove_province(pId);
+                    JOptionPane.showMessageDialog(null, "Province Removed Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if(selection.equals("Canton")){
+                try {
+                    Connection.DBConnection.removeCanton(pId);
+                    JOptionPane.showMessageDialog(null, "Canton Removed Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if(selection.equals("District")){
+                try {
+                    Connection.DBConnection.removeDistrict(pId);
+                    JOptionPane.showMessageDialog(null, "District Removed Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            if(selection.equals("Community")){
+                try {
+                    Connection.DBConnection.removeCommunity(pId);
+                    JOptionPane.showMessageDialog(null, "Community Removed Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+        
+            
+        
+        
+    }//GEN-LAST:event_DeletePlaceGo_ButtonActionPerformed
+
+    private void DeletePlaceGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonMouseExited
+        DeletePlaceGo_Panel.setBackground(new java.awt.Color(0,102,204));
+    }//GEN-LAST:event_DeletePlaceGo_ButtonMouseExited
+
+    private void DeletePlaceGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeletePlaceGo_ButtonMouseEntered
+        DeletePlaceGo_Panel.setBackground(new java.awt.Color(19,79,139));
+    }//GEN-LAST:event_DeletePlaceGo_ButtonMouseEntered
+
+    private void RegisterPlaceGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonActionPerformed
+        //Si Register es seleccionado
+
+        if(Register_CheckBox.isSelected()){
+            if(Country_CheckBox.isSelected() && Country_TextField.isEnabled()){
+                String pName = Country_TextField.getText();
+                try {
+                    Connection.DBConnection.insertCountry(pName);
+                    JOptionPane.showMessageDialog(null, "Country Created Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else if(Province_CheckBox.isSelected() && Province_TextField.isEnabled()){
+                String pName = Province_TextField.getText();
+                int pId = Integer.parseInt(Column_Id_TextField.getText()); 
+                try {
+                    Connection.DBConnection.insert_province(pName, pId);
+                    JOptionPane.showMessageDialog(null, "Province Created Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else if(Canton_CheckBox.isSelected() && Canton_TextField.isEnabled()){
+                String pName = Canton_TextField.getText();
+                int pId = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.insertCanton(pName, pId);
+                    JOptionPane.showMessageDialog(null, "Canton Created Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else if(District_CheckBox.isSelected() && District_TextField.isEnabled()){
+                String pName = District_TextField.getText();
+                int pId = Integer.parseInt(Column_Id_TextField.getText());               
+                try {
+                    Connection.DBConnection.insertDistrict(pName, pId);
+                    JOptionPane.showMessageDialog(null, "District Created Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else if(Community_CheckBox.isSelected() && Community_TextField.isEnabled()){
+                String pName = Community_TextField.getText();
+                int pId = Integer.parseInt(Column_Id_TextField.getText());              
+                try {
+                    Connection.DBConnection.insertCommunity(pName, pId);
+                    JOptionPane.showMessageDialog(null, "Community Created Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }
+        else{
+            if(Country_CheckBox.isSelected() && Country_TextField.isEnabled() && Column_Id_TextField.isEnabled()){
+                String pName = Country_TextField.getText();
+                int pid = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.updateCountryName(pid, pName);
+                    JOptionPane.showMessageDialog(null, "Country Updated Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             }
+            else if(Province_CheckBox.isSelected() && Province_TextField.isEnabled() && Column_Id_TextField.isEnabled()){
+                String pName = Province_TextField.getText();
+                int pid = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.update_province_name(pid, pName);
+                    JOptionPane.showMessageDialog(null, "Province Updated Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             }
+            else if(Canton_CheckBox.isSelected() && Canton_TextField.isEnabled() && Column_Id_TextField.isEnabled()){
+                String pName = Canton_TextField.getText();
+                int pid = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.updateCantonName(pid, pName);
+                    JOptionPane.showMessageDialog(null, "Canton Updated Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             }
+            else if(District_CheckBox.isSelected() && District_TextField.isEnabled() && Column_Id_TextField.isEnabled()){
+                String pName = District_TextField.getText();
+                int pid = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.updateDistrictName(pid, pName);
+                    JOptionPane.showMessageDialog(null, "District Updated Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             }
+            else if(Community_CheckBox.isSelected() && Community_TextField.isEnabled() && Column_Id_TextField.isEnabled()){
+                String pName = Community_TextField.getText();
+                int pid = Integer.parseInt(Column_Id_TextField.getText());
+                try {
+                    Connection.DBConnection.updateCommunityName(pid, pName);
+                    JOptionPane.showMessageDialog(null, "Community Updated Successfully");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             }
+            
+            
+            
+        }
+
+    }//GEN-LAST:event_RegisterPlaceGo_ButtonActionPerformed
+
+    private void RegisterPlaceGo_ButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonMouseExited
+        RegisterPlaceGo_Panel.setBackground(new java.awt.Color(0,102,204));
+    }//GEN-LAST:event_RegisterPlaceGo_ButtonMouseExited
+
+    private void RegisterPlaceGo_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPlaceGo_ButtonMouseEntered
+        RegisterPlaceGo_Panel.setBackground(new java.awt.Color(19,79,139));
+    }//GEN-LAST:event_RegisterPlaceGo_ButtonMouseEntered
+
+    private void District_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_District_CheckBoxActionPerformed
+        Country_CheckBox.setSelected(false);
+        Province_CheckBox.setSelected(false);
+        Canton_CheckBox.setSelected(false);
+        Community_CheckBox.setSelected(false);
+        
+        Country_TextField.setEnabled(false);
+        Province_TextField.setEnabled(false);
+        Canton_TextField.setEnabled(false);
+        District_TextField.setEnabled(true);
+        Community_TextField.setEnabled(false);
+    }//GEN-LAST:event_District_CheckBoxActionPerformed
+
+    private void Community_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Community_CheckBoxActionPerformed
+        Country_CheckBox.setSelected(false);
+        Province_CheckBox.setSelected(false);
+        Canton_CheckBox.setSelected(false);
+        District_CheckBox.setSelected(false);
+        
+        Country_TextField.setEnabled(false);
+        Province_TextField.setEnabled(false);
+        Canton_TextField.setEnabled(false);
+        District_TextField.setEnabled(false);
+        Community_TextField.setEnabled(true);
+    }//GEN-LAST:event_Community_CheckBoxActionPerformed
+
+    private void ProductResutlist_JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductResutlist_JTableMouseClicked
+        
+        if(evt.getClickCount() == 2){
+            
+            
+            
+            
+        }
+    }//GEN-LAST:event_ProductResutlist_JTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -7087,6 +7984,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton AdditionalQueries_Button;
     private javax.swing.JInternalFrame AdditionalQueries_JInternalFrame;
     private javax.swing.JPanel AdditionalQueries_Panel;
+    private javax.swing.JTextField Associated_Id_TextField;
     private javax.swing.JPanel BannedUsers_Panel;
     private javax.swing.JTextArea BannedUsers_TextField2;
     private javax.swing.JTextArea BannedUsers_TextField3;
@@ -7098,9 +7996,14 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> BestSelling_ComboBox;
     private javax.swing.JInternalFrame BoughtProducts_JInternalFrame;
     private javax.swing.JButton Bought_Products_Button;
+    private javax.swing.JCheckBox Canton_CheckBox;
+    private javax.swing.JTextField Canton_TextField;
     private javax.swing.JPanel Chart_Panel;
     private javax.swing.JButton Chat_Button;
     private javax.swing.JInternalFrame Chat_JInternalFrame;
+    private javax.swing.JTextField Column_Id_TextField;
+    private javax.swing.JCheckBox Community_CheckBox;
+    private javax.swing.JTextField Community_TextField;
     private javax.swing.JLabel Company;
     private javax.swing.JLabel Company1;
     private javax.swing.JLabel Company2;
@@ -7108,6 +8011,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Company4;
     private javax.swing.JLabel Company6;
     private javax.swing.JLabel Company7;
+    private javax.swing.JCheckBox Country_CheckBox;
+    private javax.swing.JTextField Country_TextField;
     private javax.swing.JLabel DangerousZones_Logo1;
     private javax.swing.JLabel DangerousZones_Logo10;
     private javax.swing.JLabel DangerousZones_Logo11;
@@ -7165,7 +8070,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel Decoration_Panel36;
     private javax.swing.JPanel Decoration_Panel37;
     private javax.swing.JPanel Decoration_Panel38;
-    private javax.swing.JPanel Decoration_Panel39;
     private javax.swing.JPanel Decoration_Panel4;
     private javax.swing.JPanel Decoration_Panel40;
     private javax.swing.JPanel Decoration_Panel41;
@@ -7192,15 +8096,22 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel Decoration_Panel7;
     private javax.swing.JPanel Decoration_Panel8;
     private javax.swing.JPanel Decoration_Panel9;
+    private javax.swing.JTextField DeleteGender_TextField;
+    private javax.swing.JButton DeleteNationalityGo_Button;
+    private javax.swing.JTextField DeleteNationality_TextField;
     private javax.swing.JPanel DeletePerson_Panel;
     private javax.swing.JButton DeletePlaceGo_Button;
     private javax.swing.JPanel DeletePlaceGo_Panel;
+    private javax.swing.JTextField DeletePlaces_TextField;
+    private javax.swing.JTextField DeleteProductType_TextField;
+    private javax.swing.JTextField DeleteShipping_TextField;
+    private javax.swing.JComboBox<String> Delete_ComboBox;
     private javax.swing.JPanel Delete_Panel1;
-    private javax.swing.JPanel Delete_Panel2;
     private javax.swing.JPanel Delete_Panel3;
     private javax.swing.JPanel Delete_Panel4;
     private javax.swing.JPanel Delete_Panel5;
-    private javax.swing.JTextArea Districts_TextArea1;
+    private javax.swing.JCheckBox District_CheckBox;
+    private javax.swing.JTextField District_TextField;
     private javax.swing.JButton ExitList_Button;
     private javax.swing.JButton ExitList_Button1;
     private javax.swing.JButton ExitList_Button2;
@@ -7208,9 +8119,13 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton ExitList_Button4;
     private javax.swing.JButton Exit_Button;
     private javax.swing.JButton ExittGraphic_Button;
+    private javax.swing.JButton ExpensiveProducts_Button;
+    private javax.swing.JComboBox<String> ExpensiveProducts_ComboBox;
     private javax.swing.JInternalFrame ExpensiveProducts_JInternalFrame;
+    private javax.swing.JTable ExpensiveProducts_JTable;
     private javax.swing.JButton ExpireFilesGo_Button;
     private javax.swing.JPanel ExpireFiles_Panel;
+    private javax.swing.JTable Gender_Table;
     private javax.swing.JPanel Go_Panel10;
     private javax.swing.JPanel Go_Panel12;
     private javax.swing.JPanel Go_Panel13;
@@ -7235,6 +8150,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel List_Panel4;
     private javax.swing.JButton MorePurchases_Button;
     private javax.swing.JComboBox<String> MorePurchases_ComboBox;
+    private javax.swing.JTable Nationalities_JTable;
     private javax.swing.JLabel Panel_Wallpaper;
     private javax.swing.JLabel Panel_Wallpaper1;
     private javax.swing.JLabel Panel_Wallpaper10;
@@ -7265,9 +8181,11 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Places;
     private javax.swing.JButton Places1;
     private javax.swing.JButton Places2;
+    private javax.swing.JTable Places_JTable;
     private javax.swing.JInternalFrame ProductInfo_JInternalFrame;
     private javax.swing.JInternalFrame ProductResultList_JInternalFrame;
     private javax.swing.JTable ProductResutlist_JTable;
+    private javax.swing.JTable ProductType_JTable;
     private javax.swing.JTextField ProfileAge_TextField;
     private javax.swing.JTextField ProfileAge_TextField1;
     private javax.swing.JTextField ProfileBirthDay_TextField;
@@ -7296,34 +8214,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Profile_Button9;
     private javax.swing.JInternalFrame Profile_JInternalFrame;
     private javax.swing.JPanel Profile_Panel;
+    private javax.swing.JCheckBox Province_CheckBox;
+    private javax.swing.JTextField Province_TextField;
+    private javax.swing.JTable Recomendation_JTable;
     private javax.swing.JButton RegisteProduct_Button;
+    private javax.swing.JTextField RegisterGender_TextField;
     private javax.swing.JComboBox<String> RegisterInfoCompany_ComboBox;
     private javax.swing.JTextField RegisterInfoGender_TextField;
-    private javax.swing.JTextField RegisterInfoGender_TextField2;
     private javax.swing.JTextField RegisterInfoIdentification_TextField;
-    private javax.swing.JTextField RegisterInfoIdentification_TextField2;
-    private javax.swing.JTextField RegisterInfoLastName_TextField2;
-    private javax.swing.JTextField RegisterInfoName_TextField10;
-    private javax.swing.JTextField RegisterInfoName_TextField11;
-    private javax.swing.JTextField RegisterInfoName_TextField12;
-    private javax.swing.JTextField RegisterInfoName_TextField14;
-    private javax.swing.JTextField RegisterInfoName_TextField15;
-    private javax.swing.JTextField RegisterInfoName_TextField16;
-    private javax.swing.JTextField RegisterInfoName_TextField17;
-    private javax.swing.JTextField RegisterInfoName_TextField18;
     private javax.swing.JTextField RegisterInfoName_TextField20;
-    private javax.swing.JTextField RegisterInfoName_TextField21;
-    private javax.swing.JTextField RegisterInfoName_TextField22;
-    private javax.swing.JTextField RegisterInfoName_TextField23;
-    private javax.swing.JTextField RegisterInfoName_TextField24;
-    private javax.swing.JTextField RegisterInfoName_TextField25;
-    private javax.swing.JTextField RegisterInfoName_TextField27;
-    private javax.swing.JTextField RegisterInfoName_TextField31;
-    private javax.swing.JTextField RegisterInfoName_TextField5;
-    private javax.swing.JTextField RegisterInfoName_TextField6;
-    private javax.swing.JTextField RegisterInfoName_TextField7;
-    private javax.swing.JTextField RegisterInfoName_TextField8;
-    private javax.swing.JTextField RegisterInfoName_TextField9;
     private javax.swing.JButton RegisterInfo_Button;
     private javax.swing.JInternalFrame RegisterInfo_Gender_JInternalFrame;
     private javax.swing.JInternalFrame RegisterInfo_JInternalFrame;
@@ -7333,8 +8232,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JInternalFrame RegisterInfo_Place_JInternalFrame;
     private javax.swing.JInternalFrame RegisterInfo_ProductType_JInternalFrame;
     private javax.swing.JInternalFrame RegisterInfo_ShippingType_JInternalFrame;
+    private javax.swing.JButton RegisterNationalityName_Button;
+    private javax.swing.JTextField RegisterNationalityName_TextField;
     private javax.swing.JButton RegisterPersonGo_Button1;
-    private javax.swing.JButton RegisterPersonGo_Button11;
     private javax.swing.JButton RegisterPersonGo_Button13;
     private javax.swing.JButton RegisterPersonGo_Button14;
     private javax.swing.JButton RegisterPersonGo_Button15;
@@ -7343,16 +8243,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton RegisterPersonGo_Button18;
     private javax.swing.JButton RegisterPersonGo_Button19;
     private javax.swing.JButton RegisterPersonGo_Button20;
-    private javax.swing.JButton RegisterPersonGo_Button6;
-    private javax.swing.JButton RegisterPersonGo_Button7;
     private javax.swing.JButton RegisterPlaceGo_Button;
     private javax.swing.JButton RegisterPlaceGo_Button1;
     private javax.swing.JPanel RegisterPlaceGo_Panel;
     private javax.swing.JPanel RegisterPlaceGo_Panel1;
+    private javax.swing.JTextField RegisterProductType_Text_Field;
     private javax.swing.JButton RegisterProduct_Button;
     private javax.swing.JPanel RegisterProduct_Panel;
+    private javax.swing.JTextField RegisterShipping_TextField;
     private javax.swing.JButton RegisterUpdatePersonGo_Button;
     private javax.swing.JPanel RegisterUpdatePersonGo_Panel;
+    private javax.swing.JCheckBox Register_CheckBox;
     private javax.swing.JInternalFrame Register_Product_JInternalFrame;
     private javax.swing.JButton Reviews_Button;
     private javax.swing.JButton Reviews_Button1;
@@ -7370,13 +8271,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton SearchProduct_Button;
     private javax.swing.JInternalFrame Search_Product_JInternalFrame;
     private javax.swing.JButton SendMessage_Button;
+    private javax.swing.JTable Shipping_JTable;
     private javax.swing.JButton ShoppingCart_Button;
     private javax.swing.JInternalFrame ShoppingCart_JInternalFrame;
-    private javax.swing.JTextArea ShowList_TextArea;
-    private javax.swing.JTextArea ShowList_TextArea1;
-    private javax.swing.JTextArea ShowList_TextArea2;
-    private javax.swing.JTextArea ShowList_TextArea3;
-    private javax.swing.JTextArea ShowList_TextArea4;
     private javax.swing.JButton Show_Button;
     private javax.swing.JButton Show_Button1;
     private javax.swing.JButton Show_Button2;
@@ -7391,6 +8288,17 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Sold_Products_Button;
     private javax.swing.JInternalFrame Sold_Products_JInternalFrame;
     private javax.swing.JInternalFrame Statistics_JInternalFrame;
+    private javax.swing.JTextField UpdateGenderId_TextField;
+    private javax.swing.JTextField UpdateGenderValue_TextField;
+    private javax.swing.JTextField UpdateNationalityId_TextField;
+    private javax.swing.JTextField UpdateNationalityValue_TextField;
+    private javax.swing.JTextField UpdateProductTypeValue_TextField;
+    private javax.swing.JTextField UpdateProductType_TextField;
+    private javax.swing.JTextField UpdateShippingId_TextField;
+    private javax.swing.JTextField UpdateShippingValue_TextField;
+    private javax.swing.JCheckBox Update_CheckBox;
+    private javax.swing.JButton Update_Nationality_Button;
+    private javax.swing.JPanel Update_Panel;
     private javax.swing.JPanel UserList_Panel;
     private javax.swing.JButton UsersMorePurchases_Button;
     private javax.swing.JInternalFrame UsersMorePurchases_JInternalFrame;
@@ -7398,6 +8306,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Wallpaper_User_Main_Menu;
     private javax.swing.JButton WishList_Button;
     private javax.swing.JInternalFrame Wishlist_JInternalFrame;
+    private javax.swing.JTable Wishlist_JTable;
     private javax.swing.JButton WorstQualifiedUsers_Button;
     private javax.swing.JInternalFrame WorstQualifiedUsers_JInternalFrame;
     private javax.swing.JTable WorstQualifiedUsers_JTable;
@@ -7501,8 +8410,15 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel182;
     private javax.swing.JLabel jLabel183;
     private javax.swing.JLabel jLabel184;
+    private javax.swing.JLabel jLabel185;
     private javax.swing.JLabel jLabel186;
+    private javax.swing.JLabel jLabel187;
+    private javax.swing.JLabel jLabel188;
+    private javax.swing.JLabel jLabel189;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel190;
+    private javax.swing.JLabel jLabel191;
+    private javax.swing.JLabel jLabel192;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -7561,11 +8477,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel85;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
@@ -7655,7 +8567,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -7666,6 +8577,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -7673,7 +8586,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
