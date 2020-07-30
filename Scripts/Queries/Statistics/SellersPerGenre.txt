@@ -1,0 +1,19 @@
+DROP procedure IF EXISTS `sellersPerGender`;
+
+
+DELIMITER $$
+
+USE `pe`$$
+
+CREATE procedure `sellersPerGender` ()
+
+
+BEGIN
+select	count(a.identification) as cantidad,  b.name 
+from person a
+join person_sell_product 
+on person.identification = person_sell_product.id_person
+join genre b
+on person.id_genre = genre.id_genre
+group by person.id_genre;
+END$$

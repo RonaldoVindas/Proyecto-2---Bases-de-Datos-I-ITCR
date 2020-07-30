@@ -128,7 +128,69 @@ public class DBConnection {
         return rs;
    }
    
+   public static ResultSet shoppingHistoryOneYear() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call shoppingHistoryOneYear(?)}");
+        stmt.setInt(1,get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+      public static ResultSet shoppingHistoryThreeMonths() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call shoppingHistoryThreeMonths(?)}");
+        stmt.setInt(1,get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+         public static ResultSet shoppingHistorySixMonths() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call shoppingHistorySixMonths(?)}");
+        stmt.setInt(1,get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
    
+         
+          public static ResultSet get_binnacle_MaxId() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_binnacle_MaxId()}");
+ 
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+          
+          
+   
+      public static ResultSet get_product_maxID() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call get_product_maxID()}");
+ 
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+      
+      
+      
+      public static ResultSet showWishList() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call showWishList(?)}");
+       stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+      }
+   /*--------------------------------------------------------------------------------------------*/
    //============================= PROCEDIMIENTOS DE ESQUEMA PE ==========================================
    
    // Canton
@@ -1511,6 +1573,20 @@ public class DBConnection {
 
   }
   
+  
+  
+  //ASDASDASD
+    public static void insert_product_has_shipping_type(int pidProduct, int pid_Shipping) throws SQLException{
+    con = null;
+    con= (Connection) DriverManager.getConnection(urlPR, user, pass);
+    CallableStatement stmt = con.prepareCall("{call insert_product_has_shipping_type(?,?)}");
+    stmt.setInt(1, pidProduct);
+    stmt.setInt(2,pid_Shipping);
+      
+    stmt.execute();
+
+  }
+  
   public static void update_product_binnacle_price(int pid, int pPrice) throws SQLException{
     con = null;
     con= (Connection) DriverManager.getConnection(urlPR, user, pass);
@@ -1545,7 +1621,7 @@ public class DBConnection {
     
    //Product 
     
-    public static void insert_product(String pName,String pCondition,String pDescription,int pObjAge, int pPrice,int pIdBinnacle,int pIdType) throws SQLException{
+    public static void insert_product(String pName,String pCondition,String pDescription,int pObjAge, int pPrice,int pIdBinnacle,int pIdProduct_Type) throws SQLException{
     con = null;
     con= (Connection) DriverManager.getConnection(urlPR, user, pass);
     CallableStatement stmt = con.prepareCall("{call insert_product(?,?,?,?,?,?,?)}");
@@ -1555,7 +1631,10 @@ public class DBConnection {
           stmt.setInt(4, pObjAge);
             stmt.setInt(5, pPrice);
               stmt.setInt(6, pIdBinnacle);
-                stmt.setInt(7, pIdType);
+                stmt.setInt(7, pIdProduct_Type);
+
+                
+                
               
     
     stmt.execute();
@@ -1637,12 +1716,46 @@ public class DBConnection {
 
   } 
     
+    
+    
+    
+
+    
     //Photo
     
   //==============================FUNCIONES DE ESQUEMA PR =========================================
   
-    
-    //Photo
+  
+  
+      public static int get_product_type_iD(String pType) throws SQLException{
+         con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_type_iD(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setString(2, pType);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  
+  
+  
+        public static int get_shipping_type_iD(String pType) throws SQLException{
+         con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ ? = call get_shipping_type_iD(?)}");
+        stmt.registerOutParameter(1, Types.INTEGER);
+        stmt.setString(2, pType);
+        stmt.execute();
+        int rs = stmt.getInt(1);
+        System.out.println(rs);
+        return rs; 
+  }
+  
+  
+  
+  
+   //Photo
     public static String get_photo_photo_information(int pId) throws SQLException{
        con = (Connection) DriverManager.getConnection(urlPR,user,pass);
        CallableStatement stmt = con.prepareCall("{ ? = call get_photo_photo_information(?)}");
@@ -1770,16 +1883,7 @@ public class DBConnection {
         return rs; 
   }
   
-   public static int get_product_id_product_type(int pId) throws SQLException{
-     con = (Connection) DriverManager.getConnection(urlPR,user,pass);
-       CallableStatement stmt = con.prepareCall("{ ? = call get_product_id_product_type(?)}");
-        stmt.registerOutParameter(1, Types.INTEGER);
-        stmt.setInt(2, pId);
-        stmt.execute();
-        int rs = stmt.getInt(1);
-        System.out.println(rs);
-        return rs; 
-  }
+
   
   
   //Product Binnacle
@@ -1854,9 +1958,14 @@ public class DBConnection {
         return rs;
    }
   
-  public static int get_shipping_type_iD(int pId) throws SQLException{
+ 
+  
+  
+  
+  
+  public static int get_product_id_product_type(int pId) throws SQLException{
      con = (Connection) DriverManager.getConnection(urlPR,user,pass);
-       CallableStatement stmt = con.prepareCall("{ ? = call get_shipping_type_iD(?)}");
+       CallableStatement stmt = con.prepareCall("{ ? = call get_product_id_product_type(?)}");
         stmt.registerOutParameter(1, Types.INTEGER);
         stmt.setInt(2, pId);
         stmt.execute();
@@ -1865,7 +1974,61 @@ public class DBConnection {
         return rs; 
   }
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   //=========================== QUERIES =============================//
+       public static ResultSet RecentHistoryLogSearch() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call RecentHistoryLogSearch(?)}");
+       stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+      }
+  
+      public static ResultSet personSoldItemList() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call personSoldItemList(?)}");
+       stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+      }
+  
+       public static ResultSet showShoppingLog() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call showShopingLog(?)}");
+       stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+      }
+  public static ResultSet purchaseByCategoryMoreThan1000() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call purchaseByCategoryMoreThan1000(?)}");
+       stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }
+  
+  
+  
   
 //Admins
   public static ResultSet get_best_qualified_vendors(int pQuantity) throws SQLException{
@@ -1939,9 +2102,60 @@ public class DBConnection {
         System.out.println(rs);
         return rs;
    }               
-           
+            
+            
+  
+  ///Procedimientos de PE
     
+    //Estadisticas 
     
+        public static ResultSet percentPerType() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call percentPerType()}");
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }               
+    
+        
+        
+        public static ResultSet sellersPerGender() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call sellersPerGender()}");
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }         
+    
+       public static ResultSet sellersPerGenderAndAge(int pQuantity) throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call percentPerType()}");
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }    
+    
+       public static ResultSet TotalPerGender() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call TotalPerGender()}");
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }           
+    
+        public static ResultSet sellsPerGender() throws SQLException{
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
+       CallableStatement stmt = con.prepareCall("{ call sellsPerGender()}");
+        stmt.execute();
+        ResultSet rs = stmt.getResultSet();
+        System.out.println(rs);
+        return rs;
+   }         
+       
     
     
     

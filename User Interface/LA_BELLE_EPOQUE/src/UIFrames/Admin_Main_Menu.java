@@ -6799,7 +6799,118 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        DefaultPieDataset dataset = new DefaultPieDataset();
+ DefaultPieDataset dataset = new DefaultPieDataset();
+        if(jComboBox6.getSelectedItem().toString() == "Total Products"){
+             try {
+                 ResultSet rs = Connection.DBConnection.percentPerType();
+                 while(rs.next()){
+                     dataset.setValue(rs.getString(1), Double.parseDouble(rs.getString(2)));
+                 }
+                 JFreeChart chart = ChartFactory.createPieChart3D(
+                "Total Products", // chart title                   
+                dataset, // data 
+                true, // include legend                   
+                true,
+                false);
+                 
+                  PiePlot3D plot = (PiePlot3D) chart.getPlot();
+        plot.setStartAngle(270);    //Rotr gráfica
+        plot.setForegroundAlpha(0.60f);     //Transparencia
+        plot.setInteriorGap(0.05);
+        // create chart panel the add it to swing panel in  jframe
+        ChartPanel chartPanel = new ChartPanel(chart);
+        frame = new ChartFrame("Pie Chart", chart);
+                        
+             } catch (SQLException ex) {
+                 Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        
+        }
+        
+        else if ("Total Vendors".equals(jComboBox6.getSelectedItem().toString())){
+                 try {
+                 ResultSet rs = Connection.DBConnection.sellersPerGender();
+                 while(rs.next()){
+                     dataset.setValue(rs.getString(2), Double.parseDouble(rs.getString(1)));
+                 }
+                 JFreeChart chart = ChartFactory.createPieChart3D(
+                "Total Products", // chart title                   
+                dataset, // data 
+                true, // include legend                   
+                true,
+                false);
+                 
+                  PiePlot3D plot = (PiePlot3D) chart.getPlot();
+        plot.setStartAngle(270);    //Rotr gráfica
+        plot.setForegroundAlpha(0.60f);     //Transparencia
+        plot.setInteriorGap(0.05);
+        // create chart panel the add it to swing panel in  jframe
+        ChartPanel chartPanel = new ChartPanel(chart);
+        frame = new ChartFrame("Pie Chart", chart);
+                        
+             } catch (SQLException ex) {
+                 Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        
+        }
+            
+        
+        
+        else if("Total Sales".equals(jComboBox6.getSelectedItem().toString())){
+             try {
+                 ResultSet rs = Connection.DBConnection.TotalPerGender();
+                 while(rs.next()){
+                     dataset.setValue(rs.getString(2), Double.parseDouble(rs.getString(1)));
+                 }
+                 JFreeChart chart = ChartFactory.createPieChart3D(
+                "Total Sales", // chart title                   
+                dataset, // data 
+                true, // include legend                   
+                true,
+                false);
+                  PiePlot3D plot = (PiePlot3D) chart.getPlot();
+        plot.setStartAngle(270);    //Rotr gráfica
+        plot.setForegroundAlpha(0.60f);     //Transparencia
+        plot.setInteriorGap(0.05);
+        // create chart panel the add it to swing panel in  jframe
+        ChartPanel chartPanel = new ChartPanel(chart);
+        frame = new ChartFrame("Pie Chart", chart);
+             } catch (SQLException ex) {
+                 Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }
+            
+            
+        
+        else if ("Sales by Gender".equals(jComboBox6.getSelectedItem().toString())){
+             try {
+                 ResultSet rs = Connection.DBConnection.sellsPerGender();
+                 while(rs.next()){
+                     dataset.setValue(rs.getString(2), Double.parseDouble(rs.getString(1)));
+                 }
+                 
+                 JFreeChart chart = ChartFactory.createPieChart3D(
+                "Sales by Gender", // chart title                   
+                dataset, // data 
+                true, // include legend                   
+                true,
+                false);
+                 
+                  PiePlot3D plot = (PiePlot3D) chart.getPlot();
+        plot.setStartAngle(270);    //Rotr gráfica
+        plot.setForegroundAlpha(0.60f);     //Transparencia
+        plot.setInteriorGap(0.05);
+        // create chart panel the add it to swing panel in  jframe
+        ChartPanel chartPanel = new ChartPanel(chart);
+        frame = new ChartFrame("Pie Chart", chart);
+             } catch (SQLException ex) {
+                 Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        
+        }
+         
+        
+        /*DefaultPieDataset dataset = new DefaultPieDataset();
         dataset.setValue("Assault", new Double(30));
         dataset.setValue("Sexual Harassment", new Double(20));
         dataset.setValue("Stolen Apache Helicopter", new Double(5));
@@ -6814,15 +6925,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
                 dataset, // data 
                 true, // include legend                   
                 true,
-                false);
+                false);*/
         // set chart properties
-        PiePlot3D plot = (PiePlot3D) chart.getPlot();
-        plot.setStartAngle(270);    //Rotr gráfica
-        plot.setForegroundAlpha(0.60f);     //Transparencia
-        plot.setInteriorGap(0.05);
-        // create chart panel the add it to swing panel in  jframe
-        ChartPanel chartPanel = new ChartPanel(chart);
-        frame = new ChartFrame("Pie Chart", chart);
         
         
         
@@ -6837,8 +6941,6 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         //Chart_Panel.removeAll();        // clear panel before add new chart
         //Chart_Panel.add(chartPanel, BorderLayout.CENTER);
         //Chart_Panel.validate(); 
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ExittGraphic_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExittGraphic_ButtonActionPerformed

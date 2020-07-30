@@ -6,11 +6,13 @@
 package UIFrames;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -191,9 +193,9 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         Decoration_Panel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Districts_TextArea = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        wishlistTable = new javax.swing.JTable();
         Panel_Wallpaper1 = new javax.swing.JLabel();
         Product_History_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo3 = new javax.swing.JLabel();
@@ -209,7 +211,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
         SixMonths_CheckBox = new javax.swing.JCheckBox();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ProductHistoryTable = new javax.swing.JTable();
         Reviews_Button7 = new javax.swing.JButton();
         Panel_Wallpaper3 = new javax.swing.JLabel();
         Recent_Products_JInternalFrame = new javax.swing.JInternalFrame();
@@ -220,7 +222,8 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel93 = new javax.swing.JLabel();
         Decoration_Panel11 = new javax.swing.JPanel();
-        RegisterInfoName_TextField19 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        RecentProductsTable = new javax.swing.JTable();
         Panel_Wallpaper4 = new javax.swing.JLabel();
         Sold_Products_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo5 = new javax.swing.JLabel();
@@ -230,8 +233,8 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jLabel94 = new javax.swing.JLabel();
         Decoration_Panel13 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        BannedUsers_TextField = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        SoldProductsTable = new javax.swing.JTable();
         Panel_Wallpaper5 = new javax.swing.JLabel();
         BoughtProducts_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo6 = new javax.swing.JLabel();
@@ -241,12 +244,12 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         Decoration_Panel15 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        BannedUsers_TextField1 = new javax.swing.JTextArea();
         ExpensiveProducts_Button = new javax.swing.JButton();
         jCheckBox3 = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        BoughtProductsTable = new javax.swing.JTable();
         Panel_Wallpaper6 = new javax.swing.JLabel();
         Register_Product_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo7 = new javax.swing.JLabel();
@@ -272,9 +275,9 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
-        jComboBox11 = new javax.swing.JComboBox<>();
         jLabel69 = new javax.swing.JLabel();
         jComboBox9 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
         Panel_Wallpaper7 = new javax.swing.JLabel();
         Chat_JInternalFrame = new javax.swing.JInternalFrame();
         DangerousZones_Logo8 = new javax.swing.JLabel();
@@ -1287,23 +1290,24 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel2.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Districts_TextArea.setBackground(new java.awt.Color(255, 255, 255));
-        Districts_TextArea.setColumns(20);
-        Districts_TextArea.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        Districts_TextArea.setForeground(new java.awt.Color(0, 0, 0));
-        Districts_TextArea.setRows(5);
-        Districts_TextArea.setBorder(null);
-        Districts_TextArea.setFocusable(false);
-        jScrollPane1.setViewportView(Districts_TextArea);
-
-        Decoration_Panel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 760, 290));
-
         jLabel6.setBackground(new java.awt.Color(219, 219, 219));
         jLabel6.setFont(new java.awt.Font("Malgun Gothic", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Products:");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 110, -1));
+
+        wishlistTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane11.setViewportView(wishlistTable);
+
+        Decoration_Panel2.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 670, 290));
 
         Wishlist_JInternalFrame.getContentPane().add(Decoration_Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 900, 360));
 
@@ -1403,7 +1407,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jScrollPane9.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane9.setEnabled(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ProductHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1411,7 +1415,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane9.setViewportView(jTable1);
+        jScrollPane9.setViewportView(ProductHistoryTable);
 
         Decoration_Panel9.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 570, 330));
 
@@ -1486,7 +1490,18 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
         Decoration_Panel11.setBackground(new java.awt.Color(219, 219, 219));
         Decoration_Panel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        Decoration_Panel11.add(RegisterInfoName_TextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 710, 310));
+
+        RecentProductsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(RecentProductsTable);
+
+        Decoration_Panel11.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 730, 310));
 
         Recent_Products_JInternalFrame.getContentPane().add(Decoration_Panel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 930, 370));
 
@@ -1539,11 +1554,17 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel13.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BannedUsers_TextField.setColumns(20);
-        BannedUsers_TextField.setRows(5);
-        jScrollPane2.setViewportView(BannedUsers_TextField);
+        SoldProductsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        Decoration_Panel13.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 520, 330));
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(SoldProductsTable);
+
+        Decoration_Panel13.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 500, 300));
 
         Sold_Products_JInternalFrame.getContentPane().add(Decoration_Panel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 640, 370));
 
@@ -1594,12 +1615,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Decoration_Panel15.setBackground(new java.awt.Color(255, 255, 255));
         Decoration_Panel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BannedUsers_TextField1.setColumns(20);
-        BannedUsers_TextField1.setRows(5);
-        jScrollPane3.setViewportView(BannedUsers_TextField1);
-
-        Decoration_Panel15.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 520, 290));
-
         ExpensiveProducts_Button.setBackground(new java.awt.Color(0, 102, 204));
         ExpensiveProducts_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         ExpensiveProducts_Button.setForeground(new java.awt.Color(255, 255, 255));
@@ -1612,6 +1627,11 @@ public class User_Main_Menu extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 ExpensiveProducts_ButtonMouseExited(evt);
+            }
+        });
+        ExpensiveProducts_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpensiveProducts_ButtonActionPerformed(evt);
             }
         });
         Decoration_Panel15.add(ExpensiveProducts_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 90, 40));
@@ -1632,6 +1652,18 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Division.png"))); // NOI18N
         Decoration_Panel15.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, -1, -1));
+
+        BoughtProductsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(BoughtProductsTable);
+
+        Decoration_Panel15.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 530, 270));
 
         BoughtProducts_JInternalFrame.getContentPane().add(Decoration_Panel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 920, 370));
 
@@ -1782,9 +1814,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
         jLabel67.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Decoration_Panel17.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 120, 30));
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "30", "40", "50", "60", "70", "80", "90", "100+", "200+" }));
-        Decoration_Panel17.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, 30));
-
         jLabel69.setBackground(new java.awt.Color(219, 219, 219));
         jLabel69.setFont(new java.awt.Font("Malgun Gothic", 0, 20)); // NOI18N
         jLabel69.setForeground(new java.awt.Color(0, 0, 0));
@@ -1794,6 +1823,14 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Air Shipping", "Mail Delivery", "Meeting Point" }));
         Decoration_Panel17.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 140, 30));
+
+        jTextField2.setText("jTextField2");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        Decoration_Panel17.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 140, 30));
 
         Register_Product_JInternalFrame.getContentPane().add(Decoration_Panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 930, 350));
 
@@ -2294,6 +2331,37 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Recent_Products_JInternalFrame.setVisible(true);
 
   
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("date");
+        modelo.addColumn("name");
+        modelo.addColumn("Price");
+
+
+
+        wishlistTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.RecentHistoryLogSearch();
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+
+         }
+        
+        
+        
     }//GEN-LAST:event_RecentProducts_ButtonActionPerformed
 
     private void SoldProducts_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoldProducts_ButtonActionPerformed
@@ -2315,6 +2383,55 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Reviews_JInternalFrame.setVisible(false);
         
          Sold_Products_JInternalFrame.setVisible(true);
+         
+         
+         
+         
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Year");
+        modelo.addColumn("Price");
+
+
+
+        SoldProductsTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.personSoldItemList();
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+
+         }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
     }//GEN-LAST:event_SoldProducts_ButtonActionPerformed
 
     private void Wishlist_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Wishlist_ButtonActionPerformed
@@ -2336,6 +2453,38 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Reviews_JInternalFrame.setVisible(false);
         
         Wishlist_JInternalFrame.setVisible(true);
+        
+        
+     DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Year");
+        modelo.addColumn("Price");
+
+
+
+        wishlistTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.showWishList();
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+
+         }
     }//GEN-LAST:event_Wishlist_ButtonActionPerformed
 
     private void Profile_ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Profile_ButtonMouseEntered
@@ -2522,6 +2671,30 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
     private void RegisterCriminalFileGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterCriminalFileGo_ButtonActionPerformed
         // TODO add your handling code here:
+        String Name = jTextField31.getText();
+        String Condition = jComboBox8.getSelectedItem().toString();
+        String Description = jTextArea1.getText();
+        int Year =  Integer.parseInt(jTextField2.getText());
+        String ShipingType = jComboBox9.getSelectedItem().toString();
+        String ProductType = jComboBox7.getSelectedItem().toString();
+        int Price = Integer.parseInt(jTextField29.getText());
+
+        
+        try {
+            Connection.DBConnection.insert_product_binnacle(Price,LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username);
+            ResultSet rs =   Connection.DBConnection.get_binnacle_MaxId();
+            int idBinnacle = Integer.parseInt(rs.getString(1));
+            Connection.DBConnection.insert_product(Name,Condition,Description,Year,Price,idBinnacle, Connection.DBConnection.get_product_type_iD(ProductType) );
+Connection.DBConnection.insert_product_has_shipping_type(Integer.parseInt(Connection.DBConnection.get_product_maxID().getString(1)),Connection.DBConnection.get_shipping_type_iD(ShipingType) );
+        } catch (SQLException ex) {
+            Logger.getLogger(User_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_RegisterCriminalFileGo_ButtonActionPerformed
 
     private void RegisterPersonGo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterPersonGo_ButtonActionPerformed
@@ -2598,6 +2771,37 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Reviews_JInternalFrame.setVisible(false);
         
         BoughtProducts_JInternalFrame.setVisible(true);
+        
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Product name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Year");
+        modelo.addColumn("Price");
+
+
+        BoughtProductsTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.showShoppingLog();
+             String data [] = new String[4];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        
+        
+        
+         }  
     }//GEN-LAST:event_BoughtProducts_ButtonActionPerformed
 
     private void SendMessage_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendMessage_ButtonActionPerformed
@@ -2765,14 +2969,20 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
     private void ThreeMonths_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThreeMonths_CheckBoxActionPerformed
         // TODO add your handling code here:
+       SixMonths_CheckBox.setSelected(false);
+        OneyYear_CheckBox.setSelected(false); 
     }//GEN-LAST:event_ThreeMonths_CheckBoxActionPerformed
 
     private void OneyYear_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OneyYear_CheckBoxActionPerformed
         // TODO add your handling code here:
+        ThreeMonths_CheckBox.setSelected(false);
+        SixMonths_CheckBox.setSelected(false);
     }//GEN-LAST:event_OneyYear_CheckBoxActionPerformed
 
     private void SixMonths_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SixMonths_CheckBoxActionPerformed
         // TODO add your handling code here:
+         OneyYear_CheckBox.setSelected(false);
+         ThreeMonths_CheckBox.setSelected(false);
     }//GEN-LAST:event_SixMonths_CheckBoxActionPerformed
 
     private void Reviews_Button7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Reviews_Button7MouseEntered
@@ -2802,7 +3012,120 @@ public class User_Main_Menu extends javax.swing.JFrame {
         Register_Product_JInternalFrame.setVisible(false);
 
         Reviews_JInternalFrame.setVisible(true);
+        
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Date");
+        modelo.addColumn("Name");
+        modelo.addColumn("Description");
+        modelo.addColumn("Year");
+        modelo.addColumn("Price");
+
+          String data [] = new String[5];
+
+        ProductHistoryTable.setModel(modelo);
+
+         try {
+             if(OneyYear_CheckBox.isSelected()){
+             ResultSet res = Connection.DBConnection.shoppingHistoryOneYear();
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 data [4] = res.getString(5);
+
+
+                 modelo.addRow(data);
+             }
+             }
+             else if(SixMonths_CheckBox.isSelected()){
+             ResultSet res = Connection.DBConnection.shoppingHistorySixMonths();
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 data [4] = res.getString(5);
+
+
+                 modelo.addRow(data);
+             }
+             }
+             else if(ThreeMonths_CheckBox.isSelected()){
+                 ResultSet res = Connection.DBConnection.shoppingHistoryThreeMonths();
+                 while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+                 data [2] = res.getString(3);
+                 data [3] = res.getString(4);
+                 data [4] = res.getString(5);
+
+
+                 modelo.addRow(data);
+             }
+             }
+
+
+             
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+
+         }
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_Reviews_Button7ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        jTextField2.setText("");
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField29ActionPerformed
+
+    private void ExpensiveProducts_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpensiveProducts_ButtonActionPerformed
+        // TODO add your handling code here:
+        
+        if (jCheckBox3.isSelected()){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Category");
+        modelo.addColumn("quantity");
+
+
+
+        BoughtProductsTable.setModel(modelo);
+
+         try {
+
+             ResultSet res = Connection.DBConnection.purchaseByCategoryMoreThan1000();
+             String data [] = new String[2];
+
+             while(res.next()){
+                 data [0] = res.getString(1);
+                 data [1] = res.getString(2);
+
+
+                 modelo.addRow(data);
+             }
+
+         } catch (SQLException ex) {
+             Logger.getLogger(Admin_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        
+        
+        
+    }//GEN-LAST:event_ExpensiveProducts_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2817,9 +3140,8 @@ public class User_Main_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea BannedUsers_TextField;
-    private javax.swing.JTextArea BannedUsers_TextField1;
     private javax.swing.JTextArea BannedUsers_TextField2;
+    private javax.swing.JTable BoughtProductsTable;
     private javax.swing.JButton BoughtProducts_Button;
     private javax.swing.JInternalFrame BoughtProducts_JInternalFrame;
     private javax.swing.JPanel BoughtProducts_Panel;
@@ -2868,7 +3190,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel Decoration_Panel7;
     private javax.swing.JPanel Decoration_Panel8;
     private javax.swing.JPanel Decoration_Panel9;
-    private javax.swing.JTextArea Districts_TextArea;
     private javax.swing.JButton Exit_Button;
     private javax.swing.JButton ExpensiveProducts_Button;
     private javax.swing.JButton Home_Button;
@@ -2889,6 +3210,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel Panel_Wallpaper8;
     private javax.swing.JLabel Panel_Wallpaper9;
     private javax.swing.JInternalFrame Pay_Method_JInternalFrame;
+    private javax.swing.JTable ProductHistoryTable;
     private javax.swing.JButton ProductHistory_Button;
     private javax.swing.JPanel ProductHistory_Panel;
     private javax.swing.JInternalFrame ProductInfo_JInternalFrame;
@@ -2915,6 +3237,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton Profile_Button;
     private javax.swing.JInternalFrame Profile_JInternalFrame;
     private javax.swing.JPanel Profile_Panel;
+    private javax.swing.JTable RecentProductsTable;
     private javax.swing.JButton RecentProducts_Button;
     private javax.swing.JPanel RecentProducts_Panel;
     private javax.swing.JInternalFrame Recent_Products_JInternalFrame;
@@ -2922,7 +3245,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField RegisterInfoGender_TextField;
     private javax.swing.JTextField RegisterInfoLastName_TextField;
     private javax.swing.JTextField RegisterInfoName_TextField;
-    private javax.swing.JTextField RegisterInfoName_TextField19;
     private javax.swing.JTextField RegisterInfoName_TextField32;
     private javax.swing.JButton RegisterPersonGo_Button;
     private javax.swing.JInternalFrame Register_Product_JInternalFrame;
@@ -2944,6 +3266,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton ShoppingCart_Button;
     private javax.swing.JInternalFrame ShoppingCart_JInternalFrame;
     private javax.swing.JCheckBox SixMonths_CheckBox;
+    private javax.swing.JTable SoldProductsTable;
     private javax.swing.JButton SoldProducts_Button;
     private javax.swing.JPanel SoldProducts_Panel;
     private javax.swing.JInternalFrame Sold_Products_JInternalFrame;
@@ -2954,7 +3277,6 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JInternalFrame Wishlist_JInternalFrame;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
@@ -3079,6 +3401,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3087,16 +3410,17 @@ public class User_Main_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
     private org.jfree.chart.util.ObjectList objectList1;
+    private javax.swing.JTable wishlistTable;
     // End of variables declaration//GEN-END:variables
 }
