@@ -1715,7 +1715,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
 
         List_Panel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 610, 310));
 
-        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 680, 370));
+        RegisterInfo_Place_JInternalFrame.getContentPane().add(List_Panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 680, 370));
 
         Show_Panel1.setBackground(new java.awt.Color(255, 255, 255));
         Show_Panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3094,7 +3094,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         ProductInfo_JInternalFrame.setBackground(new java.awt.Color(255, 255, 255));
         ProductInfo_JInternalFrame.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 102, 204)));
         ProductInfo_JInternalFrame.setPreferredSize(new java.awt.Dimension(1056, 1056));
-        ProductInfo_JInternalFrame.setVisible(true);
+        ProductInfo_JInternalFrame.setVisible(false);
         ProductInfo_JInternalFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Decoration_Panel7.setBackground(new java.awt.Color(0, 102, 204));
@@ -7853,7 +7853,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         District_TextField.setEnabled(false);
         Community_TextField.setEnabled(false);
         
-        
+        Associated_Id_TextField.setEnabled(true);
     }//GEN-LAST:event_Province_CheckBoxActionPerformed
 
     private void Country_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Country_CheckBoxActionPerformed
@@ -7871,7 +7871,7 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         
         Associated_Id_TextField.setEnabled(false);      
         
-        
+        Associated_Id_TextField.setEnabled(false);
     }//GEN-LAST:event_Country_CheckBoxActionPerformed
 
     private void Canton_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Canton_CheckBoxActionPerformed
@@ -7885,6 +7885,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Canton_TextField.setEnabled(true);
         District_TextField.setEnabled(false);
         Community_TextField.setEnabled(false);
+        
+        Associated_Id_TextField.setEnabled(true);
     }//GEN-LAST:event_Canton_CheckBoxActionPerformed
 
     private void Update_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_CheckBoxActionPerformed
@@ -8097,6 +8099,9 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Canton_TextField.setEnabled(false);
         District_TextField.setEnabled(true);
         Community_TextField.setEnabled(false);
+        
+        
+        Associated_Id_TextField.setEnabled(true);
     }//GEN-LAST:event_District_CheckBoxActionPerformed
 
     private void Community_CheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Community_CheckBoxActionPerformed
@@ -8110,6 +8115,8 @@ public class Admin_Main_Menu extends javax.swing.JFrame {
         Canton_TextField.setEnabled(false);
         District_TextField.setEnabled(false);
         Community_TextField.setEnabled(true);
+        
+        Associated_Id_TextField.setEnabled(true);
     }//GEN-LAST:event_Community_CheckBoxActionPerformed
 
     private void ProductResultlist_JTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductResultlist_JTableMouseClicked

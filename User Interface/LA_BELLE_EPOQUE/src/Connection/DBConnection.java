@@ -24,7 +24,7 @@ public class DBConnection {
     // Declaramos los datos de conexion a la DB
     private static final String driver="com.mysql.jdbc.Driver";
     private static final String user="root";
-    private static final String pass="Andres12";
+    private static final String pass="2296";
     private static final String urlPR="jdbc:mysql://localhost:3306/pr";
     private static final String urlPE="jdbc:mysql://localhost:3306/pe";
 
