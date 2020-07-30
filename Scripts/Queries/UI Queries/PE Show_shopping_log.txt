@@ -1,0 +1,29 @@
+DROP procedure IF EXISTS `showShoppingLog`;
+
+
+DELIMITER $$
+
+
+USE `pe`$$
+
+
+CREATE procedure `showShoppingLog` (pid_person INT)
+
+
+BEGIN
+
+select name, Description, year, Price
+
+from pr.product a
+
+join shopping_log_has_product b
+
+on a.id_product = b.id_product
+
+join person c
+
+on c.id_Shopping_log = b.id_shopping_log
+where pid_person = c.identification;
+
+
+END$$

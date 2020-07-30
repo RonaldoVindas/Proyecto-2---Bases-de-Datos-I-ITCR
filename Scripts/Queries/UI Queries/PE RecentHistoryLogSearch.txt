@@ -11,7 +11,7 @@ select b.creation_date, c.name, c.Price
 from person a
 join historial_log_has_product b
 on a.id_historial_log = b.id_historial_log
-join product c
+join pr.product c
 on b.id_product = c.id_product
 where a.identification = pid
 Limit 15;

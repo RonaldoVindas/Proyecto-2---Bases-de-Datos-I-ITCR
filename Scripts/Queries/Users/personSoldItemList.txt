@@ -7,21 +7,20 @@ USE `pe`$$
 CREATE procedure `personSoldItemList` (pid_person INT)
 
 BEGIN
-DROP procedure IF EXISTS `get_personSoldItemList`;
+DROP procedure IF EXISTS `personSoldItemList`;
 
 DELIMITER $$
-USE `pr`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `get_personSoldItemList`()
+USE `pe`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `personSoldItemList`(pid_person INT)
 BEGIN
 	select  c.name, c.Description, c.year, c.Price
 	from person a
 	join person_sell_product b
-	on a.id_person = b.id_person
-	join product c
+	on a.identification = b.id_person
+	join pr.product c
 	on b.id_product = c.id_product
-	where id_person = pid_person and c.id_status=1;
+	where a.identification = pid_person and c.id_status=1;
 END$$
 
 DELIMITER ;
 
-END$$

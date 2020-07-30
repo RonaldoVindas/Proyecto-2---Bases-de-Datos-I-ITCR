@@ -28,11 +28,11 @@ DECLARE EXIT HANDLER FOR 1231 SELECT 'Variable cannot be set to that value.' Mes
 DECLARE EXIT HANDLER FOR 1232 SELECT 'Incorrect argument type to variable.' Message;
 
 
- INSERT INTO product(name, product_condition, description, object_age, 
- price, id_product_binnacle, id_product_type)
+ INSERT INTO product(name, product_condition, description, year, 
+ price, id_product_binnacle, id_product_type,id_status)
  
  VALUES(pName, pCondition,pDescription,pObjAge, pPrice, pIdBinnacle, 
- pIdType);
+ pIdType,1);
  
 END$$
 

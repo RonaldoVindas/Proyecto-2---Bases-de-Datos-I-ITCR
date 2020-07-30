@@ -24,7 +24,7 @@ public class DBConnection {
     // Declaramos los datos de conexion a la DB
     private static final String driver="com.mysql.jdbc.Driver";
     private static final String user="root";
-    private static final String pass="2296";
+    private static final String pass="Andres12";
     private static final String urlPR="jdbc:mysql://localhost:3306/pr";
     private static final String urlPE="jdbc:mysql://localhost:3306/pe";
 
@@ -1562,12 +1562,12 @@ public class DBConnection {
     
   //Product Binnacle
   
-  public static void insert_product_binnacle(int price, String user) throws SQLException{
+  public static void insert_product_binnacle(int price, String puser) throws SQLException{
     con = null;
     con= (Connection) DriverManager.getConnection(urlPR, user, pass);
     CallableStatement stmt = con.prepareCall("{call insert_product_binnacle(?,?)}");
     stmt.setInt(1, price);
-    stmt.setString(2,user);
+    stmt.setString(2,puser);
       
     stmt.execute();
 
@@ -2010,7 +2010,7 @@ public class DBConnection {
   
        public static ResultSet showShoppingLog() throws SQLException{
        con = (Connection) DriverManager.getConnection(urlPE,user,pass);
-       CallableStatement stmt = con.prepareCall("{ call showShopingLog(?)}");
+       CallableStatement stmt = con.prepareCall("{ call showShoppingLog(?)}");
        stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
         stmt.execute();
         ResultSet rs = stmt.getResultSet();

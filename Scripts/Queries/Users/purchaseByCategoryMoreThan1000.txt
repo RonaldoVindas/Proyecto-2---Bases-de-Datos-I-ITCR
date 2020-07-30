@@ -11,10 +11,10 @@ select d.type as category, count(b.id_product) as quantity
 from person a
 join shopping_log_has_product b
 on a.id_shopping_log = b.id_shopping_log
-join product c
+join pr.product c
 on b.id_product = c.id_product
-join product_type d
+join pr.product_type d
 on c.id_product_type = d.id_product_type
-group by product_type.type;
-where a.id_person = pid_person AND c.Price > 1000
+group by pr.product_type.type;
+where a.identification = pid_person AND c.Price > 1000
 END$$

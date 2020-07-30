@@ -2339,7 +2339,7 @@ public class User_Main_Menu extends javax.swing.JFrame {
 
 
 
-        wishlistTable.setModel(modelo);
+        RecentProductsTable.setModel(modelo);
 
          try {
 
@@ -2683,9 +2683,17 @@ public class User_Main_Menu extends javax.swing.JFrame {
         try {
             Connection.DBConnection.insert_product_binnacle(Price,LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username);
             ResultSet rs =   Connection.DBConnection.get_binnacle_MaxId();
+            ResultSet rs2 =   Connection.DBConnection.get_product_maxID();
+            while(rs.next()){
             int idBinnacle = Integer.parseInt(rs.getString(1));
             Connection.DBConnection.insert_product(Name,Condition,Description,Year,Price,idBinnacle, Connection.DBConnection.get_product_type_iD(ProductType) );
-Connection.DBConnection.insert_product_has_shipping_type(Integer.parseInt(Connection.DBConnection.get_product_maxID().getString(1)),Connection.DBConnection.get_shipping_type_iD(ShipingType) );
+
+            }
+            while(rs2.next()){
+                int product_id =Integer.parseInt(rs2.getString(1));
+                Connection.DBConnection.insert_product_has_shipping_type(product_id,Connection.DBConnection.get_shipping_type_iD(ShipingType) );
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(User_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3011,7 +3019,7 @@ Connection.DBConnection.insert_product_has_shipping_type(Integer.parseInt(Connec
 
         Register_Product_JInternalFrame.setVisible(false);
 
-        Reviews_JInternalFrame.setVisible(true);
+        Reviews_JInternalFrame.setVisible(false);
         
         
         DefaultTableModel modelo = new DefaultTableModel();

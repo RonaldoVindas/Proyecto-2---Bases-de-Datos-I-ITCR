@@ -8,8 +8,8 @@ CREATE procedure `productSearch` (pId INT)
 
 BEGIN
 select a.name, b.type, a.Description, a.Object_Age, a.Condition, a.Price
-from product a
-join product_type b
+from pr.product a
+join pr.product_type b
 on a.id_product_type = b.id_product_type
 where id_product = pId
 END$$
