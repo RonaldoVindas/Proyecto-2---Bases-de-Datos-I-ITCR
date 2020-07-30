@@ -2684,15 +2684,19 @@ public class User_Main_Menu extends javax.swing.JFrame {
             Connection.DBConnection.insert_product_binnacle(Price,LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username);
             ResultSet rs =   Connection.DBConnection.get_binnacle_MaxId();
             ResultSet rs2 =   Connection.DBConnection.get_product_maxID();
+            int idBinnacle;
+            int product_id;
             while(rs.next()){
-            int idBinnacle = Integer.parseInt(rs.getString(1));
+            idBinnacle = Integer.parseInt(rs.getString(1));
             Connection.DBConnection.insert_product(Name,Condition,Description,Year,Price,idBinnacle, Connection.DBConnection.get_product_type_iD(ProductType) );
 
             }
             while(rs2.next()){
-                int product_id =Integer.parseInt(rs2.getString(1));
+                product_id =Integer.parseInt(rs2.getString(1));
                 Connection.DBConnection.insert_product_has_shipping_type(product_id,Connection.DBConnection.get_shipping_type_iD(ShipingType) );
+                 Connection.DBConnection.insert_person_sell_product(product_id);
             }
+       
 
         } catch (SQLException ex) {
             Logger.getLogger(User_Main_Menu.class.getName()).log(Level.SEVERE, null, ex);

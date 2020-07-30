@@ -667,10 +667,10 @@ public class DBConnection {
    
     // Person Sell Product
     
-    public static void insert_person_sell_product(int pidPerson, int pidProduct)throws SQLException{
+    public static void insert_person_sell_product( int pidProduct)throws SQLException{
         con = (Connection) DriverManager.getConnection(urlPE,user,pass);
         CallableStatement stmt = con.prepareCall("{ call insert_person_sell_product(?,?)}");
-        stmt.setInt(1,pidPerson);
+        stmt.setInt(1, get_person_identification(LA_BELLE_EPOQUE.LA_BELLE_EPOQUE.username));
         stmt.setInt(2,pidProduct);
         stmt.execute();
        
@@ -1586,6 +1586,8 @@ public class DBConnection {
     stmt.execute();
 
   }
+    
+
   
   public static void update_product_binnacle_price(int pid, int pPrice) throws SQLException{
     con = null;
@@ -2121,7 +2123,7 @@ public class DBConnection {
         
         
         public static ResultSet sellersPerGender() throws SQLException{
-       con = (Connection) DriverManager.getConnection(urlPR,user,pass);
+       con = (Connection) DriverManager.getConnection(urlPE,user,pass);
        CallableStatement stmt = con.prepareCall("{ call sellersPerGender()}");
         stmt.execute();
         ResultSet rs = stmt.getResultSet();

@@ -11,9 +11,9 @@ CREATE procedure `sellersPerGender` ()
 BEGIN
 select	count(a.identification) as cantidad,  b.name 
 from person a
-join person_sell_product 
-on person.identification = person_sell_product.id_person
+join person_sell_product c
+on a.identification = c.id_person
 join genre b
-on person.id_genre = genre.id_genre
-group by person.id_genre;
+on a.id_genre = b.id_genre
+group by a.id_genre;
 END$$
